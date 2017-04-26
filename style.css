@@ -1,0 +1,13 @@
+.answers{
+  display: flex;
+  flex-direction: row;
+}
+.a1{
+  order: 1;
+}
+.a2{
+  order: 2;
+}
+.a3{
+  order: 3;
+}

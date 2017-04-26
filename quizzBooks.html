@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+	  <script src="babel.js"></script>
+    <title>Quizzaro Books</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <p>Loading JSX...</p>
+    </div>
+
+    <script type="text/jsx">
+
+    class Quizz extends React.Component{
+      constructor(props) {
+        super(props);
+        this.state = {
+          questions: [
+            {
+              text: "The text for the question",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            }
+          ]
+        }
+        this.randomizeAnswers = this.randomizeAnswers.bind(this);
+        this.printQuestions = this.printQuestions.bind(this);
+        this.getRandomInt = this.getRandomInt.bind(this);
+      }
+      getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      randomizeAnswers(){
+        let first = this.getRandomInt(1, 4);
+        let second = this.getRandomInt(1, 4);
+        let third = this.getRandomInt(1, 4);
+        while(second == first)
+          second = this.getRandomInt(1, 4);
+        while (third == first || third == second)
+          third = this.getRandomInt(1, 4);
+
+        return [`answer a${first} `,`answer a${second} `,`answer a${third} `];
+      }
+      printQuestions(){
+        let loopedQuestions = [];
+        console.log(this.state)
+        this.state.questions.forEach(question =>{
+          let sequence = this.randomizeAnswers();
+          let html = (
+            <div>
+              <div className="questionText">{question.text}</div>
+              <div className="answers">
+                <button className={sequence[0]+"correct"}>{question.a1}</button>
+                <button className={sequence[1]}>{question.a2}</button>
+                <button className={sequence[2]}>{question.a3}</button>
+              </div>
+            </div>);
+          loopedQuestions.push(html);
+        });
+        return loopedQuestions;
+      }
+      render(){
+        return (
+          <div>
+            <p>rendered</p>
+            {this.printQuestions()}
+          </div>
+        );
+      }
+    }
+
+      ReactDOM.render(
+        <Quizz />,
+        document.getElementById('root')
+      );
+
+    </script>
+
+  </body>
+
+  </html>
