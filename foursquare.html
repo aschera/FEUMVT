@@ -30,20 +30,20 @@
       
                         
                 //date
-                url += 'v=' + '20170221' + '&';
+                url += 'v=' + '20170426' + '&';
                 
                 //limit 5
-                url += 'limit=' + 50 + '&';
+                //url += 'limit=' + 50 + '&';
   
                 // near city
-                url += 'near=' + 'Stockholm' + '&';
+                url += 'near=' + 'Paris' + '&';
 
                 //radius
-                let radius = 200;
+                let radius = 1000;
                 url += 'radius=' + radius + '&';
                 
                 //what
-                let categoryId = 'coffee' + '&';
+                let categoryId = 'museum' + '&';  // coffe,game works.
 				url += 'query=' + categoryId;
                 
                 //identification
@@ -59,6 +59,10 @@
                     
                     let status = document.getElementById('1');
                     let allJson = document.getElementById('3');
+                    let question = document.getElementById('q');
+                    let answer = document.getElementById('a');
+                    let fanswer = document.getElementById('b');
+                    let ffanswer = document.getElementById('c');
                     
 					if( ajax.status == 200 && ajax.readyState == 4 ) {
                         
@@ -70,13 +74,26 @@
                         
                         for (i = 0; i < json.response.venues.length; i++ ) {
                             
-                        var node = document.createElement("LI");                 
-                        var textnode = document.createTextNode('name: ' + json.response.venues[i].name + '. Adress: ' + json.response.venues[i].location.address + '. Count: ' + json.response.venues[i].id.likes);         
+                        var node = document.createElement("LI");   
+                            
+                        var textnode = document.createTextNode('name: ' + json.response.venues[i].name + '. Adress: ' + json.response.venues[i].location.address); 
+                            
                         node.appendChild(textnode);                              
                         document.getElementById("list").appendChild(node);     
                         }
                         status.innerHTML = 'Status:  All Good';
-                        allJson.innerHTML = ajax.responseText;
+                        console.log(json);
+                        
+                        let count = json.response.venues.length -1;
+                        let randomNumber = Math.floor((Math.random() * count) + 1);
+                        
+                        question.innerHTML =json.response.venues[randomNumber].name; //search with museum in Paris
+                        answer.innerHTML =  json.response.venues[randomNumber].stats.checkinsCount;
+                        
+                        
+                        // Fake answers
+                        fanswer.innerHTML = Math.floor((Math.random() * count) + 1);
+                        ffanswer.innerHTML = (Math.floor((Math.random() * count) + 1)) +(count+5) * 3 -15;
                        
 					}
 					else if( ajax.status != 200 ) {
@@ -102,12 +119,24 @@
             </div>
             <div id="2">
                 result Foursquare
+                
                 <ul id="list"></ul>
+                
+                <div>
+                    <h2>Question</h2>
+                 There are many cultural places in Paris. <br>
+                    How many checkins has the following museum gotten via the Foursquare app?
+                    <strong><div id="q">Question</div></strong>
+                    
+                </div>
+                <ul>
+                    <li><div id="a">Answer</div></li>
+                    <li><div id="b">Fake Answer</div></li>
+                    <li><div id="c">Fake Answer</div></li>
+                </ul>
+               
             </div>
-             
-            <div id="3">
-                json Foursquare
-            </div>
+      
 
             
 		</section>
