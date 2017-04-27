@@ -74,7 +74,7 @@
         this.state.questions.forEach(question =>{
           let sequence = this.randomizeAnswers();
           let html = (
-            <div>
+            <div className="question">
               <div className="questionText">{question.text}</div>
               <div className="answers">
                 <button className={sequence[0]+"correct"}>{question.a1}</button>
@@ -90,7 +90,7 @@
         return (
           <div>
             <p>REACT LOADED</p>
-            {this.printQuestions()}
+            <div className="allquestions">{this.printQuestions()}</div>
             <img src="resorces/WF2.png" alt="Wireframe 1" />
             <img src="resorces/WF3.png" alt="Wireframe 2" />
             <img src="resorces/WF4.png" alt="Wireframe 3" />
