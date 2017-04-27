@@ -3,13 +3,13 @@
 (MVT16, Testers)    Effat, Sebastian B
 
 
-MAIN FOLDER/ 
+MAIN FOLDER/  
 .html/.css/.js/.jsx files
 
 index.html = loading file
 
-RESORCES/
+RESORCES/  
 picture, media files
 
-DOCS/
+DOCS/  
 other file types
