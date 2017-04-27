@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+	  <script src="babel.js"></script>
+    <title>Quizzaro Books</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <p>Loading JSX...</p>
+    </div>
+
+    <script type="text/jsx">
+
+    class Quizz extends React.Component{
+      constructor(props) {
+        super(props);
+        this.state = {
+          questions: [
+            {
+              text: "The text for the question",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 2",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 3",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 4",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            }
+          ]
+        }
+        this.randomizeAnswers = this.randomizeAnswers.bind(this);
+        this.printQuestions = this.printQuestions.bind(this);
+        this.getRandomInt = this.getRandomInt.bind(this);
+      }
+      // Returnerar ett slumpat heltal f.o.m. min till max (kan ej returnera max)
+      getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      // Returnerar en array med tre klasser för svarsfrågor
+      randomizeAnswers(){
+        let first = this.getRandomInt(1, 4);
+        let second = this.getRandomInt(1, 4);
+        let third = this.getRandomInt(1, 4);
+        while(second == first)
+          second = this.getRandomInt(1, 4);
+        while (third == first || third == second)
+          third = this.getRandomInt(1, 4);
+
+        return [`answer a${first} `,`answer a${second} `,`answer a${third} `];
+      }
+      // Loopar igenom this.state.questions och gör om varje object till html
+      printQuestions(){
+        let loopedQuestions = [];
+        console.log(this.state)
+        this.state.questions.forEach(question =>{
+          let sequence = this.randomizeAnswers();
+          let html = (
+            <div className="question">
+              <div className="questionText">{question.text}</div>
+              <div className="answers">
+                <button className={sequence[0]+"correct"}>{question.a1}</button>
+                <button className={sequence[1]}>{question.a2}</button>
+                <button className={sequence[2]}>{question.a3}</button>
+              </div>
+            </div>);
+          loopedQuestions.push(html);
+        });
+        return loopedQuestions;
+      }
+      render(){
+        return (
+          <div>
+            <p>REACT LOADED</p>
+            <div className="allquestions">{this.printQuestions()}</div>
+            <img src="resorces/WF2.png" alt="Wireframe 1" />
+            <img src="resorces/WF3.png" alt="Wireframe 2" />
+            <img src="resorces/WF4.png" alt="Wireframe 3" />
+            <img src="resorces/WF5.png" alt="Wireframe 4" />
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <Quizz />,
+      document.getElementById('root')
+    );
+
+    </script>
+
+  </body>
+
+  </html>
