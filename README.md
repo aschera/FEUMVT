@@ -8,7 +8,7 @@ MAIN FOLDER/
 
 index.html = loading file
 
-RESORCES/  
+RESOURCES/  
 picture, media files
 
 DOCS/  
