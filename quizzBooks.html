@@ -27,6 +27,21 @@
               a1: "Correct answer",
               a2: "Wrong answer",
               a3: "Also Wrong answer"
+            },{
+              text: "Question 2",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 3",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 4",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
             }
           ]
         }
@@ -34,11 +49,13 @@
         this.printQuestions = this.printQuestions.bind(this);
         this.getRandomInt = this.getRandomInt.bind(this);
       }
+      // Returnerar ett slumpat heltal f.o.m. min till max (kan ej returnera max)
       getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
       }
+      // Returnerar en array med tre klasser för svarsfrågor
       randomizeAnswers(){
         let first = this.getRandomInt(1, 4);
         let second = this.getRandomInt(1, 4);
@@ -50,6 +67,7 @@
 
         return [`answer a${first} `,`answer a${second} `,`answer a${third} `];
       }
+      // Loopar igenom this.state.questions och gör om varje object till html
       printQuestions(){
         let loopedQuestions = [];
         console.log(this.state)
@@ -71,17 +89,21 @@
       render(){
         return (
           <div>
-            <p>rendered</p>
+            <p>REACT LOADED</p>
             {this.printQuestions()}
+            <img src="resorces/WF2.png" alt="Wireframe 1" />
+            <img src="resorces/WF3.png" alt="Wireframe 2" />
+            <img src="resorces/WF4.png" alt="Wireframe 3" />
+            <img src="resorces/WF5.png" alt="Wireframe 4" />
           </div>
         );
       }
     }
 
-      ReactDOM.render(
-        <Quizz />,
-        document.getElementById('root')
-      );
+    ReactDOM.render(
+      <Quizz />,
+      document.getElementById('root')
+    );
 
     </script>
 
