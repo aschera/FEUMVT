@@ -5,9 +5,18 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.question{
+  border: 1px solid grey;
+}
 .answers{
   display: flex;
   flex-direction: row;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.answers button{
+  margin-right: 10px;
+  width: 140px;
 }
 .a1{
   order: 1;
