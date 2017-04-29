@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quizzaro</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="login.css" />
+</head>
+<body>
+   <div id="show-container">
+     <div class="row" id="leftDiv">
+        <button id="loginBtn">Login with Google</button>  
+     </div> 
+     <div class="row" id="rightDiv">
+         <h2>Quizzaro</h2>
+         <p>Answer a fun question or two while making number two!</p>
+     </div> 
+   </div>
+   <div id="hide-container">
+      <div class="row">
+          <h4>Signed in as</h4>
+          <p>Email@gmail.com</p>
+          <button id="signoutBtn">Sign out</button>
+          <h4>Your highscore</h4>
+          
+      </div>
+      <div class="row"></div>    
+   </div>
+	
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBpOWne1kGH8PHlrhvsGfDxZTOlkxR8WWs",
+    authDomain: "projectfeumvt.firebaseapp.com",
+    databaseURL: "https://projectfeumvt.firebaseio.com",
+    projectId: "projectfeumvt",
+    storageBucket: "projectfeumvt.appspot.com",
+    messagingSenderId: "305318873604"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="login.js"></script>
+</body>
+</html>
