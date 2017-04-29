@@ -1,0 +1,417 @@
+  <!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        
+    <title>q</title>
+      <style>
+      
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  background: darkgrey;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+.allquestions{
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.question{
+  border: 1px solid grey;
+  text-align: center;
+}
+.answers{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.answers button{
+  margin-right: 10px;
+  width: 140px;
+}
+.a1{
+  order: 1;
+}
+.a2{
+  order: 2;
+}
+.a3{
+  order: 3;
+}
+.correct{
+  background-color: lightgreen;
+}
+      </style>
+  </head>
+
+  <body>
+
+</head>
+<body>
+    
+<script>
+/* ---------------------------------------------------------------------------------------- */ 
+/* -------------------------Foursquare API function---------------------------------------- */  
+/* ---------------------------------------------------------------------------------------- */ 
+    function getDataFromFirebase(updateCountryData) {
+
+	    // The city the ask for
+            var items = Array('London', 'Stockholm', 'New York', 'Amsterdam', 'Rome', 'Tallinn', 'Venice');
+            var item = items[Math.floor(Math.random() * items.length)];
+
+            //fake1
+            var noitems = Array('Mumbai', 'Florence', 'Malmö', 'Frankfurt');
+            var item1 = noitems[Math.floor(Math.random() * (noitems.length))];
+
+            //fake2
+            var nonoitems = Array('Lisbon', 'Cairo', 'Brussels');
+            var item2 = nonoitems[Math.floor(Math.random() * (nonoitems.length))];
+
+	    //choosen items for this request:
+            let city = item;
+            let fakecity1 = item1;
+            let fakecity2 = item2
+            let category = 'opera';
+
+            let url = 'https://api.foursquare.com/v2/venues/search?';
+
+
+            //date
+            url += 'v=' + '20170426' + '&';
+
+            //limit 5
+            url += 'limit=' + 5 + '&';
+
+            // near city
+            url += 'near=' + city + '&';
+            // #1London, Stockholm, New York,Amsterdam,Rome,Tallinn,Venice (opera)
+            // Amsterdam, (university)
+            // Bucharest(theme park)
+
+            //radius
+            let radius = 1000;
+            url += 'radius=' + radius + '&';
+
+            //what
+            let categoryId = category + '&'; // coffe,game,museum works.
+            url += 'query=' + categoryId;
+
+            //identification
+            url += 'client_id=RHPTHZQRVD1O3M0AX3SREE4QJWLPPAEIFJAOGZHTTWT12A4W&client_secret=U4SDRN4NDPX3EZSXSIK44ZZCWIT01FGS54PE3EGF2VSYD53X';
+
+
+            console.log(url);
+
+            // AJAX request Foursquare
+            let ajax = new XMLHttpRequest();
+            ajax.open('get', url);
+            ajax.onreadystatechange = function() {
+
+                if (ajax.status == 200 && ajax.readyState == 4) {
+
+                    // AJAX success
+                    let json = JSON.parse(ajax.responseText);
+
+		    // question object to send toreact-main component:
+	 	    let n = 'In which city can you find the ' + category + '?' + json.response.venues[0].name
+            
+            let m = 'Some other questions';
+            
+            
+		    let questions = [{
+				      text: n,
+				      a1: city,
+				      a2: fakecity1,
+				      a3: fakecity2
+                        },{
+				      text: m,
+				      a1: 'some answer',
+				      a2: 'some answer',
+				      a3: 'some answer'
+                        }];
+                    
+            updateCountryData(questions); 
+ 
+                } else if (ajax.status != 200) {
+                    status.innerHTML = 'Status:   Error';
+                }
+            };
+            ajax.send();
+
+}
+   
+</script>  
+
+<script type="text/jsx">
+/* ---------------------------------------------------------------------------------------- */ 
+/* -------------------------THE APP COMPONENT---------------------------------------------- */  
+/* ---------------------------------------------------------------------------------------- */ 
+
+class App extends React.Component {
+ 
+		constructor(props) {
+			super(props);
+			this.state = {
+                selected: '',
+                questions: [{
+                              text: "",
+                              a1: "",
+                              a2: "",
+                              a3: ""
+                            }]
+			};
+            
+            this.changeEntry = this.changeEntry.bind(this);
+            
+		}
+
+      render(){
+
+        return (
+          <div>
+             
+                
+            <div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>  
+                
+                <br />
+                
+            <div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div> 
+                
+                
+          </div>
+        );
+      }
+    
+ /* ------------------Get new set of questions------------------------------------------- */        
+        changeEntry(x) {
+
+			 this.setState({
+				questions: x
+			});
+
+		}   
+        
+  }
+
+
+</script>
+    
+<script type="text/jsx">
+/* ---------------------------------------------------------------------------------------- */ 
+/* -------------------------THE Quiz COMPONENT---------------------------------------------- */  
+/* ---------------------------------------------------------------------------------------- */ 
+     class Quizz extends React.Component{
+  
+      constructor(props) {
+        super(props);
+        this.state = {
+          questions: [
+            {
+              text: "The text for the question",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 2",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 3",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            },{
+              text: "Question 4",
+              a1: "Correct answer",
+              a2: "Wrong answer",
+              a3: "Also Wrong answer"
+            }
+          ]
+        }
+        this.randomizeAnswers = this.randomizeAnswers.bind(this);
+        this.printQuestions = this.printQuestions.bind(this);
+        this.getRandomInt = this.getRandomInt.bind(this);
+
+      }
+
+      // Returnerar ett slumpat heltal f.o.m. min till max (kan ej returnera max)
+      getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      // Returnerar en array med tre klasser för svarsfrågor
+      randomizeAnswers(){
+        let first = this.getRandomInt(1, 4);
+        let second = this.getRandomInt(1, 4);
+        let third = this.getRandomInt(1, 4);
+        while(second == first)
+          second = this.getRandomInt(1, 4);
+        while (third == first || third == second)
+          third = this.getRandomInt(1, 4);
+
+        return [`answer a${first} `,`answer a${second} `,`answer a${third} `];
+      }
+      // Loopar igenom this.state.questions och gör om varje object till html
+      printQuestions(){
+        
+        let loopedQuestions = [];
+        console.log(this.state)
+        this.props.items.forEach(question =>{  /* changed to props.items instead of state.questions */
+          let sequence = this.randomizeAnswers();
+          let html = (
+            <div className="question">
+              <div className="questionText">{question.text}</div>
+              <div className="answers">
+                <button className={sequence[0]+"correct"}>{question.a1}</button>
+                <button className={sequence[1]}>{question.a2}</button>
+                <button className={sequence[2]}>{question.a3}</button>
+              </div>
+            </div>);
+          loopedQuestions.push(html);
+        });
+        return loopedQuestions;  
+      }
+
+      render(){
+
+        return (
+          <div>
+            <div className="allquestions">{this.printQuestions()}</div>  
+          </div>
+        );
+      }
+    }
+
+</script>  
+    
+ 
+<script type="text/jsx">
+/* ---------------------------------------------------------------------------------------- */ 
+/* -------------------------THE CATEGORY LIST COMPONENT------------------------------------ */  
+/* ---------------------------------------------------------------------------------------- */ 
+
+/*ALL the categories */
+const list = ['Culture', 'Sports', 'Books', 'Celebrities']; 
+
+
+
+class MyList extends React.Component {
+    
+ constructor(props) {
+			super(props);
+            
+			this.handleChooseCategory = this.handleChooseCategory.bind(this);
+            this.updateCountryData = this.updateCountryData.bind(this);
+  
+			this.state = {
+				selected:'',
+                questions: []
+			}
+		}   
+/* ---------------------Click event---------------------------------------- */
+handleChooseCategory(event) {
+
+    let theOne = event.target.id;
+    
+    let x;
+    
+    if( this.state.selected ) {
+				x = false;
+        console.log('clicked f');
+        
+    
+			} else {
+				x = true;
+                console.log('clicked t');
+                    getDataFromFirebase(this.updateCountryData);
+        
+			}
+			this.setState({ 
+				selected: theOne
+			});
+
+		}
+    
+/* ---------------------API event---------------------------------------- */
+updateCountryData(data) {
+
+this.props.changeEntry(data);
+    
+    this.setState({ 
+				questions: data
+			});
+}
+ /* --------------------------render----------------------------------- */   
+    
+  render() {
+      
+var partial; 
+
+           
+const newlist = list.map(
+      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
+    ); 
+
+        return (
+          <div>
+            <ul className="flex-container">{newlist}</ul>;
+          </div>
+        );
+      }
+    
+  }
+
+
+/* ------------------------------------------------------------- */
+/* -.-.-.-.-.-.-.-.-.-.-.-.-.-. REACT DOM -.-.-.-.-.-.-.-.-.-.-. */
+/* ------------------------------------------------------------- */
+	ReactDOM.render(
+		<App />,
+		document.getElementById('app-root')
+	);
+
+
+  </script>
+
+<div id="app-root">
+No REACT! where did it go. Wait for it ...waiiiiiiiit........ok, reload!		   
+</div>  
+
+
+
+  </body>
+  </html>
