@@ -14,7 +14,6 @@ function logInGoogle() {
 	  
 	let user = result.user;
 	console.log(user);
-	showImg.src=firebase.auth().currentUser.providerData[0].photoURL;
 	});
 	}
 //   logout function from quizzaro
@@ -23,7 +22,6 @@ function logOutUser() {
     .then(function(result) {
 	console.log("signed out!")
 	secBtn.disabled=true;
-	secImg.src="";
   })
    .catch(function(error) {
 	// Utloggning misslyckades
@@ -31,6 +29,7 @@ function logOutUser() {
   });
   }
 
+  let showUser = document.getElementById('showUser');
   let hideContent = document.getElementById('hide-container');
   let showContent =document.getElementById('show-container');
   let signInBtn = document.getElementById('loginBtn');
@@ -38,12 +37,12 @@ function logOutUser() {
 
   signInBtn.addEventListener('click', function(event) {
 	  logInGoogle();
-	  hideContent.style.visibility="visible";
-      showContent.style.visibility="hidden";
+	  hideContent.style.display="block";
+      showContent.style.display="none";
   })
   signOutBtn.addEventListener('click', function(event) {
 	  logOutUser();
-	  signOutBtn.style.visibility="hidden";
-	  signInBtn.style.visibility="visible";
+	  signOutBtn.style.display="none";
+	  signInBtn.style.display="block";
     
   })
