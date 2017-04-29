@@ -5,11 +5,11 @@ function logInGoogle() {
   .then(function(result) {
 	if( firebase.auth().currentUser.providerData[0].displayName === null ) {
 		 showUser.innerHTML=firebase.auth().currentUser.providerData[0].email;
-		 secBtn.disabled=false;
+		 
 		 
 	 } else {
 		  showUser.innerHTML=firebase.auth().currentUser.providerData[0].displayName;
-		  secBtn.disabled=false;
+		  
 	 }
 	  
 	let user = result.user;
@@ -20,7 +20,6 @@ function logInGoogle() {
 function logOutUser() {
 	firebase.auth().signOut()
     .then(function(result) {
-	console.log("signed out!")
 	secBtn.disabled=true;
   })
    .catch(function(error) {
@@ -34,6 +33,7 @@ function logOutUser() {
   let showContent =document.getElementById('show-container');
   let signInBtn = document.getElementById('loginBtn');
   let signOutBtn = document.getElementById('signoutBtn');
+  let showUser = document.getElementById('showUser');
 
   signInBtn.addEventListener('click', function(event) {
 	  logInGoogle();
