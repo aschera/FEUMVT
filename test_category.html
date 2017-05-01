@@ -84,35 +84,54 @@
 <script>
 /* ---------------------------------------------------------------------------------------- */ 
 /* -------------------------Foursquare API function---------------------------------------- */  
-/* ---------------------------------------------------------------------------------------- */ 
+/* ---------------------------------------------------------------------------------------- */
+
+
+           
     function getDataFromFirebase(updateCountryData) {
+        
+    var questions = []; 
+        
+           var allTheGoods =
+               [
+                   {category: 'opera', 
+                    items: ['London', 'Stockholm', 'New York', 'Amsterdam', 'Rome', 'Tallinn', 'Venice'], 
+                    fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                   
+                   {category: 'university', 
+                    items: ['Amsterdam','Copenhagen','Bern'], 
+                    fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                   
+               ];
 
-	    // The city the ask for
-            var items = Array('London', 'Stockholm', 'New York', 'Amsterdam', 'Rome', 'Tallinn', 'Venice');
-            var item = items[Math.floor(Math.random() * items.length)];
+/* --------------------------------------Data to change every cycle-------------------------------------------- */
 
-            //fake1
-            var noitems = Array('Mumbai', 'Florence', 'Malmö', 'Frankfurt');
-            var item1 = noitems[Math.floor(Math.random() * (noitems.length))];
+            for (let i=0; i <= allTheGoods.length-1; i++){
+                
+   
+                // category
+                let category = allTheGoods[i].category;
+                console.log(category);
+                
+                // city
+                let city = allTheGoods[i].items[Math.floor(Math.random() * allTheGoods[i].items.length)];
+    
+                // fake
+                let fakecity1 = allTheGoods[i].fake[Math.floor(Math.random() * allTheGoods[i].fake.length)];
+                let fakecity2 = allTheGoods[i].fake[Math.floor(Math.random() * allTheGoods[i].fake.length)];
 
-            //fake2
-            var nonoitems = Array('Lisbon', 'Cairo', 'Brussels');
-            var item2 = nonoitems[Math.floor(Math.random() * (nonoitems.length))];
-
-	    //choosen items for this request:
-            let city = item;
-            let fakecity1 = item1;
-            let fakecity2 = item2
-            let category = 'opera';
-
+ /* --------------------------------Ajax URL------------------------------------------------------- */           
+  
             let url = 'https://api.foursquare.com/v2/venues/search?';
-
+            
+            //swarm
+            url +=  'm=swarm&';
 
             //date
-            url += 'v=' + '20170426' + '&';
+            url += 'v=' + '20170429&';
 
             //limit 5
-            url += 'limit=' + 5 + '&';
+            url += 'limit=' + 20 + '&';
 
             // near city
             url += 'near=' + city + '&';
@@ -130,10 +149,9 @@
 
             //identification
             url += 'client_id=RHPTHZQRVD1O3M0AX3SREE4QJWLPPAEIFJAOGZHTTWT12A4W&client_secret=U4SDRN4NDPX3EZSXSIK44ZZCWIT01FGS54PE3EGF2VSYD53X';
-
-
-            console.log(url);
-
+                
+/* ----------------------------------AJAX call------------------------------------------------------ */
+                
             // AJAX request Foursquare
             let ajax = new XMLHttpRequest();
             ajax.open('get', url);
@@ -143,34 +161,33 @@
 
                     // AJAX success
                     let json = JSON.parse(ajax.responseText);
-
-		    // question object to send toreact-main component:
-	 	    let n = 'In which city can you find the ' + category + '?' + json.response.venues[0].name
-            
-            let m = 'Some other questions';
-            
-            
-		    let questions = [{
+    
+		    // question object#1 to send toreact-main component:
+	 	    let n = 'In which city can you find the ' + category + '? ' + json.response.venues[0].name
+        
+            // add to array
+            questions.push({
 				      text: n,
 				      a1: city,
 				      a2: fakecity1,
 				      a3: fakecity2
-                        },{
-				      text: m,
-				      a1: 'some answer',
-				      a2: 'some answer',
-				      a3: 'some answer'
-                        }];
-                    
-            updateCountryData(questions); 
+                        });
+       
+                    console.log(questions);
+updateCountryData(questions);
  
                 } else if (ajax.status != 200) {
                     status.innerHTML = 'Status:   Error';
                 }
             };
             ajax.send();
-
-}
+                
+                
+} // end for-loop
+           
+ 
+           
+} // end function call
    
 </script>  
 
