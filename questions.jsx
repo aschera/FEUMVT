@@ -150,8 +150,3 @@ class Quizz extends React.Component{
     );
   }
 }
-
-ReactDOM.render(
-  <Quizz />,
-  document.getElementById('root')
-);
