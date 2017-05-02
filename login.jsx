@@ -1,4 +1,4 @@
-
+var mail;
 class Login extends React.Component{
   constructor(props) {
     super(props);
@@ -31,7 +31,7 @@ class Login extends React.Component{
   	let providerG = new firebase.auth.GoogleAuthProvider();
   	firebase.auth().signInWithPopup(providerG).then(function(result) {
       console.log(firebase.auth().currentUser.providerData[0].email);
-  	  var mail = firebase.auth().currentUser.providerData[0].email;
+  	  mail = firebase.auth().currentUser.providerData[0].email;
      });
   //  this.updateEmail(mail);
     this.setState({
