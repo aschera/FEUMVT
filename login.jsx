@@ -33,7 +33,11 @@ class Login extends React.Component{
       console.log(firebase.auth().currentUser.providerData[0].email);
   	  let mail = firebase.auth().currentUser.providerData[0].email;
      });
-    updateEmail(mail);
+  //  this.updateEmail(mail);
+    this.setState({
+      userEmail: mail,
+      loginText: "Succesfully logged in"
+    });
   }
   render(){
     return (
