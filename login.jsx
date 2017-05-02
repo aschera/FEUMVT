@@ -51,7 +51,7 @@ class Login extends React.Component{
         console.log("  Photo URL: "+user.photoURL);
         
      //return firebase.auth().currentUser.providerData[0].email;
-        this.updateUserData(user.email);
+        updateUserData(user.email);
         return user.email;
 
     });
