@@ -19,25 +19,27 @@ class Login extends React.Component{
   }
   logOutUser() {
   	firebase.auth().signOut().then(function(result) {
-      this.state({
-        loginText: "Succesfully logged OUT"
-      });
+
     }).catch(function(error) {
   	// Utloggning misslyckades
   	console.log("something went wrong!")
     });
-    }
+  }
   logInGoogle() {
-  	let providerG = new firebase.auth.GoogleAuthProvider();
-  	firebase.auth().signInWithPopup(providerG).then(function(result) {
+    let providerG = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(providerG).then(function(result) {
       console.log(firebase.auth().currentUser.providerData[0].email);
-  	  mail = firebase.auth().currentUser.providerData[0].email;
-     });
-  //  this.updateEmail(mail);
-    this.setState({
-      userEmail: mail,
-      loginText: "Succesfully logged in"
+      mail = firebase.auth().currentUser.providerData[0].email;
+      console.log("(this) Inside fb response: ", this);
+    }).then(function(){
+      console.log("(this) After .then: ", this);
     });
+    setTimeout(function(){
+      this.setState({
+        userEmail: mail,
+        loginText: "Succesfully logged in"
+      });
+    }, 3000);
   }
   render(){
     return (
