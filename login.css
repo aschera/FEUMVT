@@ -5,12 +5,15 @@ body {
 #show-container {
     width: 100%;
     height: 100vh;
-    display: flex;
-    
+    visibility: visible;
 }
-#show-container .row {
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+.main-container > row {
     flex: 1 auto;
-    
+    flex-direction: row;
 }
 #leftDiv {
     border-right: 2px solid black;
@@ -29,14 +32,11 @@ body {
 }
 
 #hide-container {
-    visibility: hidden;
-    display: flex;
     width: 100%;
     height: 100vh;
+    visibility: hidden;
 }
-#hide-container .row {
-    flex: 1 auto;
-}
+
 #rightDiv h2, #rightDiv p {
     text-align: center;
 }

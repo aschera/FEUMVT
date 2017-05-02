@@ -4,7 +4,7 @@
 <title>Quizzaro</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="login.css" />
+<link rel="stylesheet" href="testcss.css" />
 </head>
 <body>
    <div id="show-container" class="main-container">
@@ -16,30 +16,31 @@
          <p>Answer a fun question or two while making number two!</p>
      </div> 
    </div>
-   <div id="hide-container" class="main-container">
-      <div class="row">
+   <div id="hide-container" class="main-container move">
+      <div class="row" id="hide-left">
           <h4>Signed in as</h4>
           <p id="showUser"></p>
           <button id="signoutBtn">Sign out</button>
-          <h4>Your highscore</h4>
+          <h3>Your highscore</h3>
           
       </div>
-      <div class="row"></div>    
+      <div class="row" id="hide-right"></div>    
    </div>
 	
+
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBpOWne1kGH8PHlrhvsGfDxZTOlkxR8WWs",
-    authDomain: "projectfeumvt.firebaseapp.com",
-    databaseURL: "https://projectfeumvt.firebaseio.com",
-    projectId: "projectfeumvt",
-    storageBucket: "projectfeumvt.appspot.com",
-    messagingSenderId: "305318873604"
+    apiKey: "AIzaSyByJ54zZNLGuowWD7_DQsZ2_ip-5yLgoLw",
+    authDomain: "fir-project-aae9d.firebaseapp.com",
+    databaseURL: "https://fir-project-aae9d.firebaseio.com",
+    projectId: "fir-project-aae9d",
+    storageBucket: "fir-project-aae9d.appspot.com",
+    messagingSenderId: "742947349969"
   };
   firebase.initializeApp(config);
 </script>
-<script src="login.js"></script>
+<script src="test.js"></script>
 </body>
 </html>

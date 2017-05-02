@@ -1,3 +1,11 @@
+ 
+  var showUser = document.getElementById('showUser');
+  let hideContent = document.getElementById('hide-container');
+  let showContent =document.getElementById('show-container');
+  let signInBtn = document.getElementById('loginBtn');
+  let signOutBtn = document.getElementById('signoutBtn');
+
+
 //     Login with goggle
 function logInGoogle() {
 		let providerG = new firebase.auth.GoogleAuthProvider();
@@ -20,7 +28,6 @@ function logInGoogle() {
 function logOutUser() {
 	firebase.auth().signOut()
     .then(function(result) {
-
   })
    .catch(function(error) {
 	// Utloggning misslyckades
@@ -28,22 +35,18 @@ function logOutUser() {
   });
   }
 
-  let showUser = document.getElementById('showUser');
-  let hideContent = document.getElementById('hide-container');
-  let showContent =document.getElementById('show-container');
-  let signInBtn = document.getElementById('loginBtn');
-  let signOutBtn = document.getElementById('signoutBtn');
 
   signInBtn.addEventListener('click', function(event) {
 	  logInGoogle();
-	  hideContent.style.display="block";
-      hideContent.style.opacity="0";
-      showContent.style.display="none";
+	  hideContent.style.visibility="visible";
+      hideContent.style.opacity="1";
+      showContent.style.visibility="hidden";
       showContent.style.opacity="0";
   })
   signOutBtn.addEventListener('click', function(event) {
 	  logOutUser();
-	  signOutBtn.style.display="none";
-	  signInBtn.style.display="block";
-    
+	  hideContent.style.visibility="hidden";
+	  showContent.style.visibility="visible";
+      showContent.style.opacity="1";
+      hideContent.style.opacity="0";
   })
