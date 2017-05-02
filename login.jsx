@@ -32,7 +32,7 @@ class Login extends React.Component{
   	firebase.auth().signInWithPopup(providerG).then(function(result) {
       console.log(firebase.auth().currentUser.providerData[0].email);
   	  let mail = firebase.auth().currentUser.providerData[0].email;
-      this.updateEmail(mail);
+      Login.updateEmail(mail);
      });
   }
   render(){
