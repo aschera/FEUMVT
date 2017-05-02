@@ -43,6 +43,7 @@ class Login extends React.Component{
         
         let user = result.user;
         console.log(user);
+        updateUserData(user.email);
         
         console.log("Sign-in provider: "+user.providerId);
         console.log("  Provider-specific UID: "+user.uid);
@@ -51,7 +52,7 @@ class Login extends React.Component{
         console.log("  Photo URL: "+user.photoURL);
         
      //return firebase.auth().currentUser.providerData[0].email;
-        updateUserData(user.email);
+
         return user.email;
 
     });
@@ -61,7 +62,7 @@ class Login extends React.Component{
 
     // New stuff below.
   component() {
-      this.logInGoogle();
+      this.logInGoogle(this.updateUserData);
       console.log('mounted!');
 
 		}
