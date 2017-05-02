@@ -1,11 +1,13 @@
 body{
   background-color: #0CAADC;
+  margin: 0;
 }
 #menu{
   width: 200px;
   height: 100vh;
   border: 1px solid black;
   background-color: #1481BA;
+  float: left;
 }
 
 .allquestions{
