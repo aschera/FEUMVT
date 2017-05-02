@@ -51,6 +51,9 @@ class Login extends React.Component{
         console.log("  Photo URL: "+user.photoURL);
         
      //return firebase.auth().currentUser.providerData[0].email;
+        this.setState({
+				userEmail: user.email
+			});
         return user.email;
 
     });
@@ -62,6 +65,8 @@ class Login extends React.Component{
   component() {
       this.logInGoogle(this.updateUserData);
       console.log('mounted!');
+      console.log('mounted!');
+      
 		}
     
   updateUserData(data) {
