@@ -52,7 +52,8 @@ class Login extends React.Component{
         
      return firebase.auth().currentUser.providerData[0].email;
 
-    })
+    });
+    console.log(user);
         //.then(this.updateEmail(mail)); // Funkar ej, mail = undefined
   }          
 
