@@ -110,7 +110,10 @@ class Quizz extends React.Component{
     this.setState({
       rightAnswers: this.points
     });
-
+    let allQuestions = Array.prototype.slice.call(document.getElementsByClassName("question"));
+    allQuestions.map(question =>{
+      question.className = "question hide";
+    });
     // SEND HIGHSCORE TO DATABASE
 
     document.getElementById("results").className = "results show";
