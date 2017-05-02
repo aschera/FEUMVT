@@ -32,8 +32,8 @@ class Login extends React.Component{
   	firebase.auth().signInWithPopup(providerG).then(function(result) {
       console.log(firebase.auth().currentUser.providerData[0].email);
   	  let mail = firebase.auth().currentUser.providerData[0].email;
-      Login.updateEmail(mail);
      });
+    updateEmail(mail);
   }
   render(){
     return (
