@@ -40,8 +40,16 @@ class Login extends React.Component{
   logInGoogle(updateUserData) {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
-      //return firebase.auth().currentUser.providerData[0].email;
-        return firebase.auth().currentUser.providerData[0].email;
+        
+        console.log(result);
+        console.log("Sign-in provider: "+result.providerId);
+        console.log("  Provider-specific UID: "+result.uid);
+        console.log("  Name: "+result.displayName);
+        console.log("  Email: "+result.email);
+        console.log("  Photo URL: "+result.photoURL);
+        
+     return firebase.auth().currentUser.providerData[0].email;
+
     }).then(this.updateEmail(mail)); // Funkar ej, mail = undefined
   }          
 
