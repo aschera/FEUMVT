@@ -33,23 +33,15 @@ getCountry(){
     })
 }
 
-setCurrentCountry(country){
-    this.setState({currentCountry: country})
-}
-    
-setCurrentCountryPopulation(population){
-    this.setState({currentCountryPopulation: population})
-}
-      
-getCountryPopulation(){
+    getCountryPopulation(){
     console.log(this.state.currentPopulation)
     let population;
     let url = 'http://api.population.io:80/1.0/population/' + this.state.currentCountry +  '/2015-12-24'
     fetch(url)
     .then(response => {
-        return response.json();  // Promise som kommer returnera JSON
+        return response.json();
     })
-    .then(json => {  // objekt
+    .then(json => {
         console.log(json)
         population = json['total_population'].population;
         this.setCurrentCountryPopulation(population);
@@ -73,6 +65,33 @@ returnQuestionAndAnswers(){
 
 }
     
+<<<<<<< HEAD
+=======
+setCurrentCountry(country){
+    this.setState({currentCountry: country})
+}
+    
+setCurrentCountryPopulation(population){
+    this.setState({currentCountryPopulation: population})
+}
+   
+returnQuestionAndAnswers(){
+    let randomNumber = Math.floor(Math.random() * this.state.currentCountryPopulation/2) + this.state.currentCountryPopulation/3;
+    let num = this.state.currentCountryPopulation - randomNumber;
+    let numberToString = num.toString().split('');
+    let questionObject = {
+        text: "What's the population of " + this.state.currentCountry + '?',
+        a1: this.state.currentCountryPopulation, numberToString,
+        a2: this.state.currentCountryPopulation - randomNumber,
+        a3: this.state.currentCountryPopulation + randomNumber   
+    }
+    let allQuestions = this.state.questions;
+    allQuestions.push(questionObject);
+    this.setState({questions: allQuestions});
+
+}
+    
+>>>>>>> master
 // --------- OUR MAIN FUNCTION FOR SIMULATING QUESTIONS AND LIFT THEM TO STATE.------//
 simulateQuestions(){
     for(let i=1; i<=10; i++){
