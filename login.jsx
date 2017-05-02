@@ -69,11 +69,8 @@ class Login extends React.Component{
     
   updateUserData(data) {
             console.log('update user');
-            console.log(data);
-            /*
-			this.setState({
-				user: data
-			});*/
+            this.updateEmail(data);
+
 		}
 
     
