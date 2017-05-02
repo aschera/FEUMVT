@@ -44,13 +44,14 @@ class Login extends React.Component{
         let user = result.user;
         console.log(user);
         
-        console.log("Sign-in provider: "+result.providerId);
-        console.log("  Provider-specific UID: "+result.uid);
-        console.log("  Name: "+result.displayName);
+        console.log("Sign-in provider: "+user.providerId);
+        console.log("  Provider-specific UID: "+user.uid);
+        console.log("  Name: "+user.displayName);
         console.log("  Email: "+user.email);
-        console.log("  Photo URL: "+result.photoURL);
+        console.log("  Photo URL: "+user.photoURL);
         
-     return firebase.auth().currentUser.providerData[0].email;
+     //return firebase.auth().currentUser.providerData[0].email;
+        return user.email;
 
     });
 
