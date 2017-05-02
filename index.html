@@ -7,6 +7,18 @@
     <script src="react.js"></script>
     <script src="react-dom.js"></script>
 	  <script src="babel.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      firebase.initializeApp({
+        apiKey: "AIzaSyByJ54zZNLGuowWD7_DQsZ2_ip-5yLgoLw",
+        authDomain: "fir-project-aae9d.firebaseapp.com",
+        databaseURL: "https://fir-project-aae9d.firebaseio.com",
+        projectId: "fir-project-aae9d",
+        storageBucket: "fir-project-aae9d.appspot.com",
+        messagingSenderId: "742947349969"
+      });
+    </script>
     <title>QuiZZaro</title>
   </head>
 
@@ -19,8 +31,9 @@
       <p>Loading QuiZZaro<p>
     </div>
 
-    <script src ="questions.jsx" type="text/jsx"></script>
 
+    <script type="text/jsx" src="login.jsx"></script>
+    <script src ="questions.jsx" type="text/jsx"></script>
   </body>
 
   </html>
