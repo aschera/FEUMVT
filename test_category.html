@@ -111,7 +111,6 @@
    
                 // category
                 let category = allTheGoods[i].category;
-                console.log(category);
                 
                 // city
                 let city = allTheGoods[i].items[Math.floor(Math.random() * allTheGoods[i].items.length)];
@@ -172,8 +171,7 @@
 				      a2: fakecity1,
 				      a3: fakecity2
                         });
-       
-                    console.log(questions);
+
 updateCountryData(questions);
  
                 } else if (ajax.status != 200) {
@@ -215,27 +213,31 @@ class App extends React.Component {
 		}
 
       render(){
+          
+                if(this.state.selected === '') {
+                            return (
+                          <div>   
+                            <div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
+                          </div>
+                            );
+                }
+                else {
+                 
+                            return (        
+                              <div>    
+                                <div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>   
+                              </div>
+                                );
+                }
 
-        return (
-          <div>
-             
-                
-            <div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>  
-                
-                <br />
-                
-            <div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div> 
-                
-                
-          </div>
-        );
       }
     
  /* ------------------Get new set of questions------------------------------------------- */        
-        changeEntry(x) {
+        changeEntry(x,y) {
 
 			 this.setState({
-				questions: x
+				questions: x,
+                selected: y
 			});
 
 		}   
@@ -254,29 +256,7 @@ class App extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
-          questions: [
-            {
-              text: "The text for the question",
-              a1: "Correct answer",
-              a2: "Wrong answer",
-              a3: "Also Wrong answer"
-            },{
-              text: "Question 2",
-              a1: "Correct answer",
-              a2: "Wrong answer",
-              a3: "Also Wrong answer"
-            },{
-              text: "Question 3",
-              a1: "Correct answer",
-              a2: "Wrong answer",
-              a3: "Also Wrong answer"
-            },{
-              text: "Question 4",
-              a1: "Correct answer",
-              a2: "Wrong answer",
-              a3: "Also Wrong answer"
-            }
-          ]
+          questions: ''
         }
         this.randomizeAnswers = this.randomizeAnswers.bind(this);
         this.printQuestions = this.printQuestions.bind(this);
@@ -306,7 +286,7 @@ class App extends React.Component {
       printQuestions(){
         
         let loopedQuestions = [];
-        console.log(this.state)
+    
         this.props.items.forEach(question =>{  /* changed to props.items instead of state.questions */
           let sequence = this.randomizeAnswers();
           let html = (
@@ -368,12 +348,11 @@ handleChooseCategory(event) {
     
     if( this.state.selected ) {
 				x = false;
-        console.log('clicked f');
         
     
 			} else {
 				x = true;
-                console.log('clicked t');
+
                     getDataFromFirebase(this.updateCountryData);
         
 			}
@@ -386,7 +365,10 @@ handleChooseCategory(event) {
 /* ---------------------API event---------------------------------------- */
 updateCountryData(data) {
 
-this.props.changeEntry(data);
+    
+    let category = this.state.selected;
+    
+this.props.changeEntry(data,category);
     
     this.setState({ 
 				questions: data
