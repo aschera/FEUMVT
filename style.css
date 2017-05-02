@@ -9,21 +9,21 @@ body{
   background-color: #1481BA;
   float: left;
 }
-#Culture {background-image: url(bg.culture.png);
+#Culture {background-image: url(resources/bg.culture.png);
           background-size: cover;
           }
 
-#Sports {background-image: url(sports.png);
+#Sports {background-image: url(resources/sports.png);
           background-size: cover;
           }
 
-#Books{background-image: url(books.png);
+#Books{background-image: url(resources/books.png);
           background-size: cover;
     background-color: aqua;
           }
 
 #Celebrities
-{background-image: url(celebs.png);
+{background-image: url(resources/celebs.png);
           background-size: cover;
           }
           .flex-container {

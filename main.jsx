@@ -101,7 +101,7 @@ class Quizz extends React.Component{
         question.className = "question hide";
     });
     // 10 questions, change to variable if want to change nr of questions.
-    if (clickedQuestion.id == 10) {
+    if (clickedQuestion.id == 3) {
       this.gameFinished();
     }
   }
