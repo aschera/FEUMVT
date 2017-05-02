@@ -3,6 +3,12 @@ body{
   background-size: cover;
   margin: 0;
 }
+#logo{
+  background-image: url(resources/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height:100px;
+}
 #menu{
   width: 220px;
   height: 100vh;
