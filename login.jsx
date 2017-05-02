@@ -31,15 +31,11 @@ class Login extends React.Component{
       console.log(firebase.auth().currentUser.providerData[0].email);
       mail = firebase.auth().currentUser.providerData[0].email;
       console.log("(this) Inside fb response: ", this);
-    }).then(function(){
-      console.log("(this) After .then: ", this);
     });
-    setTimeout(function(){
-      this.setState({
-        userEmail: mail,
-        loginText: "Succesfully logged in"
-      });
-    }, 3000);
+    this.setState({
+      userEmail: mail,
+      loginText: "Succesfully logged in"
+    });
   }
   render(){
     return (
