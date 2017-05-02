@@ -11,7 +11,7 @@ class Login extends React.Component{
     this.updateEmail = this.updateEmail.bind(this);
   }
   updateEmail(mail){
-    console.log(mail);
+    console.log("Mail"mail);
     this.setState({
       userEmail: mail,
       loginText: "Succesfully logged in"
@@ -19,7 +19,6 @@ class Login extends React.Component{
   }
   logOutUser() {
   	firebase.auth().signOut().then(function(result) {
-
     }).catch(function(error) {
   	// Utloggning misslyckades
   	console.log("something went wrong!")
@@ -28,14 +27,8 @@ class Login extends React.Component{
   logInGoogle() {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
-      console.log(firebase.auth().currentUser.providerData[0].email);
       mail = firebase.auth().currentUser.providerData[0].email;
-      console.log("(this) Inside fb response: ", this);
-    });
-    this.setState({
-      userEmail: mail,
-      loginText: "Succesfully logged in"
-    });
+    }).then(this.updateEmail(mail));
   }
   render(){
     return (
