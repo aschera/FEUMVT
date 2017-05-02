@@ -16,9 +16,9 @@ class Login extends React.Component{
     console.log("Mail", mail);
     this.setState({
       userEmail: mail,
-      loginText: "Succesfully logged in"
+      loginText: "Succesfully logged in",
       loginClass: "hide",
-      loggedInClass: "show",
+      loggedInClass: "show"
     });
   }
   logOutUser() {
