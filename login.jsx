@@ -8,8 +8,10 @@ class Login extends React.Component{
     }
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
+    this.upupdateEmail = this.updateEmail.bind(this);
   }
   updateEmail(mail){
+    console.log(mail);
     this.setState({
       userEmail: mail,
       loginText: "Succesfully logged in"
@@ -28,6 +30,7 @@ class Login extends React.Component{
   logInGoogle() {
   	let providerG = new firebase.auth.GoogleAuthProvider();
   	firebase.auth().signInWithPopup(providerG).then(function(result) {
+      console.log(firebase.auth().currentUser.providerData[0].email);
   	  let mail = firebase.auth().currentUser.providerData[0].email;
       updateEmail(mail);
      });
