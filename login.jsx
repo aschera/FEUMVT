@@ -1,3 +1,4 @@
+
 class Login extends React.Component{
   constructor(props) {
     super(props);
@@ -8,9 +9,15 @@ class Login extends React.Component{
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
   }
+  updateEmail(mail){
+    this.setState({
+      userEmail: mail,
+      loginText: "Succesfully logged in"
+    });
+  }
   logOutUser() {
   	firebase.auth().signOut().then(function(result) {
-      Login.setState({
+      this.state({
         loginText: "Succesfully logged OUT"
       });
     }).catch(function(error) {
@@ -21,13 +28,8 @@ class Login extends React.Component{
   logInGoogle() {
   	let providerG = new firebase.auth.GoogleAuthProvider();
   	firebase.auth().signInWithPopup(providerG).then(function(result) {
-  	       //showUser.innerHTML=firebase.auth().currentUser.providerData[0].email;
-       Login.setState({
-         userEmail: firebase.auth().currentUser.providerData[0].email,
-         loginText: "Succesfully logged in"
-       });
-       console.log(Login.state);
-       console.log(firebase.auth().currentUser.providerData[0].email);
+  	  let mail = firebase.auth().currentUser.providerData[0].email;
+      updateEmail(mail);
      });
   }
   render(){
