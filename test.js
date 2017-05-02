@@ -1,4 +1,4 @@
- 
+ /*
   var showUser = document.getElementById('showUser');
   let hideContent = document.getElementById('hide-container');
   let showContent =document.getElementById('show-container');
@@ -9,20 +9,14 @@
 //     Login with goggle
 function logInGoogle() {
 		let providerG = new firebase.auth.GoogleAuthProvider();
-		firebase.auth().signInWithPopup(providerG)
-  .then(function(result) {
-	if( firebase.auth().currentUser.providerData[0].displayName === null ) {
-		 showUser.innerHTML=firebase.auth().currentUser.providerData[0].email;
-		 
-		 
-	 } else {
-		  showUser.innerHTML=firebase.auth().currentUser.providerData[0].displayName;
-		  
-	 }
-	  
-	let user = result.user;
-	console.log(user);
-	});
+		firebase.auth().signInWithPopup(providerG).then(function(result) {
+	     if( firebase.auth().currentUser.providerData[0].displayName === null ) {
+		       showUser.innerHTML=firebase.auth().currentUser.providerData[0].email;
+	     }
+       else {
+		     showUser.innerHTML=firebase.auth().currentUser.providerData[0].displayName;
+	     }
+	  });
 	}
 //   logout function from quizzaro
 function logOutUser() {
@@ -49,4 +43,4 @@ function logOutUser() {
 	  showContent.style.visibility="visible";
       showContent.style.opacity="1";
       hideContent.style.opacity="0";
-  })
+  }) */
