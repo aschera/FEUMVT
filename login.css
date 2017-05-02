@@ -5,7 +5,7 @@ body {
 #show-container {
     width: 100%;
     height: 100vh;
-    display: block;
+    visibility: visible;
 }
 .main-container {
     display: flex;
@@ -14,7 +14,6 @@ body {
 .main-container > row {
     flex: 1 auto;
     flex-direction: row;
-    position: relative;
 }
 #leftDiv {
     border-right: 2px solid black;
@@ -33,9 +32,9 @@ body {
 }
 
 #hide-container {
-    display: none;
     width: 100%;
     height: 100vh;
+    visibility: hidden;
 }
 
 #rightDiv h2, #rightDiv p {
