@@ -56,7 +56,7 @@ class Quizz extends React.Component{
     super(props);
     this.state = {
       rightAnswers: 0,
-      questions: [];
+      questions: []
     }
     this.points = 0;
     this.randomizeAnswers = this.randomizeAnswers.bind(this);
