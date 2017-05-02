@@ -41,7 +41,9 @@ class Login extends React.Component{
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
         
-        console.log(result);
+        let user = result.user;
+        console.log(user);
+        
         console.log("Sign-in provider: "+result.providerId);
         console.log("  Provider-specific UID: "+result.uid);
         console.log("  Name: "+result.displayName);
@@ -50,7 +52,8 @@ class Login extends React.Component{
         
      return firebase.auth().currentUser.providerData[0].email;
 
-    }).then(this.updateEmail(mail)); // Funkar ej, mail = undefined
+    })
+        //.then(this.updateEmail(mail)); // Funkar ej, mail = undefined
   }          
 
     // New stuff below.
