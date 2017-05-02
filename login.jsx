@@ -37,7 +37,7 @@ class Login extends React.Component{
       loginText: "Succesfully logged OUT"
     });
   }
-  logInGoogle() {
+  logInGoogle(updateUserData()) {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
         
