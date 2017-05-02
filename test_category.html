@@ -28,14 +28,13 @@
 }
 
 .flex-item {
-  background: darkgrey;
   padding: 5px;
   width: 200px;
   height: 150px;
   margin-top: 10px;
   
   line-height: 150px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 2em;
   text-align: center;
@@ -73,6 +72,24 @@
 .correct{
   background-color: lightgreen;
 }
+#Culture {background-image: url(bg.culture.png);
+          background-size: cover;
+          }
+          
+#Sports {background-image: url(sports.png);
+          background-size: cover;
+          }
+          
+#Books{background-image: url(books.png);
+          background-size: cover;
+    background-color: aqua;
+          }
+          
+#Celebrities {background-image: url(celebs.png);
+          background-size: cover;
+          }
+          
+          
       </style>
   </head>
 
@@ -102,6 +119,14 @@
                     items: ['Amsterdam','Copenhagen','Bern'], 
                     fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
                    
+                   {category: 'arts', 
+                    items: ['Amsterdam','',''], 
+                    fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                   
+                   {category: 'Historic Site', 
+                    items: ['Stockholm','Rome','New York', 'Copenhagen', ''], 
+                    fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                  
                ];
 
 /* --------------------------------------Data to change every cycle-------------------------------------------- */
@@ -382,7 +407,7 @@ var partial;
 
            
 const newlist = list.map(
-      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
+      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}></li> )
     ); 
 
         return (
