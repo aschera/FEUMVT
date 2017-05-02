@@ -37,7 +37,7 @@ class Login extends React.Component{
       loginText: "Succesfully logged OUT"
     });
   }
-  logInGoogle(updateUserData) {
+  logInGoogle() {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
         
@@ -51,9 +51,7 @@ class Login extends React.Component{
         console.log("  Photo URL: "+user.photoURL);
         
      //return firebase.auth().currentUser.providerData[0].email;
-        this.setState({
-				userEmail: user.email
-			});
+        this.updateUserData(user.email);
         return user.email;
 
     });
@@ -63,10 +61,9 @@ class Login extends React.Component{
 
     // New stuff below.
   component() {
-      this.logInGoogle(this.updateUserData);
+      this.logInGoogle();
       console.log('mounted!');
-      console.log('mounted!');
-      
+
 		}
     
   updateUserData(data) {
