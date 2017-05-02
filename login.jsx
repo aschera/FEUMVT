@@ -11,6 +11,10 @@ class Login extends React.Component{
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
+      
+      // two new functions
+    this.updateUserData = this.updateUserData.bind(this);
+    this.component = this.component.bind(this);
   }
   updateEmail(mail){
     console.log("Mail", mail);
@@ -33,17 +37,35 @@ class Login extends React.Component{
       loginText: "Succesfully logged OUT"
     });
   }
-  logInGoogle() {
+  logInGoogle(updateUserData) {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
-      return firebase.auth().currentUser.providerData[0].email;
+      //return firebase.auth().currentUser.providerData[0].email;
+        return firebase.auth().currentUser.providerData[0].email;
     }).then(this.updateEmail(mail)); // Funkar ej, mail = undefined
-  }          // CHRISTNA (COMPONANT DID MOUNT)
+  }          
+
+    // New stuff below.
+  component() {
+      this.logInGoogle(this.updateUserData);
+      console.log('mounted!');
+		}
+    
+  updateUserData(data) {
+            console.log('update user');
+            console.log(data);
+            /*
+			this.setState({
+				user: data
+			});*/
+		}
+
+    
   render(){
     return (
       <div>
         <div id="menuLogin" className={this.state.loginClass}>
-          <button onClick={this.logInGoogle}>Login with Google</button>
+          <button onClick= {this.component} >Login with Google</button> 
           <p>{this.state.loginText}</p>
         </div>
 

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Foursquare</title>
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+        #values {
+            border-style: solid
+        }
+
+        #1 {
+            border-style: solid
+        }
+
+        #2 {
+            border-style: solid
+        }
+
+        #3 {
+            border-style: solid
+        }
+
+        #4 {
+            border-style: solid
+        }
+
+        #5 {
+            border-style: solid
+        }
+    </style>
+
+    <body>
+        <script>
+            // Foursquare
+
+
+	    // The city the ask for
+            var items = Array('London', 'Stockholm', 'New York', 'Amsterdam', 'Rome', 'Tallinn', 'Venice');
+            var item = items[Math.floor(Math.random() * items.length)];
+
+            //fake1
+            var noitems = Array('Mumbai', 'Florence', 'Malmö', 'Frankfurt');
+            var item1 = noitems[Math.floor(Math.random() * (noitems.length))];
+
+            //fake2
+            var nonoitems = Array('Lisbon', 'Cairo', 'Brussels');
+            var item2 = nonoitems[Math.floor(Math.random() * (nonoitems.length))];
+
+	    //choosen items for this request:
+            let city = item;
+            let fakecity1 = item1;
+            let fakecity2 = item2
+            let category = 'opera';
+
+            let url = 'https://api.foursquare.com/v2/venues/search?';
+
+
+            //date
+            url += 'v=' + '20170426' + '&';
+
+            //limit 5
+            url += 'limit=' + 5 + '&';
+
+            // near city
+            url += 'near=' + city + '&';
+            // #1London, Stockholm, New York,Amsterdam,Rome,Tallinn,Venice (opera)
+            // Amsterdam, (university)
+            // Bucharest(theme park)
+
+            //radius
+            let radius = 1000;
+            url += 'radius=' + radius + '&';
+
+            //what
+            let categoryId = category + '&'; // coffe,game,museum works.
+            url += 'query=' + categoryId;
+
+            //identification
+            url += 'client_id=RHPTHZQRVD1O3M0AX3SREE4QJWLPPAEIFJAOGZHTTWT12A4W&client_secret=U4SDRN4NDPX3EZSXSIK44ZZCWIT01FGS54PE3EGF2VSYD53X';
+
+
+            console.log(url);
+
+            // AJAX request Foursquare
+            let ajax = new XMLHttpRequest();
+            ajax.open('get', url);
+            ajax.onreadystatechange = function() {
+
+                let question1 = document.getElementById('q1');
+                let answer1 = document.getElementById('a1');
+                let fanswer1 = document.getElementById('b1');
+                let ffanswer1 = document.getElementById('c1');
+
+                if (ajax.status == 200 && ajax.readyState == 4) {
+
+                    // AJAX success
+                    let json = JSON.parse(ajax.responseText);
+
+                    for (i = 0; i < json.response.venues.length; i++) {
+
+                        var node = document.createElement("LI");
+
+                        var textnode = document.createTextNode('name: ' + json.response.venues[i].name + '. Adress: ' + json.response.venues[i].location.address);
+
+                        node.appendChild(textnode);
+                        document.getElementById("list").appendChild(node);
+                    }
+                    status.innerHTML = 'Status:  All Good';
+
+
+
+                    // in which city is this place?
+                    console.log('correct answer: ' + city);
+                    question1.innerHTML = json.response.venues[0].name; //opera
+                    answer1.innerHTML = city;
+                    fanswer1.innerHTML = fakecity1;
+                    ffanswer1.innerHTML = fakecity2;
+
+		    // question object to send toreact-main component:
+	 	    let n = 'In which city can you find the ' + category + '? : ' + json.response.venues[0].name
+		    let questions = [
+            			{
+				      text: n,
+				      a1: city,
+				      a2: fakecity1,
+				      a3: fakecity2
+				}];
+			console.log(questions[0]);
+
+                } else if (ajax.status != 200) {
+                    status.innerHTML = 'Status:   Error';
+                }
+            };
+            ajax.send();
+        </script>
+
+
+        <div id="page-wrap">
+
+            <header>
+                <h2>Foursquare</h2>
+            </header>
+
+            <section id="main-content">
+
+                <div id="1">
+
+                </div>
+                <div id="2">
+
+                    <ul id="list"></ul>
+
+                </div>
+
+
+        </div>
+
+
+        <div id="3">
+
+            <ul id="list2"></ul>
+
+            <div>
+                <h2>Question2</h2>
+                <br> In which city is the following place?
+                <strong><div id="q1">Question</div></strong>
+
+            </div>
+            <ul>
+                <li>
+                    <div id="a1">Answer</div>
+                </li>
+                <li>
+                    <div id="b1">Fake Answer</div>
+                </li>
+                <li>
+                    <div id="c1">Fake Answer</div>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+        </section>
+
+        </div>
+
+
+    </body>
+
+</html>
