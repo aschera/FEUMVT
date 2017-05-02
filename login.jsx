@@ -8,7 +8,7 @@ class Login extends React.Component{
     }
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
-    this.upupdateEmail = this.updateEmail.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
   }
   updateEmail(mail){
     console.log(mail);
