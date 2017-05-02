@@ -3,15 +3,30 @@ class CountryComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+        questions: [
+        {
+          text: "Questions 1",
+          a1: "Correct answer",
+          a2: "Wrong answer",
+          a3: "Also Wrong answer"
+        },{
+          text: "Question 2",
+          a1: "Correct answer",
+          a2: "Wrong answer",
+          a3: "Also Wrong answer"
+        }
+        ],
+        
         currentCountry: 'No Country',
-        currentCountryPopulation: 0
+        currentCountryPopulation: 3
     }
 
       this.getCountry = this.getCountry.bind(this);
       this.getCountryPopulation = this.getCountryPopulation.bind(this);
-      this.getCountryAndPopulation = this.getCountryAndPopulation.bind(this);
       this.setCurrentCountry = this.setCurrentCountry.bind(this);
       this.setCurrentCountryPopulation = this.setCurrentCountryPopulation.bind(this);
+      this.returnQuestionAndAnswers = this.returnQuestionAndAnswers.bind(this);
+      this.simulateQuestions=this.simulateQuestions.bind(this);
   }
 
 getCountry(){
@@ -27,9 +42,10 @@ getCountry(){
         console.log('3', country)
         let randomNumber = Math.floor(Math.random() * 236) + 1;
         country = json.countries[randomNumber];
-        console.log(country)
-        this.setCurrentCountry(country)
-        this.getCountryPopulation()
+        console.log(country);
+        this.setCurrentCountry(country);
+        this.getCountryPopulation();
+        
     })
 }
 
@@ -53,22 +69,43 @@ getCountryPopulation(){
         console.log(json)
         population = json['total_population'].population;
         this.setCurrentCountryPopulation(population);
+        this.returnQuestionAndAnswers();
     });
 }
     
-getCountryAndPopulation(){     
-this.getCountry();        
+simulateQuestions(){
+    for(let i=1; i<=10; i++){
+        this.getCountry();  
+    };
+}
+    
+returnQuestionAndAnswers(){
+    
+    let randomNumber = Math.floor(Math.random() * this.state.currentCountryPopulation/2) + this.state.currentCountryPopulation/3;
+    let num = this.state.currentCountryPopulation - randomNumber;
+    let numberToString = num.toString().split('');
+
+    let questionObject = {
+        text: "What's the population of " + this.state.currentCountry + '?',
+        a1: this.state.currentCountryPopulation, numberToString,
+        a2: this.state.currentCountryPopulation - randomNumber,
+        a3: this.state.currentCountryPopulation + randomNumber   
+    }
+    
+    let allQuestions = this.state.questions;
+    allQuestions.push(questionObject);
+    
+    this.setState({questions: allQuestions});
+    console.log(this.state.questions)
 }
       
 render(){
 return(
 
 <div>
-<div>{this.state.currentCountry}</div>
-<div>{this.state.currentCountryPopulation}</div>
-   <button onClick={this.getCountry}></button>
-   <button onClick={this.getCountryPopulation}></button>
-   <button onClick={this.getCountryAndPopulation}></button>
+    <div>{this.state.currentCountry}</div>
+    <div>{this.state.currentCountryPopulation}</div>
+    <button onClick={this.simulateQuestions}></button>
     
 </div>
 )
@@ -79,7 +116,7 @@ return(
 
 ReactDOM.render(
 
-    <CountryComponent />, document.getElementById('app')
+<CountryComponent />, document.getElementById('app');
 
 );
 
