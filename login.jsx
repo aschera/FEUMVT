@@ -10,7 +10,7 @@ class Login extends React.Component{
   }
   logOutUser() {
   	firebase.auth().signOut().then(function(result) {
-      this.setState({
+      Login.setState({
         loginText: "Succesfully logged OUT"
       });
     }).catch(function(error) {
@@ -22,11 +22,11 @@ class Login extends React.Component{
   	let providerG = new firebase.auth.GoogleAuthProvider();
   	firebase.auth().signInWithPopup(providerG).then(function(result) {
   	       //showUser.innerHTML=firebase.auth().currentUser.providerData[0].email;
-       this.setState({
+       Login.setState({
          userEmail: firebase.auth().currentUser.providerData[0].email,
          loginText: "Succesfully logged in"
        });
-       console.log(this.state);
+       console.log(Login.state);
        console.log(firebase.auth().currentUser.providerData[0].email);
      });
   }
