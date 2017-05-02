@@ -26,6 +26,8 @@ class Login extends React.Component{
          userEmail: firebase.auth().currentUser.providerData[0].email,
          loginText: "Succesfully logged in"
        });
+       console.log(this.state);
+       console.log(firebase.auth().currentUser.providerData[0].email);
      });
   }
   render(){
