@@ -11,7 +11,7 @@ class Login extends React.Component{
     this.updateEmail = this.updateEmail.bind(this);
   }
   updateEmail(mail){
-    console.log("Mail"mail);
+    console.log("Mail", mail);
     this.setState({
       userEmail: mail,
       loginText: "Succesfully logged in"
