@@ -9,6 +9,12 @@
   border: 1px solid grey;
   text-align: center;
 }
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
 .answers{
   display: flex;
   flex-direction: row;
