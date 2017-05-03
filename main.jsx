@@ -38,9 +38,11 @@ class App extends React.Component {
                     } // end else: nothing selected
                 }// end logged in:test
                 else {
-                    <div>
-                      <span>'Nothing to show here!</span>
-                     </div>
+                    return (
+                            <div>
+                                Nothing
+                            </div>
+                            )
                 }
 			}//end render
 
