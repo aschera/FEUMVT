@@ -21,6 +21,7 @@ var movies = {
       });
     });
   }
+  
 }
 
 movies.request();
