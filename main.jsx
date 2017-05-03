@@ -226,7 +226,7 @@ const newlist = list.map(
 
         return (
           <div>
-            <ul className="flex-container">{newlist}</ul>;
+            <ul className="flex-container">{newlist}</ul>
           </div>
         );
       }
