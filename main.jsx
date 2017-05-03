@@ -234,7 +234,8 @@ class Login extends React.Component{
   component() {
       this.logInGoogle(this.updateUserData);
       console.log('mounted!');
-      this.props.changeEntry('testing login');
+      
+      this.props.changeLogin('testing login');
 		}
 
   updateUserData(data) {
