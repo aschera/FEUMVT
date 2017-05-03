@@ -1,20 +1,66 @@
+/* flex setup */ 
+
+html {
+    height: 100%;
+    box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit; /* https://css-tricks.com/box-sizing/ */
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    display: flex; /* body is the outer flex container */
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+#inner-flex-container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 250px);
+}
+
+aside   { flex: 1 250px; background: hotpink; }
+header  { flex: 1; background: tomato; }
+section { flex: 4; background: deepskyblue; }
+footer  { flex: 1; background: lightgreen; }
+
+
+/*    *****   */ 
+
+
+
+
 body{
-  background-image: url(resources/bg.png);
-  background-size: cover;
+  background-image: url(resources/bg_yellow.png);
+  background-size: contain;
   margin: 0;
   color: white;
 }
+
+/* main */ 
+#outer {
+  width: 50%;
+    margin-left: 222px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 #logo{
-  background-image: url(resources/logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height:100px;
+    width: 250px;
+    height: 180px;
+    background-image: url(resources/logo.png);
+    background-size: cover;
+ 
 }
 #menu{
   width: 220px;
   height: 100vh;
   border: 1px solid black;
-  background-image: url(resources/bg2.png);
+  background-image: url(resources/bg_yellow2.png);
   background-size: contain;
   float: left;
   padding-top: 20px;

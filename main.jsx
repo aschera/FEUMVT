@@ -40,7 +40,13 @@ class App extends React.Component {
                 else {
                     return (
                             <div>
-                                Nothing
+                                <Login changeLogin = {this.changeLogin}/>
+                            <header>
+                                <div id="outer">
+                                    <div id="logo">
+                                    </div>
+                                </div>
+                            </header>
                             </div>
                             )
                 }
@@ -62,6 +68,7 @@ class App extends React.Component {
 			});
 		}
 }
+
 /* ---------------------------------------------------------------------------------------- */
 /* -------------------------THE Quiz COMPONENT---------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
@@ -254,6 +261,7 @@ class Login extends React.Component{
 
   render(){
     return (
+        
       <div id="menu">
         <div id="menuLogin" className={this.state.loginClass}>
           <button onClick= {this.component} >Login with Google</button>
@@ -268,7 +276,8 @@ class Login extends React.Component{
                <h3>Your highscore</h3>
         </div>
 
-      </div>
+      </div> 
+        
     )
   }
 }
@@ -341,7 +350,15 @@ const newlist = list.map(
 
         return (
           <div>
-            <ul className="flex-container">{newlist}</ul>
+            <div id="inner-flex-container">
+                <header>
+                    <div id="outer">
+                        <div id="logo">
+                        </div>
+                    </div>
+                </header>
+                <ul className="flex-container">{newlist}</ul>
+            </div>
           </div>
         );
       }
