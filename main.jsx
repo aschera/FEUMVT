@@ -1,55 +1,60 @@
 class App extends React.Component {
 
-		constructor(props) {
-			super(props);
+	constructor(props) {
+		super(props);
 			this.state = {
-								selected: '',
-								questions: [{
-															text: "",
-															a1: "",
-															a2: "",
-															a3: ""
-														}]
+					selected: '',
+					loggedIn: false,
+					questions: [{
+							text: "",
+							a1: "",
+							a2: "",
+							a3: ""
+					}]
 			};
 
-						this.changeEntry = this.changeEntry.bind(this);
-
-		}
+				this.changeEntry = this.changeEntry.bind(this);
+				this.changeLogin = this.changeLogin.bind(this);
+			}
 
 			render(){
 
-								if(this.state.selected === '') {
-														return (
-													<div>
-														<Login />
-														<div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
-													</div>
-														)
-								}
-								else {
+				if(this.state.selected === '') {
+					return (
+						<div>
+							<Login changeLogin = {this.changeLogin}/>
+							<div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
+						</div>
+						)
+				}
+				else {
 
-														return (
-															<div>
-																<Login />
-																<div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
-															</div>
-																)
-								}
+					return (
+						<div>
+							<Login changeLogin = {this.changeLogin}/>
+							<div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
+						</div>
+						)
+				}
 
 			}
 
  /* ------------------Get new set of questions------------------------------------------- */
-				changeEntry(x,y) {
-
-			 this.setState({
-				questions: x,
-								selected: y
+	changeEntry(x,y) {
+		this.setState({
+			questions: x,
+			selected: y
 			});
-
 		}
-
 	}
-
+/* ------------------Change login state------------------------------------------- */
+	changeLogin(x) {
+	console.log(x);
+		this.setState({
+			loggedIn: x
+			});
+		}
+	}
 /* ---------------------------------------------------------------------------------------- */
 /* -------------------------THE Quiz COMPONENT---------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
@@ -228,7 +233,7 @@ class Login extends React.Component{
   component() {
       this.logInGoogle(this.updateUserData);
       console.log('mounted!');
-
+      this.props.changeLogin('true');
 		}
 
   updateUserData(data) {
@@ -274,11 +279,11 @@ class MyList extends React.Component {
 			super(props);
 
 			this.handleChooseCategory = this.handleChooseCategory.bind(this);
-						this.updateCountryData = this.updateCountryData.bind(this);
+			this.updateCountryData = this.updateCountryData.bind(this);
 
 			this.state = {
 				selected:'',
-								questions: []
+				questions: []
 			}
 		}
 /* ---------------------Click event---------------------------------------- */
@@ -295,7 +300,7 @@ handleChooseCategory(event) {
 			} else {
 				x = true;
 
-										getDataFromFirebase(this.updateCountryData);
+			getDataFromFirebase(this.updateCountryData);
 
 			}
 			this.setState({
@@ -305,13 +310,10 @@ handleChooseCategory(event) {
 		}
 
 /* ---------------------API event---------------------------------------- */
-updateCountryData(data) {
-
-
+	updateCountryData(data) {
 		let category = this.state.selected;
 
-this.props.changeEntry(data,category);
-
+		this.props.changeEntry(data,category);
 		this.setState({
 				questions: data
 			});
