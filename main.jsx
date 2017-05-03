@@ -50,10 +50,9 @@ class App extends React.Component {
  /* ------------------Get new set of questions------------------------------------------- */
 	changeLogin(x) {
         console.log(x);
-        /*
 		this.setState({
-			loggedIn: x,
-			});*/
+			loggedIn: x
+			});
 		}
 }
 /* ---------------------------------------------------------------------------------------- */
@@ -196,6 +195,7 @@ class Login extends React.Component{
     });
   }
   logOutUser() {
+    this.props.changeLogin(false);
   	firebase.auth().signOut().then(function(result) {
     }).catch(function(error) {
   	// Utloggning misslyckades
@@ -235,7 +235,7 @@ class Login extends React.Component{
       this.logInGoogle(this.updateUserData);
       console.log('mounted!');
       
-      this.props.changeLogin('testing login');
+      this.props.changeLogin(true);
 		}
 
   updateUserData(data) {
