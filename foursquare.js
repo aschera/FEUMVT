@@ -4,25 +4,25 @@ var questions = [];
 
        var allTheGoods =
            [
-               {category: 'opera',
-                items: ['London', 'Stockholm', 'New York', 'Amsterdam', 'Rome', 'Tallinn', 'Venice'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+               {category: 'Opera house',
+                items: ['Venice', 'London', 'Rome', 'Tallinn'],
+                fake: ['Amsterdam', 'London', 'Stockholm', 'New York', 'Buenos Aires']},
 
-               {category: 'university',
+               {category: 'University',
                 items: ['Amsterdam','Copenhagen','Bern'],
                 fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
 
-               {category: 'Arts',
-                items: ['New York', 'Athen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+               {category: 'Museum',
+                items: ['London', 'New York', 'Tallinn', 'Venice', 'Stockholm','Malmö', 'Frankfurt', 'Florence', 'Lisbon', 'Brussels'],
+                fake: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai']},
 
                {category: 'Historic Site',
-                items: ['Stockholm','Rome','New York', 'Copenhagen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                items: ['Rome', 'Stockholm'],
+                fake: ['Lisbon', 'Brussels', 'Malmo', 'Florence', 'Mumbai', 'Frankfurt', 'Berlin', 'Copenhagen' ]},
 
                {category: 'Theatre',
-                items: ['Stockholm','Rome','New York', 'Copenhagen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                items: ['London', 'New York', 'Stockholm', 'Amsterdam','Rome', 'Brussels', 'Cairo', 'Washington'],
+                fake: ['Tallin', 'Lisbon']},
 
            ];
 
