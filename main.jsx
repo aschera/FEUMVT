@@ -14,7 +14,7 @@ class App extends React.Component {
 			};
 
 				this.changeEntry = this.changeEntry.bind(this);
-				//this.changeLogin = this.changeLogin.bind(this);
+				this.changeLogin = this.changeLogin.bind(this);
 			}
 
 			render(){
@@ -22,7 +22,7 @@ class App extends React.Component {
 				if(this.state.selected === '') {
 					return (
 						<div>
-							<Login />
+							<Login changeLogin = {this.changeLogin}/>
 							<div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
 						</div>
 						)
@@ -31,7 +31,7 @@ class App extends React.Component {
 
 					return (
 						<div>
-							<Login />
+							<Login changeLogin = {this.changeLogin}/>
 							<div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
 						</div>
 						)
@@ -48,15 +48,15 @@ class App extends React.Component {
 		}
 	}
 /* ------------------Change login state------------------------------------------- */
-	/*changeLogin() {
-	console.log('hallo');
-
+	changeLogin(x) {
+	console.log('login works');console.log(x);
+/*
 		this.setState({
 			loggedIn: x
-			});
+			});  */
 
 		}
-	}*/
+	
 /* ---------------------------------------------------------------------------------------- */
 /* -------------------------THE Quiz COMPONENT---------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
@@ -235,7 +235,7 @@ class Login extends React.Component{
   component() {
       this.logInGoogle(this.updateUserData);
       console.log('mounted!');
-      //this.props.changeLogin();
+      this.props.changeEntry('testing login');
 		}
 
   updateUserData(data) {
