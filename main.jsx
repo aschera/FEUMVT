@@ -50,9 +50,11 @@ class App extends React.Component {
 /* ------------------Change login state------------------------------------------- */
 	changeLogin(x) {
 	console.log(x);
+/*
 		this.setState({
 			loggedIn: x
 			});
+*/
 		}
 	}
 /* ---------------------------------------------------------------------------------------- */
