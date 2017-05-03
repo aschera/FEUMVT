@@ -2,6 +2,7 @@ body{
   background-image: url(resources/bg.png);
   background-size: cover;
   margin: 0;
+  color: white;
 }
 #logo{
   background-image: url(resources/logo.png);
@@ -17,7 +18,6 @@ body{
   background-size: contain;
   float: left;
   padding-top: 20px;
-    color:white;
 }
 #menuLoggedIn, #menuLogin, #allquestions, #results{
   /*
@@ -55,7 +55,7 @@ body{
   padding: 0;
   margin: 0;
   list-style: none;
-  
+
 
   display: -webkit-box;
   display: -moz-box;
