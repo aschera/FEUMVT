@@ -255,7 +255,7 @@ class Login extends React.Component{
 
         <div id="menuLoggedIn" className={this.state.loggedInClass}>
                <h4>Signed in as:</h4>
-            \n
+            
            <p>{this.state.userEmail}</p>
                <button onClick={this.logOutUser}>Sign out</button>
                <h3>Your highscore</h3>
