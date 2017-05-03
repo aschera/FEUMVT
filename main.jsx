@@ -48,8 +48,8 @@ class App extends React.Component {
 		}
 	}
 /* ------------------Change login state------------------------------------------- */
-	changeLogin(x) {
-	console.log(x);
+	changeLogin() {
+	console.log('hallo');
 /*
 		this.setState({
 			loggedIn: x
@@ -235,7 +235,7 @@ class Login extends React.Component{
   component() {
       this.logInGoogle(this.updateUserData);
       console.log('mounted!');
-      this.props.changeLogin('true');
+      this.props.changeLogin();
 		}
 
   updateUserData(data) {
