@@ -41,13 +41,14 @@ class App extends React.Component {
                     return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
+                            <div id="inner-flex-container">
                             <header>
-                                <div id="outer">
+                                <div className='flex-item'>
                                     <div id="logo">
                                     </div>
                                 </div>
                             </header>
-                            </div>
+                            </div> </div>
                             )
                 }
 			}//end render
@@ -352,7 +353,7 @@ const newlist = list.map(
           <div>
             <div id="inner-flex-container">
                 <header>
-                    <div id="outer">
+                    <div className='flex-item'>
                         <div id="logo">
                         </div>
                     </div>
