@@ -18,26 +18,31 @@ class App extends React.Component {
 			}
 
 			render(){
+                if(this.state.loggedIn === true) {
+                    if(this.state.selected === '') {
+                        return (
+                            <div>
+                                <Login changeLogin = {this.changeLogin}/>
+                                <div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
+                            </div>
+                            )
+                    }// end if: something is selected
+                    else {
 
-				if(this.state.selected === '') {
-					return (
-						<div>
-							<Login changeLogin = {this.changeLogin}/>
-							<div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
-						</div>
-						)
-				}
-				else {
-
-					return (
-						<div>
-							<Login changeLogin = {this.changeLogin}/>
-							<div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
-						</div>
-						)
-				}
-
-			}
+                        return (
+                            <div>
+                                <Login changeLogin = {this.changeLogin}/>
+                                <div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
+                            </div>
+                            )
+                    } // end else: nothing selected
+                }// end logged in:test
+                else {
+                    <div>
+                      <span>'Nothing to show here!</span>
+                     </div>
+                }
+			}//end render
 
  /* ------------------Get new set of questions------------------------------------------- */
 	changeEntry(x,y) {
