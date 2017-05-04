@@ -309,7 +309,7 @@ class Login extends React.Component{
           </div>
             
                <h4>Signed in as:</h4>
-                <p>{this.state.userEmail}</p>
+                <p id="username">{this.state.userEmail}</p>
 
                <h3>Your highscore</h3>
         </div>
