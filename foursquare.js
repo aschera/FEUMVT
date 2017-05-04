@@ -9,7 +9,7 @@ var questions = [];
                 fake: ['Amsterdam', 'London', 'Stockholm', 'New York', 'Buenos Aires']},
 
                {category: 'University',
-                items: ['Amsterdam','Copenhagen','Bern'],
+                items: ['Amsterdam','Bern'],
                 fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
 
                {category: 'Museum',

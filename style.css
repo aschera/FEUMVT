@@ -25,7 +25,6 @@
 
 #logo{
     min-width: 450px;
-    height: 180px;
     color: black;
 }
 
@@ -173,6 +172,8 @@ body{
   float: left;
 }
 
+#introText{font-size: 1.7em; text-align: left; margin-left: 20px;}
+
 /* Categoty items */
 
 #Culture{
@@ -224,9 +225,9 @@ body{
   font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
 
-h1{color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif; }
+h1{font-size: 4em; color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif; }
 
-p{color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;}
+p{font-size: 2em;color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;}
 
 /* questions  */ 
 

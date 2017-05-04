@@ -47,7 +47,7 @@ class App extends React.Component {
                                             <div id="logo">
                                                 <img src="resources/logo2.png" id="img"></img>
                                                 <br /><br /><br />
-                                                <p>
+                                                <p id="introText">
                                                     The QuiZZaro is designed to be very difficult. <br />
                                                     It will test your knowledge of a wide variety of information.<br /> 
                                                     It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
