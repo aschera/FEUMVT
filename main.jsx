@@ -147,7 +147,7 @@ class Quizz extends React.Component{
         
 	     setTimeout(function(){
 			done;
-		 }, 1000); 
+		 }, 5000); 
          
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
