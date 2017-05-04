@@ -14,7 +14,7 @@
   padding: 5px;
   width: 200px;
   height: 150px;
-  margin-top: 10px;
+
 
   line-height: 150px;
   color: black;
@@ -204,24 +204,33 @@ body{
   padding: 5px;
   width: 200px;
   height: 150px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 
-  line-height: 150px;
   color: black;
   font-weight: bold;
   font-size: 2em;
-  text-align: center;
+
 }
 .allquestions{
+
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
   width: 600px;
+    
+  padding: 5px;
+  padding-left: 227px;
+    
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 .question{
-  border: 1px solid grey;
-  text-align: center;
+  
+}
+.questionText{
+  margin-bottom: 10px;
 }
 .show{
   display: block;
@@ -233,7 +242,7 @@ body{
   display: flex;
   flex-direction: row;
   margin-bottom: 5px;
-  margin-top: 10px;
+
 }
 .answers button{
   margin-right: 10px;
