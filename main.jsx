@@ -145,9 +145,8 @@ class Quizz extends React.Component{
         
         var done = this.props.changeEntry('','');
         
-	     setTimeout(function(done){
-			done('','');
-		 }, 5000); 
+	    setTimeout( done, 1000 );
+        
         console.log("Game finished");
          
 	}
