@@ -23,11 +23,7 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                                    <header id="main">
-                                            <div id="logo">
-                                                <img src="resources/logo.png" id="img"></img>
-                                            </div>
-                                    </header>
+     
                                 <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/>
                             </div>
                             )
@@ -37,11 +33,7 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                                    <header id="main">
-                                            <div id="logo">
-                                                <img src="resources/logo.png" id="img"></img>
-                                            </div>
-                                    </header>
+
                                 <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/>
                             </div>
                             )
