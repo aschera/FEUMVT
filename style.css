@@ -31,8 +31,9 @@
 
 #img {
     margin-top: 10px;
-    height:180px;
-    width: 250px;
+    height:50px;
+    width: 100px;
+    /*Goudy old style*/
 }
 
 /* button login */
@@ -166,7 +167,7 @@ body{
 
 #menu{
   width: 220px;
-  height: 100vh;
+  height: 200vh;
   background-color: #998e00;
   background-size: contain;
   float: left;
@@ -220,10 +221,12 @@ body{
   color: black;
   font-weight: bold;
   font-size: 2em;
-
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
 
-h1{color:black;}
+h1{color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif; }
+
+p{color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;}
 
 /* questions  */ 
 

@@ -45,9 +45,13 @@ class App extends React.Component {
                                 <Login changeLogin = {this.changeLogin}/>
                                     <header id="main">
                                             <div id="logo">
-                                                <img src="resources/logo.png" id="img"></img>
-                                                
-                                                <p>The QuiZZaro is designed to be very difficult. It will test your knowledge of a wide variety of information. It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.Nobody has ever gotten all 10 questions correct.</p>
+                                                <img src="resources/logo2.png" id="img"></img>
+                                                <br /><br /><br />
+                                                <p>
+                                                    The QuiZZaro is designed to be very difficult. <br />
+                                                    It will test your knowledge of a wide variety of information.<br /> 
+                                                    It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
+                                                    Nobody has ever gotten all 10 questions correct.</p>
                                                 
                                             </div>
                                     </header>
@@ -389,10 +393,11 @@ const newlist = list.map(
             <div id="inner-flex-container">
                 <header>
                         <div id="logo">
-                            <img src="resources/logo.png" id="img"></img>
+                            <img src="resources/logo2.png" id="img"></img>
                         </div>
                 </header>
                 <h1>Categories</h1>
+                <p>Choose a category to begin the Quiz!</p>
                 <ul className="flex-container">{newlist}</ul>
             </div>
           </div>
