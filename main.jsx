@@ -323,7 +323,7 @@ class Login extends React.Component{
 /* ---------------------------------------------------------------------------------------- */
 
 /*ALL the categories */
-const list = ['Culture', 'Sports', 'Books', 'Celebrities'];
+const list = ['Culture', 'Sports', 'Movies', 'Celebrities', 'World', 'Language'];
 
 
 
@@ -381,18 +381,18 @@ var partial;
 
 const newlist = list.map(
 
-      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}></li> )
+      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
     );
 
         return (
           <div>
             <div id="inner-flex-container">
                 <header>
-                    <div className='flex-item'>
                         <div id="logo">
+                            <img src="resources/logo.png" id="img"></img>
                         </div>
-                    </div>
                 </header>
+                <h1>Categories</h1>
                 <ul className="flex-container">{newlist}</ul>
             </div>
           </div>

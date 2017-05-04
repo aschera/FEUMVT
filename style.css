@@ -115,17 +115,17 @@
 
 html {
     height: 100%;
-    box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
+    box-sizing: border-box; 
 }
 
 *, *:before, *:after {
-  box-sizing: inherit; /* https://css-tricks.com/box-sizing/ */
+  box-sizing: inherit; 
 }
 
 body {
     margin: 0;
     min-height: 100%;
-    display: flex; /* body is the outer flex container */
+    display: flex;
     flex-flow: row wrap;
     text-align: center;
 }
@@ -148,7 +148,7 @@ footer  { flex: 1; }
 
 
 body{
-  background-image: url(resources/bg_yellow.png);
+  background-color: #d9d490;
   background-size: contain;
   margin: 0;
   color: white;
@@ -167,27 +167,35 @@ body{
 #menu{
   width: 220px;
   height: 100vh;
-  background-color: coral;
+  background-color: #998e00;
   background-size: contain;
   float: left;
 }
 
+/* Categoty items */
+
 #Culture{
-  background-image: url(resources/bg.culture.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
 #Sports {
-  background-image: url(resources/sports.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
 #Books{
-  background-image: url(resources/books.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
 #Celebrities{
-  background-image: url(resources/celebs.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
+#Movies{
+  background-color: #76cee8;
+}
+#World{
+  background-color: #76cee8;
+}
+#Language{
+  background-color: #76cee8;
+}
+
 .flex-container {
   padding: 0;
   margin: 0;
@@ -205,8 +213,8 @@ body{
 }
 .flex-item {
   padding: 5px;
-  width: 200px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   margin-bottom: 10px;
 
   color: black;
@@ -214,6 +222,11 @@ body{
   font-size: 2em;
 
 }
+
+h1{color:black;}
+
+/* questions  */ 
+
 .allquestions{
 
   color: black;
