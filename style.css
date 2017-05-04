@@ -39,7 +39,7 @@
    #customBtn {
       display: inline-block;
       background: white ; /* #DF4A32 */
-      width: 100px;
+      width: 120px;
       border-radius: 5px;
       border: thin solid black;
       box-shadow: 1px 1px 1px black;
@@ -76,7 +76,7 @@
    #customBtn1 {
       display: inline-block;
       background: white ; /* #DF4A32 */
-      width: 100px;
+      width: 120px;
       border-radius: 5px;
       border: thin solid black;
       box-shadow: 1px 1px 1px black;

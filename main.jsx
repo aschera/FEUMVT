@@ -23,7 +23,12 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                                <div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
+                                    <header id="main">
+                                            <div id="logo">
+                                                <img src="resources/logo.png" id="img"></img>
+                                            </div>
+                                    </header>
+                                <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/>
                             </div>
                             )
                     }// end if: something is selected
@@ -32,7 +37,12 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                                <div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
+                                    <header id="main">
+                                            <div id="logo">
+                                                <img src="resources/logo.png" id="img"></img>
+                                            </div>
+                                    </header>
+                                <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/>
                             </div>
                             )
                     } // end else: nothing selected
