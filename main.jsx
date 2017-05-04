@@ -273,15 +273,12 @@ class Login extends React.Component{
        
           
         <div className={this.state.loginClass}>
-    <div id="gSignInWrapper">
+            <div id="gSignInWrapper">
             <div id="customBtn" onClick= {this.component} className="customGPlusSignIn">
               <span className="icon"></span>
-              <span className="buttonText">Google</span>
+              <span className="buttonText">Google Login</span>
             </div>
           </div>
-          
-          <br />
-          <button onClick= {this.component} >Login with Google</button>
 
         </div>
 

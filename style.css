@@ -2,12 +2,11 @@
 
    #customBtn {
       display: inline-block;
-      background: white;
-      color: #444;
-      width: 190px;
+      background: white ; /* #DF4A32 */
+      width: 150px;
       border-radius: 5px;
-      border: thin solid #888;
-      box-shadow: 1px 1px 1px grey;
+      border: thin solid black;
+      box-shadow: 1px 1px 1px black;
       white-space: nowrap;
     }
     #customBtn:hover {
@@ -18,7 +17,7 @@
       font-weight: normal;
     }
     span.icon {
-      background: url('resources/g-normal.png') transparent 5px 50% no-repeat;
+      background: url('resources/google_logo_trans.png') transparent 5px 50% no-repeat;
       display: inline-block;
       vertical-align: middle;
       width: 42px;
@@ -27,7 +26,8 @@
     span.buttonText {
       display: inline-block;
       vertical-align: middle;
-      padding-left: 42px;
+        color: black;
+      padding-left: 5px;
       padding-right: 42px;
       font-size: 14px;
       font-weight: bold;
