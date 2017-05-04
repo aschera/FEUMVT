@@ -194,6 +194,11 @@ class Quizz extends React.Component{
 /* ---------------------------------THE LOGIN COMPONENT------------------------------------ */
 /* ---------------------------------------------------------------------------------------- */
 var mail;
+
+var divStyle = {
+  width: "5px",
+};
+
 class Login extends React.Component{
   constructor(props) {
     super(props);
@@ -206,6 +211,10 @@ class Login extends React.Component{
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
+      
+      this.handleClick = this.handleClick.bind(this);
+      this.Close = this.Close.bind(this);
+
 
       // two new functions
     this.updateUserData = this.updateUserData.bind(this);
@@ -269,21 +278,27 @@ class Login extends React.Component{
             this.updateEmail(data);
 
 		}
-
+    
+handleClick() {
+    this.setState({
+  width: "200px"
+})
+};
+    
+Close() {
+    this.setState({
+  width: "0px"
+})
+};    
 
   render(){
     return (
-        
         <div>
-            
-            
-         
-
-      <div id="menu">
-          
-       
-          
-        <div className={this.state.loginClass}>
+<div id="mySidenav" style={{width:this.state.width}} className="sidenav">
+  <button className="closebtn" onClick={this.Close}>&times;</button>
+    <div id="main">
+      <div id="menu"> 
+        <div className={this.state.loginClass} >
             <div id="gSignInWrapper">
             <div id="customBtn" onClick= {this.component} >
               <span className="icon"></span>
@@ -292,15 +307,9 @@ class Login extends React.Component{
           </div>
 
         </div>
-
-          
-          
-          
-          
+ 
         <div id="menuLoggedIn" className={this.state.loggedInClass}>
-            
-            
-            
+     
         <div id="gSignInWrapper">
             <div id="customBtn1" onClick={this.logOutUser} >
               <span className="icon"></span>
@@ -313,11 +322,11 @@ class Login extends React.Component{
 
                <h3>Your highscore</h3>
         </div>
-
+</div> 
       </div> 
-            
-            
-       </div> 
+</div> 
+<a href="javascript:void(0)" className="closebtn" onClick={this.handleClick}>&#9776; open</a>
+            </div>
     )
   }
 }
