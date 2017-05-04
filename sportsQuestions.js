@@ -1,27 +1,40 @@
 function getQuizData(updateSportsData) {
     var sportsQ = [];
        
-   var sports = [
-               {sport: 'Baseball',
-                abbrev: 'MLB',
-                id: 'baseball'},
-               {sport: 'footbal',
-                abbrev: 'NFL',
-                id: 'football'},
-               {sport: 'Hockey',
-                abbrev: 'NHL',
-                id: 'hockey'},
-               {sport: 'collage football',
-                abbrev: 'NCAAF',
-                id: 'collagefb'},
-    ];
+   var sports =[
+         {
+            "name" : "Baseball",
+            "pro_abbrev" : "MLB",
+            "id" : "baseball"
+         },
+         {
+            "name" : "Football",
+            "pro_abbrev" : "NFL",
+            "id" : "football"
+         },
+         {
+            "name" : "Hockey",
+            "pro_abbrev" : "NHL",
+            "id" : "hockey"
+         },
+         {
+            "name" : "Basketball",
+            "pro_abbrev" : "NBA",
+            "id" : "basketball"
+         },
+         {
+            "name" : "College Football",
+            "pro_abbrev" : "NCAAF",
+            "id" : "collegefb"
+         }
+      ]
         
-    for(let i=0; i<sports.length-1; i++) {
+    for( let i=0; i <= sports.length-1; i++ ) {
         //  sport abbrev and id
         let s = sports[i].sport;
-        let ab = sports[i].abbrev[Math.floor(Math.random() * allTheGoods[i].abbrev.length)];
-        let ids = sports[i].id[Math.floor(Math.random() * allTheGoods[i].id.length)];
-        let ids2 = sports[i].id[Math.floor(Math.random() * allTheGoods[i].id.length)];
+        let ab = sports[i].pro_abbrev[Math.floor(Math.random() * sports[i].pro_abbrev.length)];
+        let ids = sports[i].id[Math.floor(Math.random() * sports[i].id.length)];
+        let ids2 = sports[i].id[Math.floor(Math.random() * sports[i].id.length)];
         
         /*!!!!!!!!!!!!!AJAX!!!!!!!!!!!!!!!!!!!!!!!!!*/
         
@@ -32,23 +45,20 @@ function getQuizData(updateSportsData) {
         ajax.onreadystatechange = function() {
             if (ajax.status == 200 && ajax.readyState == 4) {
 
-                let json = JSON.parse(ajax.responseText);
+                let json =JSON.parse(ajax.responseText);
 
-    // question object#1 to send toreact-main component:
-    
-
-        // add to array
+        console.log('json', json.response);
         sportsQ.push({
           s1: sports,
-          s2: ids,
-          s3: ids2
+          s2: ab,
+          s3: ids
                     });
 
 updateSportsData(sportsQ);
 
             } else if (ajax.status != 200) {
                 console.log('Status:   Error', status)
-                status.innerHTML = 'Status:   Error';
+               
             }
         };
         ajax.send();
@@ -56,5 +66,4 @@ updateSportsData(sportsQ);
         }
     console.log('händer något??')
         }
-console.log('tajallalallala'+ getQuizData)
 getQuizData();
