@@ -41,14 +41,15 @@ class App extends React.Component {
                     return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                            <div id="inner-flex-container">
-                            <header>
-                                <div className='flex-item'>
-                                    <div id="logo">
-                                    </div>
-                                </div>
-                            </header>
-                            </div> </div>
+                                    <header id="main">
+                                            <div id="logo">
+                                                <img src="resources/logo.png" id="img"></img>
+                                                
+                                                <p>The QuiZZaro is designed to be very difficult. It will test your knowledge of a wide variety of information. It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.Nobody has ever gotten all 10 questions correct.</p>
+                                                
+                                            </div>
+                                    </header>
+                            </div>
                             )
                 }
 			}//end render
