@@ -131,7 +131,6 @@ class Quizz extends React.Component{
 		}
 	}
 	gameFinished(){
-		console.log("Game finished");
 		this.setState({
 			rightAnswers: this.points
 		});
@@ -146,8 +145,7 @@ class Quizz extends React.Component{
         var done = this.props.changeEntry('','');
         
 	     setTimeout(function(){
-			done;
-             console.log("done");
+			this.props.changeEntry('','');
 		 }, 5000); 
         console.log("Game finished");
          
