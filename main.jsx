@@ -58,6 +58,8 @@ class App extends React.Component {
 
  /* ------------------Get new set of questions------------------------------------------- */
 	changeEntry(x,y) {
+        console.log(x,y);
+        console.log('change state');
 		this.setState({
 			questions: x,
 			selected: y
@@ -66,7 +68,6 @@ class App extends React.Component {
 	
  /* ------------------Get new set of questions------------------------------------------- */
 	changeLogin(x) {
-        console.log(x);
 		this.setState({
 			loggedIn: x
 			});
