@@ -274,7 +274,7 @@ class Login extends React.Component{
           
         <div className={this.state.loginClass}>
             <div id="gSignInWrapper">
-            <div id="customBtn" onClick= {this.component} className="customGPlusSignIn">
+            <div id="customBtn" onClick= {this.component} >
               <span className="icon"></span>
               <span className="buttonText">Google Login</span>
             </div>
@@ -282,11 +282,27 @@ class Login extends React.Component{
 
         </div>
 
+          
+          
+          
+          
         <div id="menuLoggedIn" className={this.state.loggedInClass}>
+            
+            
+            
+        <div id="gSignInWrapper">
+            <div id="customBtn1" onClick={this.logOutUser} >
+              <span className="icon"></span>
+              <span className="buttonText1">Google Logout</span>
+            </div>
+          </div>
+            
                <h4>Signed in as:</h4>
             
-           <p>{this.state.userEmail}</p>
-               <button onClick={this.logOutUser}>Sign out</button>
+                <p>{this.state.userEmail}</p>
+            
+            
+               <button onClick={this.logOutUser}>Log out</button>
                <h3>Your highscore</h3>
         </div>
 
