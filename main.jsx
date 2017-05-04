@@ -276,7 +276,7 @@ class Login extends React.Component{
             <div id="gSignInWrapper">
             <div id="customBtn" onClick= {this.component} >
               <span className="icon"></span>
-              <span className="buttonText">Google Login</span>
+              <span className="buttonText">Login</span>
             </div>
           </div>
 
@@ -293,16 +293,13 @@ class Login extends React.Component{
         <div id="gSignInWrapper">
             <div id="customBtn1" onClick={this.logOutUser} >
               <span className="icon"></span>
-              <span className="buttonText1">Google Logout</span>
+              <span className="buttonText1">Logout</span>
             </div>
           </div>
             
                <h4>Signed in as:</h4>
-            
                 <p>{this.state.userEmail}</p>
-            
-            
-               <button onClick={this.logOutUser}>Log out</button>
+
                <h3>Your highscore</h3>
         </div>
 
