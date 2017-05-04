@@ -30,6 +30,7 @@
 }
 
 #img {
+    margin-top: 10px;
     height:180px;
     width: 250px;
 }
@@ -37,6 +38,7 @@
 /* button login */
 
    #customBtn {
+       margin-top: 10px;
       display: inline-block;
       background: white ; /* #DF4A32 */
       width: 120px;
@@ -74,6 +76,7 @@
 /* button logout */
 
    #customBtn1 {
+       margin-top: 10px;
       display: inline-block;
       background: white ; /* #DF4A32 */
       width: 120px;
