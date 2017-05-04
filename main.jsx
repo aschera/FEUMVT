@@ -188,7 +188,7 @@ class Login extends React.Component{
     super(props);
     this.state = {
       userEmail: "n/a",
-      loginText: "Not logged in",
+      loginText: " ",
       loginClass: "show",
       loggedInClass: "hide"
     }
@@ -263,7 +263,22 @@ class Login extends React.Component{
   render(){
     return (
         
+        <div>
+            
+            
+         
+
       <div id="menu">
+          
+          <div id="gSignInWrapper">
+            <div id="customBtn" onClick= {this.component} className="customGPlusSignIn">
+              <span className="icon"></span>
+              <span className="buttonText">Google</span>
+            </div>
+          </div>
+          
+          <br />
+          
         <div id="menuLogin" className={this.state.loginClass}>
           <button onClick= {this.component} >Login with Google</button>
           <p>{this.state.loginText}</p>
@@ -278,7 +293,9 @@ class Login extends React.Component{
         </div>
 
       </div> 
-        
+            
+            
+       </div> 
     )
   }
 }
