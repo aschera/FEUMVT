@@ -34,7 +34,7 @@ class App extends React.Component {
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
 
-                                <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/>
+                                <Quizz changeLogin = {this.changeLogin} items= {this.state.questions} changeEntry = {this.changeEntry}/>
                             </div>
                             )
                     } // end else: nothing selected
@@ -146,6 +146,7 @@ class Quizz extends React.Component{
 	     setTimeout(function(){
 			location.reload();
 		 }, 1000);
+         this.props.changeLogin(true);
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
 	printQuestions(){
