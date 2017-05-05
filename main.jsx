@@ -295,7 +295,7 @@ Close() {
     return (
         <div>
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
-  <button className="closebtn" onClick={this.Close}>&times;</button>
+  <button className="closebtn" id="close" onClick={this.Close}>Close</button>
     <div id="main">
       <div id="menu"> 
         <div className={this.state.loginClass} >
@@ -325,7 +325,7 @@ Close() {
 </div> 
       </div> 
 </div> 
-<a href="javascript:void(0)" className="closebtn" onClick={this.handleClick}>&#9776; open</a>
+<button id="open" className="closebtn" onClick={this.handleClick}>&#9776; Open</button>
             </div>
     )
   }

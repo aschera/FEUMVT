@@ -3,7 +3,7 @@
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
+    width: 200px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0;
@@ -37,9 +37,23 @@
     color:black;
     right: 5px;
     font-size: 12px;
-    margin-left: 50px;
     float: left;
-}f
+}
+#close {
+    background-color: #8fa1b3;
+    color:#76cee8;
+    margin:0.3em;
+    height: 25px;
+    width: 45px;
+}
+
+#open {
+    background-color: #8fa1b3;
+    color:#76cee8;
+    margin:0.3em;
+    height: 25px;
+    width: 75px;
+}
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
@@ -228,12 +242,13 @@ body{
 }
 
 #menu{
+    margin-top: 2em;
   width: 220px;
   height: 200vh;
   background-color: #998e00;
   background-size: contain;
   float: left;
-    overflow: hidden;
+   overflow: hidden;
 }
 
 #introText{font-size: 1.7em; text-align: left; margin-left: 20px;}
