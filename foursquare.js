@@ -4,25 +4,25 @@ var questions = [];
 
        var allTheGoods =
            [
-               {category: 'opera',
-                items: ['London', 'Stockholm', 'New York', 'Amsterdam', 'Rome', 'Tallinn', 'Venice'],
+               {category: 'Opera house',
+                items: ['Venice', 'London', 'Rome', 'Tallinn'],
+                fake: ['Amsterdam', 'London', 'Stockholm', 'New York', 'Buenos Aires']},
+
+               {category: 'University',
+                items: ['Amsterdam','Bern'],
                 fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
 
-               {category: 'university',
-                items: ['Amsterdam','Copenhagen','Bern'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
-
-               {category: 'Arts',
-                items: ['New York', 'Athen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+               {category: 'Museum',
+                items: ['London', 'New York', 'Tallinn', 'Venice', 'Stockholm','Malmö', 'Frankfurt', 'Florence', 'Lisbon', 'Brussels'],
+                fake: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai']},
 
                {category: 'Historic Site',
-                items: ['Stockholm','Rome','New York', 'Copenhagen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                items: ['Rome', 'Stockholm'],
+                fake: ['Lisbon', 'Brussels', 'Malmo', 'Florence', 'Mumbai', 'Frankfurt', 'Berlin', 'Copenhagen' ]},
 
                {category: 'Theatre',
-                items: ['Stockholm','Rome','New York', 'Copenhagen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                items: ['London', 'New York', 'Stockholm', 'Amsterdam','Rome', 'Brussels', 'Cairo', 'Washington'],
+                fake: ['Tallin', 'Lisbon']},
 
            ];
 
@@ -84,11 +84,11 @@ var questions = [];
                 let json = JSON.parse(ajax.responseText);
 
     // question object#1 to send toreact-main component:
-    let n = 'In which city can you find the ' + category + '? ' + json.response.venues[0].name
-
+    let n = 'In which city can you find the ' + category + '?';
+    let m = json.response.venues[0].name;
         // add to array
         questions.push({
-          text: n,
+          text: (n + ' ' + m),
           a1: city,
           a2: fakecity1,
           a3: fakecity2

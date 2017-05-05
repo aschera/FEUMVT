@@ -1,62 +1,288 @@
-body{
-  background-image: url(resources/bg.png);
-  background-size: cover;
-  margin: 0;
-}
-#logo{
-  background-image: url(resources/logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height:100px;
-}
-#menu{
-  width: 220px;
-  height: 100vh;
-  border: 1px solid black;
-  background-image: url(resources/bg2.png);
-  background-size: contain;
-  float: left;
-  padding-top: 20px;
-    color:white;
-}
-#menuLoggedIn, #menuLogin, #allquestions, #results{
-  /*
-  padding: 0;
-  margin: 0;
-  list-style: none;
+/* panel  */
 
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 200px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #998e00;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow: hidden;
+    padding-top: 20px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    color:black;
+    right: 5px;
+    font-size: 12px;
+    float: left;
+}
+#close {
+    background-color: #8fa1b3;
+    color:#76cee8;
+    margin:0.3em;
+    height: 25px;
+    width: 45px;
+}
+
+#open {
+    background-color: #8fa1b3;
+    color:#76cee8;
+    margin:0.3em;
+    height: 25px;
+    width: 75px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    margin-left: 25%;
+    
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+
+/* ************************************************* */
+/* logo */
+
+#main {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
 
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-    */
+  -webkit-flex-flow: row;
+  justify-content:;
 }
+.flex-item1 {
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+
+
+  line-height: 150px;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+#logo{
+    min-width: 450px;
+    color: black;
+    margin-left: 12em;
+}
+
+#img {
+    margin-top: 10px;
+    height:80px;
+    width: 130px;
+    margin-left: 12em;
+    /*Goudy old style*/
+}
+
+/* button login */
+
+   #customBtn {
+       margin-top: 10px;
+      display: inline-block;
+      background: white ; /* #DF4A32 */
+      width: 120px;
+      border-radius: 5px;
+      border: thin solid black;
+      box-shadow: 1px 1px 1px black;
+      white-space: nowrap;
+    }
+    #customBtn:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('resources/google_logo_trans.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+    }
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+      color: black;
+      padding-left: 5px;
+      padding-right: 42px;
+      font-size: 1em;
+      font-weight: bold;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+
+/* button logout */
+
+   #customBtn1 {
+       margin-top: 10px;
+      display: inline-block;
+      background: white ; /* #DF4A32 */
+      width: 120px;
+      border-radius: 5px;
+      border: thin solid black;
+      box-shadow: 1px 1px 1px black;
+      white-space: nowrap;
+    }
+    #customBtn1:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('resources/google_logo_trans.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+    }
+    span.buttonText1 {
+      display: inline-block;
+      vertical-align: middle;
+      color: black;
+      padding-left: 5px;
+      padding-right: 42px;
+      font-size: 1em;
+      font-weight: bold;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+
+/* flex setup */ 
+
+html {
+    height: 100%;
+    box-sizing: border-box; 
+}
+
+*, *:before, *:after {
+  box-sizing: inherit; 
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#inner-flex-container {
+    margin-left: 18%;
+    margin-right: 15%;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 250px);
+}
+
+aside   { flex: 1 250px; }
+header  { flex: 1; }
+section { flex: 4; }
+footer  { flex: 1; }
+
+
+/*    *****   */ 
+
+
+
+#username{font-size: 1.7em;}
+
+body{
+  background-color: #d9d490;
+  background-size: contain;
+  margin: 0;
+  color: white;
+}
+
+/* main */ 
+#outer {
+  width: 250px;
+  margin-right: 50%;
+  margin-left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu{
+    margin-top: 2em;
+  width: 220px;
+  height: 200vh;
+  background-color: #998e00;
+  background-size: contain;
+  float: left;
+   overflow: hidden;
+}
+
+#introText{font-size: 1.7em; text-align: left; margin-left: 20px;}
+
+/* Categoty items */
+
 #Culture{
-  background-image: url(resources/bg.culture.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
 #Sports {
-  background-image: url(resources/sports.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
 #Books{
-  background-image: url(resources/books.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
 #Celebrities{
-  background-image: url(resources/celebs.png);
-  background-size: cover;
+  background-color: #76cee8;
 }
+#Movies{
+  background-color: #76cee8;
+}
+#World{
+  background-color: #76cee8;
+}
+#Language{
+  background-color: #76cee8;
+}
+
 .flex-container {
   padding: 0;
   margin: 0;
   list-style: none;
-  
 
+  display: none;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -67,27 +293,43 @@ body{
   justify-content: space-around;
 }
 .flex-item {
-  padding: 5px;
-  width: 200px;
-  height: 150px;
-  margin-top: 10px;
-
-  line-height: 150px;
+  padding: 10px;
+  width: 300px;
+  height: 250px;
+  margin-bottom: 20px;
+  margin-right: 10px;
   color: black;
   font-weight: bold;
   font-size: 2em;
-  text-align: center;
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
+
+h1{font-size: 4em; color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif; }
+
+p{font-size: 2em;color:black; font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;}
+
+/* questions  */ 
+
 .allquestions{
+
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
   width: 600px;
+    
+  padding: 5px;
+  padding-left: 227px;
+    
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 .question{
-  border: 1px solid grey;
-  text-align: center;
+  
+}
+.questionText{
+  margin-bottom: 10px;
 }
 .show{
   display: block;
@@ -99,7 +341,7 @@ body{
   display: flex;
   flex-direction: row;
   margin-bottom: 5px;
-  margin-top: 10px;
+
 }
 .answers button{
   margin-right: 10px;
