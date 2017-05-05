@@ -8,9 +8,10 @@
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #111; /* Black*/
+    background-color: #998e00;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    overflow: hidden;
+    padding-top: 20px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
@@ -33,16 +34,18 @@
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
+    color:black;
+    right: 5px;
+    font-size: 12px;
     margin-left: 50px;
     float: left;
-}
+}f
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
-    padding: 20px;
+    margin-left: 25%;
+    
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -82,12 +85,14 @@
 #logo{
     min-width: 450px;
     color: black;
+    margin-left: 12em;
 }
 
 #img {
     margin-top: 10px;
     height:80px;
     width: 130px;
+    margin-left: 12em;
     /*Goudy old style*/
 }
 
@@ -184,12 +189,14 @@ body {
     display: flex;
     flex-flow: row wrap;
 }
-/*
+
 #inner-flex-container {
+    margin-left: 18%;
+    margin-right: 15%;
     display: flex;
     flex-direction: column;
     width: calc(100% - 250px);
-}*/
+}
 
 aside   { flex: 1 250px; }
 header  { flex: 1; }
@@ -226,6 +233,7 @@ body{
   background-color: #998e00;
   background-size: contain;
   float: left;
+    overflow: hidden;
 }
 
 #introText{font-size: 1.7em; text-align: left; margin-left: 20px;}
@@ -270,11 +278,11 @@ body{
   justify-content: space-around;
 }
 .flex-item {
-  padding: 5px;
+  padding: 10px;
   width: 300px;
-  height: 300px;
-  margin-bottom: 10px;
-
+  height: 250px;
+  margin-bottom: 20px;
+  margin-right: 10px;
   color: black;
   font-weight: bold;
   font-size: 2em;
