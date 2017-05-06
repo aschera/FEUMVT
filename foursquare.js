@@ -5,24 +5,29 @@ var questions = [];
        var allTheGoods =
            [
                {category: 'Opera house',
-                items: ['Venice', 'London', 'Rome', 'Tallinn', 'São Paulo', 'Jakarta' ,'Mexico City' ,'New York City', 'Ankara', 'Los Angeles'],
-                fake: ['Tokyo','Guangzhou','Mumbai','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires']},
+                items: ['Venice', 'London', 'Rome', 'Tallinn', 'São Paulo','Mexico City' ,'New York City', 'Ankara', 'Los Angeles'],
+                fake1: ['Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires','Jakarta'],
+                fake2: ['Tokyo','Guangzhou','Mumbai','Moscow','Lahore', 'Karachi' ,'Beijing']},
 
                {category: 'University',
                 items: ['Amsterdam','Bern'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt', 'Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires']},
+                fake1: ['Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires'],
+                fake2: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt', 'Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi']},
 
                {category: 'Museum',
                 items: ['London', 'New York', 'Tallinn', 'Venice', 'Stockholm','Malmö', 'Frankfurt', 'Florence', 'Lisbon', 'Brussels'],
-                fake: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai','Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires']},
+                fake1: ['Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires'],
+                fake2: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai','Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka']},
 
                {category: 'Historic Site',
                 items: ['Rome', 'Stockholm'],
-                fake: ['Lisbon', 'Brussels', 'Malmo', 'Florence', 'Mumbai', 'Frankfurt', 'Berlin', 'Copenhagen' ]},
+                fake1: ['Mumbai', 'Frankfurt', 'Berlin', 'Copenhagen' ],
+                fake2: ['Lisbon', 'Brussels', 'Malmo', 'Florence']},
 
                {category: 'Theatre',
                 items: ['London', 'New York', 'Stockholm', 'Amsterdam','Rome', 'Brussels', 'Cairo', 'Washington'],
-                fake: ['Tallin', 'Lisbon']},
+                fake1: ['Lisbon'],
+                fake2: ['Tallin']},
 
            ];
 
@@ -38,8 +43,8 @@ var questions = [];
             let city = allTheGoods[i].items[Math.floor(Math.random() * allTheGoods[i].items.length)];
 
             // fake
-            let fakecity1 = allTheGoods[i].fake[Math.floor(Math.random() * allTheGoods[i].fake.length)];
-            let fakecity2 = allTheGoods[i].fake[Math.floor(Math.random() * allTheGoods[i].fake.length)];
+            let fakecity1 = allTheGoods[i].fake1[Math.floor(Math.random() * allTheGoods[i].fake1.length)];
+            let fakecity2 = allTheGoods[i].fake2[Math.floor(Math.random() * allTheGoods[i].fake2.length)];
 
 /* --------------------------------Ajax URL------------------------------------------------------- */
 
