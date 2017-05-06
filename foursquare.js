@@ -84,11 +84,11 @@ var questions = [];
                 let json = JSON.parse(ajax.responseText);
 
     // question object#1 to send toreact-main component:
-    let n = 'In which city can you find the ' + category + '?';
-    let m = json.response.venues[0].name;
+    let n = 'Where can you find the ' + category + ': "' + json.response.venues[0].name + '"' + '?';
+ 
         // add to array
         questions.push({
-          text: (n + ' ' + m),
+          text: n,
           a1: city,
           a2: fakecity1,
           a3: fakecity2

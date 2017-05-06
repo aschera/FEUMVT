@@ -406,7 +406,7 @@ const newlist = list.map(
                         </div>
                 </header>
                 <h1>Categories</h1>
-                <p>Choose a category to begin the Quiz!</p>
+                <p>Please, choose a category to begin the Quiz!</p>
                 <ul className="flex-container">{newlist}</ul>
             </div>
           </div>
