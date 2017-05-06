@@ -5,16 +5,16 @@ var questions = [];
        var allTheGoods =
            [
                {category: 'Opera house',
-                items: ['Venice', 'London', 'Rome', 'Tallinn'],
-                fake: ['Amsterdam', 'London', 'Stockholm', 'New York', 'Buenos Aires']},
+                items: ['Venice', 'London', 'Rome', 'Tallinn', 'São Paulo', 'Jakarta' ,'Mexico City' ,'New York City', 'Ankara', 'Los Angeles'],
+                fake: ['Tokyo','Guangzhou','Mumbai','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires']},
 
                {category: 'University',
                 items: ['Amsterdam','Bern'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt', 'Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires']},
 
                {category: 'Museum',
                 items: ['London', 'New York', 'Tallinn', 'Venice', 'Stockholm','Malmö', 'Frankfurt', 'Florence', 'Lisbon', 'Brussels'],
-                fake: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai']},
+                fake: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai','Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires']},
 
                {category: 'Historic Site',
                 items: ['Rome', 'Stockholm'],
