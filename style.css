@@ -34,9 +34,17 @@ a {
 	text-transform: uppercase;
 }
 
+
+/* hover over category effects */
+
 li:hover {
 	color: #fff;
 	border-bottom: 2px solid #fff;
+ transform: scale(1.2, 1.05);
+ -moz-transform: scale(1.2, 1.05);
+-ms-transform: scale(1.2, 1.05);
+-webkit-transform: scale(1.2, 1.05);
+-o-transform: scale(1.2, 1.05);
 }
 
 
