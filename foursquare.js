@@ -4,25 +4,30 @@ var questions = [];
 
        var allTheGoods =
            [
-               {category: 'opera',
-                items: ['London', 'Stockholm', 'New York', 'Amsterdam', 'Rome', 'Tallinn', 'Venice'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+               {category: 'Opera house',
+                items: ['Venice', 'London', 'Rome', 'Tallinn', 'São Paulo','Mexico City' ,'New York City', 'Ankara', 'Los Angeles'],
+                fake1: ['Dhaka' ,'Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires','Jakarta'],
+                fake2: ['Tokyo','Guangzhou','Mumbai','Moscow','Lahore', 'Karachi' ,'Beijing']},
 
-               {category: 'university',
-                items: ['Amsterdam','Copenhagen','Bern'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+               {category: 'University',
+                items: ['Amsterdam','Bern'],
+                fake1: ['Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires'],
+                fake2: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt', 'Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi']},
 
-               {category: 'Arts',
-                items: ['New York', 'Athen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+               {category: 'Museum',
+                items: ['London', 'New York', 'Tallinn', 'Venice', 'Stockholm','Malmö', 'Frankfurt', 'Florence', 'Lisbon', 'Brussels'],
+                fake1: ['Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires'],
+                fake2: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai','Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka']},
 
                {category: 'Historic Site',
-                items: ['Stockholm','Rome','New York', 'Copenhagen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                items: ['Rome', 'Stockholm'],
+                fake1: ['Mumbai', 'Frankfurt', 'Berlin', 'Copenhagen' ],
+                fake2: ['Lisbon', 'Brussels', 'Malmo', 'Florence']},
 
                {category: 'Theatre',
-                items: ['Stockholm','Rome','New York', 'Copenhagen'],
-                fake: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt']},
+                items: ['London', 'New York', 'Stockholm', 'Amsterdam','Rome', 'Brussels', 'Cairo', 'Washington'],
+                fake1: ['Lisbon'],
+                fake2: ['Tallin']},
 
            ];
 
@@ -38,8 +43,8 @@ var questions = [];
             let city = allTheGoods[i].items[Math.floor(Math.random() * allTheGoods[i].items.length)];
 
             // fake
-            let fakecity1 = allTheGoods[i].fake[Math.floor(Math.random() * allTheGoods[i].fake.length)];
-            let fakecity2 = allTheGoods[i].fake[Math.floor(Math.random() * allTheGoods[i].fake.length)];
+            let fakecity1 = allTheGoods[i].fake1[Math.floor(Math.random() * allTheGoods[i].fake1.length)];
+            let fakecity2 = allTheGoods[i].fake2[Math.floor(Math.random() * allTheGoods[i].fake2.length)];
 
 /* --------------------------------Ajax URL------------------------------------------------------- */
 
@@ -84,8 +89,8 @@ var questions = [];
                 let json = JSON.parse(ajax.responseText);
 
     // question object#1 to send toreact-main component:
-    let n = 'In which city can you find the ' + category + '? ' + json.response.venues[0].name
-
+    let n = 'Where can you find the ' + category + ': "' + json.response.venues[0].name + '"' + '?';
+ 
         // add to array
         questions.push({
           text: n,

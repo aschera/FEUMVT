@@ -1,3 +1,5 @@
+function getMovieFromFirebase(updateCountryData) {
+       
 var movies = {
   apiKey: "8f9cb0455f3b5cefb95acc1c35525622";
   popularMovies: [];
@@ -108,4 +110,8 @@ REPSONE MOVIE DETAIL
   "vote_average": 6.8,
   "vote_count": 2212
 }
-*/
+*/ 
+    
+}
+
+// end getDataFromFirebase function.

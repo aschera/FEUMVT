@@ -1,54 +1,95 @@
 class App extends React.Component {
 
-		constructor(props) {
-			super(props);
+	constructor(props) {
+		super(props);
 			this.state = {
-								selected: '',
-								questions: [{
-															text: "",
-															a1: "",
-															a2: "",
-															a3: ""
-														}]
+					selected: '',
+					loggedIn: false,
+					questions: [{
+							text: "",
+							a1: "",
+							a2: "",
+							a3: ""
+					}]
 			};
 
-						this.changeEntry = this.changeEntry.bind(this);
-
-		}
-
-			render(){
-
-								if(this.state.selected === '') {
-														return (
-													<div>
-														<Login />
-														<div> <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
-													</div>
-														)
-								}
-								else {
-
-														return (
-															<div>
-																<Login />
-																<div> <Quizz items= {this.state.questions} changeEntry = {this.changeEntry}/> </div>
-															</div>
-																)
-								}
-
+				this.changeEntry = this.changeEntry.bind(this);
+				this.changeLogin = this.changeLogin.bind(this);
 			}
 
+			render(){
+                if(this.state.loggedIn === true) {
+                    if(this.state.selected === '') {
+                        return (
+                            <div>
+                                <Login changeLogin = {this.changeLogin}/>
+     
+                                <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/>
+                            </div>
+                            )
+                    }// end if: something is selected
+                    else {
+
+                        return (
+                            <div>
+                                <Login changeLogin = {this.changeLogin}/>
+                                
+                                        <div id="flex-container">
+                                            <div id="flex-itemX">
+                                                <div id="logo">
+                                                    <img src="resources/logo_new.png" id="img"></img>
+                                                </div>
+                                                <h5>Category: {this.state.selected}</h5>
+                                                        <Quizz changeLogin = {this.changeLogin} items= {this.state.questions} changeEntry = {this.changeEntry}/>
+                                            </div>
+                                        </div>
+                                
+                            </div>
+                            )
+                    } // end else: nothing selected
+                }// end logged in:test
+                else {
+                    return (
+                            <div>
+                                <Login changeLogin = {this.changeLogin}/>
+                                    
+                                    <div id="flex-container">
+                                        <div id="flex-itemX">
+                                           
+                                                <div id="logo">
+                                                <img src="resources/logo_new.png" id="img"></img>
+                                                </div>
+        
+                                            <p>
+                                                <br /><br /><br />
+                                                The QuiZZaro is designed to be very difficult. <br />
+                                                It will test your knowledge of a wide variety of information.<br /> 
+                                                It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
+                                                Nobody has ever gotten all 10 questions correct.</p>
+                                        </div>
+                                    </div>
+                            </div>      
+    
+                            )
+                }
+			}//end render
+
  /* ------------------Get new set of questions------------------------------------------- */
-				changeEntry(x,y) {
+	changeEntry(x,y) {
 
-			 this.setState({
-				questions: x,
-								selected: y
+		this.setState({
+			questions: x,
+			selected: y
 			});
-
 		}
-
-	}
+	
+ /* ------------------Get new set of questions------------------------------------------- */
+	changeLogin(x) {
+		this.setState({
+			loggedIn: x
+			});
+		}
+}
 
 /* ---------------------------------------------------------------------------------------- */
 /* -------------------------THE Quiz COMPONENT---------------------------------------------- */
@@ -87,9 +128,9 @@ class Quizz extends React.Component{
 		return [`a${first} `,`a${second} `,`a${third} `];
 	}
 	clickAnswerCorrect(event){
-		console.log("Before: ", this.points);
+
 		this.points++;
-		console.log("After: ", this.points);
+
 		this.clickAnswer(event);
 	}
 	clickAnswer(event){
@@ -108,7 +149,6 @@ class Quizz extends React.Component{
 		}
 	}
 	gameFinished(){
-		console.log("Game finished");
 		this.setState({
 			rightAnswers: this.points
 		});
@@ -119,9 +159,13 @@ class Quizz extends React.Component{
 		// SEND HIGHSCORE TO DATABASE
 
 		document.getElementById("results").className = "results show";
-	/*  setTimeout(function(){
-			location.reload();
-		}, 1000); */
+        
+        var done = this.props.changeEntry('','');
+        
+	    setTimeout( done, 1000 );
+        
+
+         
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
 	printQuestions(){
@@ -133,24 +177,26 @@ class Quizz extends React.Component{
 				qClass = "question show";
 			let sequence = this.randomizeAnswers();
 			let html = (
-				<div key={key++} className={qClass} id={key}>
-					<div className="questionText">{question.text}</div>
-					<div className="answers">
-						<button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
-						<button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
-						<button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
-					</div>
-				</div>);
+                        <div key={key++} className={qClass} id={key}>
+                            <div className="questionText">{question.text}</div>
+                            <div className="answers">
+                                <button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
+                                <button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
+                                <button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
+                            </div>
+                        </div>
+                        );
 			loopedQuestions.push(html);
 		});
 		return loopedQuestions;
+
 	}
 	render(){
 		return (
 			<div>
 				<div className="allquestions">{this.printQuestions()}</div>
 				<div id="results" className="results hide">
-					<h2>Congratulations!</h2> //Change to state, text depending on percent right
+					<h2>Congratulations!</h2> 
 					<h3>You answered {this.state.rightAnswers} out of 3</h3>
 				</div>
 			</div>
@@ -163,25 +209,34 @@ class Quizz extends React.Component{
 /* ---------------------------------THE LOGIN COMPONENT------------------------------------ */
 /* ---------------------------------------------------------------------------------------- */
 var mail;
+
+var divStyle = {
+  width: "5px",
+};
+
 class Login extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
       userEmail: "n/a",
-      loginText: "Not logged in",
+      loginText: " ",
       loginClass: "show",
       loggedInClass: "hide"
     }
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
+      
+      this.handleClick = this.handleClick.bind(this);
+      this.Close = this.Close.bind(this);
+
 
       // two new functions
     this.updateUserData = this.updateUserData.bind(this);
     this.component = this.component.bind(this);
   }
   updateEmail(mail){
-    console.log("Mail", mail);
+
     this.setState({
       userEmail: mail,
       loginText: "Succesfully logged in",
@@ -190,6 +245,7 @@ class Login extends React.Component{
     });
   }
   logOutUser() {
+    this.props.changeLogin(false);
   	firebase.auth().signOut().then(function(result) {
     }).catch(function(error) {
   	// Utloggning misslyckades
@@ -227,34 +283,63 @@ class Login extends React.Component{
     // New stuff below.
   component() {
       this.logInGoogle(this.updateUserData);
-      console.log('mounted!');
-
+ 
+      this.props.changeLogin(true);
 		}
 
   updateUserData(data) {
-            console.log('update user');
             this.updateEmail(data);
 
 		}
-
+    
+handleClick() {
+    this.setState({
+  width: "200px"
+})
+};
+    
+Close() {
+    this.setState({
+  width: "0px"
+})
+};    
 
   render(){
     return (
-      <div id="menu">
-        <div id="menuLogin" className={this.state.loginClass}>
-          <button onClick= {this.component} >Login with Google</button>
-          <p>{this.state.loginText}</p>
-        </div>
+        <div>
+<div id="mySidenav" style={{width:this.state.width}} className="sidenav">
+  <button className="closebtn" id="close" onClick={this.Close}>Close</button>
+    <div id="main">
+      <div id="menu"> 
+        <div className={this.state.loginClass} >
+            <div id="gSignInWrapper">
+            <div id="customBtn" onClick= {this.component} >
+              <span className="icon"></span>
+              <span className="buttonText">Login</span>
+            </div>
+          </div>
 
+        </div>
+ 
         <div id="menuLoggedIn" className={this.state.loggedInClass}>
+     
+        <div id="gSignInWrapper">
+            <div id="customBtn1" onClick={this.logOutUser} >
+              <span className="icon"></span>
+              <span className="buttonText1">Logout</span>
+            </div>
+          </div>
+            
                <h4>Signed in as:</h4>
-            \n
-           <p>{this.state.userEmail}</p>
-               <button onClick={this.logOutUser}>Sign out</button>
+                <p id="username">{this.state.userEmail}</p>
+
                <h3>Your highscore</h3>
         </div>
-
-      </div>
+</div> 
+      </div> 
+</div> 
+<button id="open" className="closebtn" onClick={this.handleClick}>&#9776; Open</button>
+            </div>
     )
   }
 }
@@ -264,7 +349,7 @@ class Login extends React.Component{
 /* ---------------------------------------------------------------------------------------- */
 
 /*ALL the categories */
-const list = ['Culture', 'Sports', 'Books', 'Celebrities'];
+const list = ['Culture', 'Sports', 'Movies', 'Celebrities', 'World', 'Language'];
 
 
 
@@ -274,11 +359,11 @@ class MyList extends React.Component {
 			super(props);
 
 			this.handleChooseCategory = this.handleChooseCategory.bind(this);
-						this.updateCountryData = this.updateCountryData.bind(this);
+			this.updateCountryData = this.updateCountryData.bind(this);
 
 			this.state = {
 				selected:'',
-								questions: []
+				questions: []
 			}
 		}
 /* ---------------------Click event---------------------------------------- */
@@ -294,24 +379,34 @@ handleChooseCategory(event) {
 
 			} else {
 				x = true;
-
-										getDataFromFirebase(this.updateCountryData);
-
+                
+                if (event.target.id === 'Culture'){
+                   console.log(event.target.id);
+                   getDataFromFirebase(this.updateCountryData); 
+                }
+                else if(event.target.id === 'Movies'){
+                    console.log(event.target.id);
+                    console.log('returns a bad format!');
+                    getMovieFromFirebase(this.updateCountryData); 
+                }
+                else if(event.target.id === 'World'){
+                    console.log(event.target.id);
+                    console.log('returns a bad format!');
+                    getWorldFromFirebase(this.updateCountryData); 
+                }
+                
 			}
 			this.setState({
 				selected: theOne
 			});
-
+            
 		}
 
 /* ---------------------API event---------------------------------------- */
-updateCountryData(data) {
-
-
+	updateCountryData(data) {
 		let category = this.state.selected;
 
-this.props.changeEntry(data,category);
-
+		this.props.changeEntry(data,category);
 		this.setState({
 				questions: data
 			});
@@ -325,12 +420,21 @@ var partial;
 
 const newlist = list.map(
 
-      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}></li> )
+      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {x}</li> )
     );
 
         return (
           <div>
-            <ul className="flex-container">{newlist}</ul>
+            <div id="inner-flex-container">
+                <header>
+                        <div id="logo">
+                            <img src="resources/logo_new.png" id="img"></img>
+                        </div>
+                </header>
+                <h1>Categories</h1>
+                <p>Please, choose a category to begin the Quiz!</p>
+                <ul className="flex-container">{newlist}</ul>
+            </div>
           </div>
         );
       }

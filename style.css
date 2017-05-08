@@ -1,56 +1,368 @@
-body{
-  background-image: url(resources/bg.png);
-  background-size: cover;
-  margin: 0;
-  color: white;
-}
-#logo{
-  background-image: url(resources/logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height:100px;
-}
-#menu{
-  width: 220px;
-  height: 100vh;
-  border: 1px solid black;
-  background-image: url(resources/bg2.png);
-  background-size: contain;
-  float: left;
-  padding-top: 20px;
-}
-#menuLoggedIn, #menuLogin, #allquestions, #results{
-  /*
-  padding: 0;
-  margin: 0;
-  list-style: none;
+/* test  */
+h1 {
+	color: #fff;
+	font-family: 'Cormorant Garamond';
+    border-bottom: 1px solid #76cee8;
+	font-size: 3em;
+	font-weight: 400;
+	line-height: 1em;
+	margin-bottom: 1em;
+	text-align: center;
+    color:black;
+	text-transform: uppercase;
 
+}
+h5{
+  	color: #black;
+	font-family: 'Cormorant Garamond';
+    border-bottom: 1px solid #76cee8;
+	font-size: 2em;
+	font-weight: 400;
+	line-height: 1em;
+	margin-bottom: 1em;
+	text-align: center;
+    color:black;
+	text-transform: uppercase;  
+}
+
+p {
+	color: black;
+	font-family: 'Cormorant Garamond';
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 1em;
+	margin: 0 auto 1em;
+}
+
+a {
+	color: #e66c7e;	border-bottom: 2px solid #e66c7e;
+	font-family: 'Cormorant Garamond';
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+
+/* hover over category effects */
+
+li:hover {
+	color: #fff;
+	border-bottom: 2px solid #fff;
+ transform: scale(1.2, 1.05);
+ -moz-transform: scale(1.2, 1.05);
+-ms-transform: scale(1.2, 1.05);
+-webkit-transform: scale(1.2, 1.05);
+-o-transform: scale(1.2, 1.05);
+}
+
+
+
+
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: ; /* 100% Full-height */
+    width: 200px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #76cee8;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow: hidden;
+    padding-top: 20px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    color:black;
+    right: 5px;
+    font-size: 12px;
+    float: left;
+}
+#close {
+    background-color: #8fa1b3;
+    color:#76cee8;
+    margin:0.3em;
+    height: 25px;
+    width: 45px;
+}
+
+#open {
+    background-color: #8fa1b3;
+    color:#76cee8;
+    margin:0.3em;
+    margin-left: 5%;
+    height: 25px;
+    width: 75px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    margin-left: 5%;
+    
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+
+/* ************************************************* */
+/* logo */
+
+#main {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
 
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-    */
+  -webkit-flex-flow: row;
+  justify-content:;
 }
+.flex-item1 {
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+
+
+  line-height: 150px;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+#logo{
+    color: black;
+    text-align: center;
+}
+
+.root{width: 100%;}
+
+#logo_center {  
+  justify-content: center;
+  align-items: center;
+  margin-left: 170px;
+}
+
+#img {
+    margin-top: 10px;
+    height:150px;
+    width: 250px;
+    /*Goudy old style*/
+}
+
+/* button login */
+
+   #customBtn {
+      margin-top: 10px;
+      display: inline-block;
+      background: white ; /* #DF4A32 */
+      width: 120px;
+      border-radius: 5px;
+      border: thin solid black;
+      box-shadow: 1px 1px 1px black;
+      white-space: nowrap;
+    }
+    #customBtn:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('resources/google_logo_trans.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+    }
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+      color: black;
+      padding-left: 5px;
+      padding-right: 42px;
+      font-size: 1em;
+      font-weight: bold;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+
+/* button logout */
+
+   #customBtn1 {
+      margin-top: 10px;
+      display: inline-block;
+      background: white ; /* #DF4A32 */
+      width: 120px;
+      border-radius: 5px;
+      border: thin solid black;
+      box-shadow: 1px 1px 1px black;
+      white-space: nowrap;
+    }
+    #customBtn1:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('resources/google_logo_trans.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+    }
+    span.buttonText1 {
+      display: inline-block;
+      vertical-align: middle;
+      color: black;
+      padding-left: 5px;
+      padding-right: 42px;
+      font-size: 1em;
+      font-weight: bold;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+
+/* flex setup */ 
+
+html {
+    height: 100%;
+    box-sizing: border-box; 
+}
+
+*, *:before, *:after {
+  box-sizing: inherit; 
+}
+
+body {
+    display: flex;
+    flex-flow: row wrap;
+    width:100%;
+    background-color: aqua;
+}
+
+#inner-flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+
+
+/*    *****   */ 
+
+
+
+#username{font-size: 1em;}
+
+body{
+  background-image: url(resources/bg_yellow.png);
+  background-size: contain;
+  margin: 0;
+  color: white;
+}
+
+/* main */ 
+#outer {
+  width: 250px;
+  margin-left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu{
+  margin-top: 2em;
+  width: 9em;
+  height: 200vh;
+  background-size: contain;
+  float: left;
+   overflow: hidden;
+}
+/*
+#introText{font-size: 1.7em; text-align: left; margin-left: 20px;}*/
+
+/* Categoty items */
+
 #Culture{
-  background-image: url(resources/bg.culture.png);
-  background-size: cover;
+  background-image: url(resources/category_culture1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #998e00;
 }
 #Sports {
-  background-image: url(resources/sports.png);
-  background-size: cover;
+  background-image: url(resources/category_culture.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #998e00;
 }
 #Books{
-  background-image: url(resources/books.png);
-  background-size: cover;
+  background-image: url(resources/category_culture.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #998e00;
 }
 #Celebrities{
-  background-image: url(resources/celebs.png);
-  background-size: cover;
+  background-image: url(resources/category_culture.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #998e00;
 }
+#Movies{
+  background-image: url(resources/category_culture.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #998e00;
+}
+#World{
+  background-image: url(resources/category_culture.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #998e00;
+}
+#Language{
+  
+  background-image: url(resources/category_culture.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #998e00;
+}
+
 .flex-container {
   padding: 0;
   margin: 0;
@@ -67,27 +379,52 @@ body{
   justify-content: space-around;
 }
 .flex-item {
-  padding: 5px;
-  width: 200px;
-  height: 150px;
-  margin-top: 10px;
-
-  line-height: 150px;
+  padding: 10px;
+  width:10em;
+  height:10em;
+  margin-bottom: 1em;
+  margin-right: 1em;
   color: black;
   font-weight: bold;
   font-size: 2em;
   text-align: center;
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
+
+/* medium screens */
+@media all and (max-width: 610px) {
+#flex-itemX {
+  margin-left: 5%;  
+  margin-right: 5%; 
+}
+}
+/* medium screens */
+@media all and (min-width: 611px) and (max-width: 1024px) {
+#flex-itemX {
+  margin-left: 20%;  
+}
+}
+/* big screens */
+@media all and (min-width: 1025px) {
+#flex-itemX {
+  margin-left: 50%;  
+}
+}
+
+/* questions  */ 
+
 .allquestions{
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 5em;
 }
 .question{
-  border: 1px solid grey;
-  text-align: center;
+  display: inline-block;
+}
+.questionText{
 }
 .show{
   display: block;
@@ -96,23 +433,41 @@ body{
   display: none;
 }
 .answers{
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 5px;
-  margin-top: 10px;
+  height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 .answers button{
-  margin-right: 10px;
-  width: 140px;
+margin:0.2em;
+  width: 7em;
+  height:2em;
+  background-color: #76cee8;
+  font-family: 'Cormorant Garamond';
+    font-size: 0.9em;
+	font-weight: 600;
+	line-height: 1em;
+	text-align: center;
+
 }
 .a1{
   order: 1;
+
 }
 .a2{
   order: 2;
+
 }
 .a3{
   order: 3;
+
 }
 .correct{
   background-color: lightgreen;
