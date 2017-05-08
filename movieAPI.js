@@ -1,3 +1,5 @@
+function getMovieFromFirebase(updateCountryData) {
+       
 var movies = {
   request: function(){
     /*
@@ -25,3 +27,5 @@ var movies = {
 }
 
 movies.request();
+    
+} // end getDataFromFirebase function.
