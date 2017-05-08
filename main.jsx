@@ -33,8 +33,17 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-
-                                <Quizz changeLogin = {this.changeLogin} items= {this.state.questions} changeEntry = {this.changeEntry}/>
+                                
+                                        <div id="flex-container">
+                                            <div id="flex-itemX">
+                                                <div id="logo">
+                                                    <img src="resources/logo_new.png" id="img"></img>
+                                                </div>
+                                                <h5>Category: {this.state.selected}</h5>
+                                                        <Quizz changeLogin = {this.changeLogin} items= {this.state.questions} changeEntry = {this.changeEntry}/>
+                                            </div>
+                                        </div>
+                                
                             </div>
                             )
                     } // end else: nothing selected
@@ -168,17 +177,19 @@ class Quizz extends React.Component{
 				qClass = "question show";
 			let sequence = this.randomizeAnswers();
 			let html = (
-				<div key={key++} className={qClass} id={key}>
-					<div className="questionText">{question.text}</div>
-					<div className="answers">
-						<button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
-						<button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
-						<button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
-					</div>
-				</div>);
+                        <div key={key++} className={qClass} id={key}>
+                            <div className="questionText">{question.text}</div>
+                            <div className="answers">
+                                <button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
+                                <button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
+                                <button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
+                            </div>
+                        </div>
+                        );
 			loopedQuestions.push(html);
 		});
 		return loopedQuestions;
+
 	}
 	render(){
 		return (
