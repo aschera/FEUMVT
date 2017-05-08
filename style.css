@@ -115,6 +115,7 @@ li:hover {
     background-color: #8fa1b3;
     color:#76cee8;
     margin:0.3em;
+    margin-left: 5%;
     height: 25px;
     width: 75px;
 }
@@ -271,6 +272,7 @@ body {
     display: flex;
     flex-flow: row wrap;
     width:100%;
+    background-color: aqua;
 }
 
 #inner-flex-container {
@@ -280,10 +282,6 @@ body {
     
 }
 
-aside   { flex: 1 250px; }
-header  { flex: 1; }
-section { flex: 4; }
-footer  { flex: 1; }
 
 
 /*    *****   */ 
@@ -293,7 +291,7 @@ footer  { flex: 1; }
 #username{font-size: 1em;}
 
 body{
-  background-color: #d9d490;
+  background-image: url(resources/bg_yellow.png);
   background-size: contain;
   margin: 0;
   color: white;
