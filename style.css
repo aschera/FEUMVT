@@ -21,7 +21,6 @@ p {
 	font-weight: 400;
 	line-height: 1em;
 	margin: 0 auto 1em;
-	text-align: center;
 }
 
 a {
@@ -154,6 +153,14 @@ li:hover {
     text-align: center;
 }
 
+.root{width: 100%;}
+
+#logo_center {  
+  justify-content: center;
+  align-items: center;
+  margin-left: 170px;
+}
+
 #img {
     margin-top: 10px;
     height:150px;
@@ -257,6 +264,8 @@ body {
 #inner-flex-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
 }
 
 aside   { flex: 1 250px; }
@@ -372,7 +381,25 @@ body{
   font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
 
-
+/* medium screens */
+@media all and (max-width: 610px) {
+#flex-itemX {
+  margin-left: 10%;  
+  margin-right: 10%; 
+}
+}
+/* medium screens */
+@media all and (min-width: 611px) and (max-width: 1024px) {
+#flex-itemX {
+  margin-left: 20%;  
+}
+}
+/* big screens */
+@media all and (min-width: 1025px) {
+#flex-itemX {
+  margin-left: 50%;  
+}
+}
 
 /* questions  */ 
 

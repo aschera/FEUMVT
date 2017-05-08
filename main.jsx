@@ -43,19 +43,24 @@ class App extends React.Component {
                     return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                                    <header id="main">
-                                            <div id="logo">
+                                    
+                                    <div id="flex-container">
+                                        <div id="flex-itemX">
+                                           
+                                                <div id="logo">
                                                 <img src="resources/logo_new.png" id="img"></img>
+                                                </div>
+        
+                                            <p>
                                                 <br /><br /><br />
-                                                <p id="introText">
-                                                    The QuiZZaro is designed to be very difficult. <br />
-                                                    It will test your knowledge of a wide variety of information.<br /> 
-                                                    It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
-                                                    Nobody has ever gotten all 10 questions correct.</p>
-                                                
-                                            </div>
-                                    </header>
-                            </div>
+                                                The QuiZZaro is designed to be very difficult. <br />
+                                                It will test your knowledge of a wide variety of information.<br /> 
+                                                It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
+                                                Nobody has ever gotten all 10 questions correct.</p>
+                                        </div>
+                                    </div>
+                            </div>      
+    
                             )
                 }
 			}//end render
