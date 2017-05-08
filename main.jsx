@@ -62,8 +62,7 @@ class App extends React.Component {
 
  /* ------------------Get new set of questions------------------------------------------- */
 	changeEntry(x,y) {
-        console.log(x,y);
-        console.log('change state');
+
 		this.setState({
 			questions: x,
 			selected: y
@@ -115,9 +114,9 @@ class Quizz extends React.Component{
 		return [`a${first} `,`a${second} `,`a${third} `];
 	}
 	clickAnswerCorrect(event){
-		console.log("Before: ", this.points);
+
 		this.points++;
-		console.log("After: ", this.points);
+
 		this.clickAnswer(event);
 	}
 	clickAnswer(event){
@@ -151,7 +150,7 @@ class Quizz extends React.Component{
         
 	    setTimeout( done, 1000 );
         
-        console.log("Game finished");
+
          
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
@@ -221,7 +220,7 @@ class Login extends React.Component{
     this.component = this.component.bind(this);
   }
   updateEmail(mail){
-    console.log("Mail", mail);
+
     this.setState({
       userEmail: mail,
       loginText: "Succesfully logged in",
@@ -268,13 +267,11 @@ class Login extends React.Component{
     // New stuff below.
   component() {
       this.logInGoogle(this.updateUserData);
-      console.log('mounted!');
-      
+ 
       this.props.changeLogin(true);
 		}
 
   updateUserData(data) {
-            console.log('update user');
             this.updateEmail(data);
 
 		}
@@ -366,14 +363,18 @@ handleChooseCategory(event) {
 
 			} else {
 				x = true;
-
-			getDataFromFirebase(this.updateCountryData);
-
+                
+                if (event.target.id === 'Culture'){
+                   console.log(event.target.id);
+                   getDataFromFirebase(this.updateCountryData); 
+                }
+            
+                
 			}
 			this.setState({
 				selected: theOne
 			});
-
+            
 		}
 
 /* ---------------------API event---------------------------------------- */
