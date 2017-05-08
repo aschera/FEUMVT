@@ -45,7 +45,7 @@ class App extends React.Component {
                                 <Login changeLogin = {this.changeLogin}/>
                                     <header id="main">
                                             <div id="logo">
-                                                <img src="resources/logo2.png" id="img"></img>
+                                                <img src="resources/logo_new.png" id="img"></img>
                                                 <br /><br /><br />
                                                 <p id="introText">
                                                     The QuiZZaro is designed to be very difficult. <br />
@@ -404,7 +404,7 @@ var partial;
 
 const newlist = list.map(
 
-      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
+      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {x}</li> )
     );
 
         return (
@@ -412,7 +412,7 @@ const newlist = list.map(
             <div id="inner-flex-container">
                 <header>
                         <div id="logo">
-                            <img src="resources/logo2.png" id="img"></img>
+                            <img src="resources/logo_new.png" id="img"></img>
                         </div>
                 </header>
                 <h1>Categories</h1>
