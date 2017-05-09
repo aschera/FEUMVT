@@ -18,7 +18,7 @@ var highScore = {
       console.log(this);
       highScore.printScores(highScore.highScores);
     });
-  }
+  },
   printScores: function(list){
     let hsDiv = document.getElementById("highscores");
     let table = document.createElement("div");
