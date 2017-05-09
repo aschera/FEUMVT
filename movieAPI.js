@@ -1,8 +1,8 @@
 function getMovieFromFirebase(updateCountryData) {
-       
+
 var movies = {
-  apiKey: "8f9cb0455f3b5cefb95acc1c35525622";
-  popularMovies: [];
+  apiKey: "8f9cb0455f3b5cefb95acc1c35525622",
+  popularMovies: [],
   getPopularMovies: function(){
     fetch(`https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=${this.apiKey}`).then(function(response){
       response.json().then(function(object){
@@ -110,8 +110,8 @@ REPSONE MOVIE DETAIL
   "vote_average": 6.8,
   "vote_count": 2212
 }
-*/ 
-    
+*/
+
 }
 
 // end getDataFromFirebase function.

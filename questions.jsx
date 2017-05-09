@@ -100,7 +100,7 @@ class Quizz extends React.Component{
         question.className = "question hide";
     });
     // 10 questions, change to variable if want to change nr of questions.
-    if (clickedQuestion.id == 10) {
+    if (clickedQuestion.id == 3) {
       this.gameFinished();
     }
   }
@@ -109,13 +109,13 @@ class Quizz extends React.Component{
       rightAnswers: this.points
     });
 
-    console.log(mail);
+    console.log("Mail at game finish:", mail);
     // SEND HIGHSCORE TO DATABASE
-
+/*
     document.getElementById("results").className = "results show";
     setTimeout(function(){
       location.reload();
-    }, 1000);
+    }, 1000); */
   }
   // Loopar igenom this.state.questions och gör om varje object till html
   printQuestions(){
@@ -145,7 +145,7 @@ class Quizz extends React.Component{
         <div className="allquestions">{this.printQuestions()}</div>
         <div id="results" className="results hide">
           <h2>Congratulations!</h2> //Change to state, text depending on percent right
-          <h3>You answered {this.state.rightAnswers} out of 10</h3>
+          <h3>You answered {this.state.rightAnswers} out of 3</h3>
         </div>
       </div>
     );
