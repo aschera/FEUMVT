@@ -20,7 +20,7 @@ class App extends React.Component {
 				this.checkLocalStorage = this.checkLocalStorage.bind(this);
 			}
 			render(){
-
+				this.checkLocalStorage();
 
                 if(this.state.loggedIn === true) {
                     if(this.state.selected === '') {
