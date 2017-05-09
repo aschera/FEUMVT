@@ -29,7 +29,8 @@ class App extends React.Component {
 																	changeLogin = {this.changeLogin}
 																	updateMail = {this.updateMail}
 																	loginClass = {this.state.loginClass}
-																	loggedInClass = {this.state.loggedInClass}/>
+																	loggedInClass = {this.state.loggedInClass}
+																	userEmail = {this.state.userEmail}/>
 
                                 <MyList
 																	items= {this.state.questions}
@@ -45,7 +46,8 @@ class App extends React.Component {
 																changeLogin = {this.changeLogin}
 																updateMail = {this.updateMail}
 																loginClass = {this.state.loginClass}
-																loggedInClass = {this.state.loggedInClass}/>/>
+																loggedInClass = {this.state.loggedInClass}
+																userEmail = {this.state.userEmail}/>/>
 
                                       <div id="flex-container">
                                           <div id="flex-itemX">
@@ -73,7 +75,8 @@ class App extends React.Component {
 																	changeLogin = {this.changeLogin}
 																	updateMail = {this.updateMail}
 																	loginClass = {this.state.loginClass}
-																	loggedInClass = {this.state.loggedInClass}/>
+																	loggedInClass = {this.state.loggedInClass}
+																	userEmail = {this.state.userEmail}/>
 
                                     <div id="flex-container">
                                         <div id="flex-itemX">
@@ -144,6 +147,8 @@ class App extends React.Component {
 		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
 			this.setState({
 				loggedIn: true,
+				loginClass: "hide",
+				loggedInClass: "show"
 				userEmail: localStorage.getItem("name")
 			});
 		}
@@ -331,7 +336,7 @@ class Login extends React.Component{
 	}
   updateUserData(data) {
 		this.props.changeLogin(true);
-    this.updateEmail(data);
+    this.props.updateMail(data);
 		}
 
 handleClick() {
