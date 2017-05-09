@@ -306,10 +306,11 @@ class Login extends React.Component{
 
       this.props.changeLogin(true);
 		}
-
   updateUserData(data) {
+this.props.changeLogin(true);
             this.updateEmail(data);
 		}
+
 
 handleClick() {
     this.setState({
