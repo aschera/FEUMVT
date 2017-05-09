@@ -76,7 +76,9 @@ li:hover {
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #76cee8;
+    /*background-color: #76cee8; */
+    background-image: url(resources/books.png);
+    background-size: cover;
     overflow-x: hidden; /* Disable horizontal scroll */
     overflow: hidden;
     padding-top: 20px; /* Place content 60px from the top */
@@ -138,6 +140,8 @@ li:hover {
 #main {
     transition: margin-left .5s;
     margin-left: 5%;
+    display: flex;
+    -webkit-flex-flow: row;
     
 }
 
@@ -152,16 +156,6 @@ li:hover {
 /* ************************************************* */
 /* logo */
 
-#main {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-flow: row;
-  justify-content:;
-}
 .flex-item1 {
   padding: 5px;
   width: 200px;
@@ -330,7 +324,6 @@ body{
 
 #menu{
   margin-top: 2em;
-  width: 9em;
   height: 200vh;
   background-size: contain;
   float: left;

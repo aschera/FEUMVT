@@ -2,6 +2,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 			this.state = {
+                    w: '400',
 					selected: '',
 					questions: [{
 							text: "",
@@ -18,6 +19,7 @@ class App extends React.Component {
 				this.changeEntry = this.changeEntry.bind(this);
 				this.changeLogin = this.changeLogin.bind(this);
 				this.updateMail = this.updateMail.bind(this);
+                this.changeSize = this.changeSize.bind(this);
 			}
 			render(){
                 if(this.state.loggedIn === true) {
@@ -25,15 +27,19 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login
-																	changeLogin = {this.changeLogin}
-																	updateMail = {this.updateMail}
-																	loginClass = {this.state.loginClass}
-																	loggedInClass = {this.state.loggedInClass}
-																	userEmail = {this.state.userEmail}/>
-
+				                    changeLogin = {this.changeLogin}
+								    updateMail = {this.updateMail}
+								    loginClass = {this.state.loginClass}
+								    loggedInClass = {this.state.loggedInClass}
+				                    userEmail = {this.state.userEmail}
+                                    changeSize = {this.changeSize}
+                                    />
                                 <MyList
-																	items= {this.state.questions}
-																	changeEntry = {this.changeEntry}/>
+									items= {this.state.questions}
+									changeEntry = {this.changeEntry}
+                                    w = {this.state.w}
+                                    changeSize = {this.changeSize}
+                                    />
                             </div>
                             )
                     }// end if: something is selected
@@ -42,24 +48,28 @@ class App extends React.Component {
                         return (
                             <div>
                               <Login
-																changeLogin = {this.changeLogin}
-																updateMail = {this.updateMail}
-																loginClass = {this.state.loginClass}
-																loggedInClass = {this.state.loggedInClass}
-																userEmail = {this.state.userEmail}/>/>
+								changeLogin = {this.changeLogin}
+								updateMail = {this.updateMail}
+								loginClass = {this.state.loginClass}
+								loggedInClass = {this.state.loggedInClass}
+								userEmail = {this.state.userEmail}
+                                changeSize = {this.changeSize}
+                                  />
 
-                                      <div id="flex-container">
+                                      <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
                                           <div id="flex-itemX">
                                               <div id="logo">
                                                   <img src="resources/logo_new.png" id="img"></img>
                                               </div>
                                               <h5>Category: {this.state.selected}</h5>
                                                       <Quizz
-																												changeLogin = {this.changeLogin}
-																												items= {this.state.questions}
-																												changeEntry = {this.changeEntry}
-																												userEmail = {this.state.userEmail}
-																												chosenCategory = {this.state.selected}/>
+														changeLogin = {this.changeLogin}
+														items= {this.state.questions}
+														changeEntry = {this.changeEntry}
+														userEmail = {this.state.userEmail}
+														chosenCategory = {this.state.selected}
+                                                          changeSize = {this.changeSize}
+                                                          />
                                           </div>
                                       </div>
 
@@ -71,13 +81,15 @@ class App extends React.Component {
                     return (
                             <div>
                                 <Login
-																	changeLogin = {this.changeLogin}
-																	updateMail = {this.updateMail}
-																	loginClass = {this.state.loginClass}
-																	loggedInClass = {this.state.loggedInClass}
-																	userEmail = {this.state.userEmail}/>
+									changeLogin = {this.changeLogin}
+									updateMail = {this.updateMail}
+									loginClass = {this.state.loginClass}
+									loggedInClass = {this.state.loggedInClass}
+									userEmail = {this.state.userEmail}
+                                    changeSize = {this.changeSize}
+                                    />
 
-                                    <div id="flex-container">
+                                    <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
                                         <div id="flex-itemX">
 
                                                 <div id="logo">
@@ -104,6 +116,13 @@ class App extends React.Component {
 			questions: x,
 			selected: y
 			});
+		}
+/* ------------------Expand side or not------------------------------------------- */
+	changeSize(x) {
+		this.setState({
+			w: x,
+			});
+        console.log(x);
 		}
 
  /* ------------------Get new set of questions------------------------------------------- */
@@ -288,7 +307,7 @@ class Login extends React.Component{
   constructor(props) {
     super(props);
 		this.state = {
-			width: "200px"
+			width: "400"
 		};
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
@@ -331,21 +350,23 @@ class Login extends React.Component{
 
 handleClick() {
     this.setState({
-  width: "200px"
+  width: "400"
 })
+    this.props.changeSize('400');
 };
 
 Close() {
     this.setState({
-  width: "0px"
+  width: "0"
 })
+    this.props.changeSize('0');
 };
 
   render(){
 
     return (
         <div>
-<div id="mySidenav" style={{width:this.state.width}} className="sidenav">
+<div id="mySidenav" style={{width:this.state.width + 'px'}} className="sidenav">
   <img src="resources/arrowblue2.gif" className="closebtn" id="close" onClick={this.Close} />
     <div id="main">
       <div id="menu">
@@ -461,7 +482,6 @@ handleChooseCategory(event) {
 
 var partial;
 
-
 const newlist = list.map(
 
         x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
@@ -469,7 +489,7 @@ const newlist = list.map(
 
         return (
           <div>
-            <div id="inner-flex-container">
+            <div style={{marginLeft: this.props.w + 'px'}} id="inner-flex-container">
                 <header>
                         <div id="logo">
                             <img src="resources/logo_new.png" id="img"></img>
