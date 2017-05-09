@@ -19,7 +19,7 @@ class App extends React.Component {
 				this.newHighScore = this.newHighScore.bind(this);
 			}
 			render(){
-                if(this.state.loggedIn === true {
+                if(this.state.loggedIn === true) {
                     if(this.state.selected === '') {
                         return (
                             <div>
