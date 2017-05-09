@@ -148,7 +148,7 @@ class App extends React.Component {
 			this.setState({
 				loggedIn: true,
 				loginClass: "hide",
-				loggedInClass: "show"
+				loggedInClass: "show",
 				userEmail: localStorage.getItem("name")
 			});
 		}
