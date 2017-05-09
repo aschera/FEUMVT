@@ -346,7 +346,7 @@ Close() {
 
   render(){
     return (
-        <div style={{margin-left:this.state.width}}>
+        <div >
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
   <button className="closebtn" id="close" onClick={this.Close}>Close</button>
     <div id="main">
