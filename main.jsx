@@ -294,7 +294,6 @@ class Login extends React.Component{
     super(props);
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
-    this.updateEmail = this.updateEmail.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.Close = this.Close.bind(this);
     this.updateUserData = this.updateUserData.bind(this);
