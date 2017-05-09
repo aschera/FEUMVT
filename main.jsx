@@ -261,14 +261,28 @@ class Login extends React.Component{
     this.updateEmail = this.updateEmail.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.Close = this.Close.bind(this);
-
-
-      // two new functions
     this.updateUserData = this.updateUserData.bind(this);
     this.component = this.component.bind(this);
+		this.printHighScore = this.printHighScore.bind(this);
   }
-  updateEmail(mail){
+	printHighScore(){
+		let editedMail =   this.props.userEmail.replace(/[^a-z0-9]/gi,'');
+		let today = this.saveDate();
+		console.log("Mail after finish game: ", editedMail);
+		firebase.database().ref(`users/${editedMail}/`).push({
+			genre: this.props.chosenCategory,
+			score: this.points,
+			max: this.maxScore,
+			date:	today
+		});
 
+		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
+		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+		  let highScores = snapshot.val().username;
+			console.log(highScores);
+		});
+	}
+  updateEmail(mail){
     this.setState({
       userEmail: mail,
       loginText: "Succesfully logged in",
@@ -321,8 +335,9 @@ class Login extends React.Component{
       this.props.changeLogin(true);
 		}
   updateUserData(data) {
-this.props.changeLogin(true);
-            this.updateEmail(data);
+		this.props.changeLogin(true);
+    this.updateEmail(data);
+		this.printHighScore();
 		}
 
 
@@ -368,6 +383,9 @@ Close() {
                 <p id="username">{this.state.userEmail}</p>
 
                <h3>Your highscore</h3>
+							 <span>Date</span>
+							 <span>Genre</span>
+							 <span>Score</span>
         </div>
 </div>
       </div>
