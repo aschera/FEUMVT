@@ -170,9 +170,9 @@ class Quizz extends React.Component{
 			question.className = "question hide";
 		});
 		// SEND HIGHSCORE TO DATABASE
-
-		console.log("Mail after finish game: ", this.props.userEmail);
-		firebase.database().ref(`users/${this.props.userEmail}/`).push({
+		let editedMail =   this.props.userEmail.replace(/[^a-z0-9]/gi,'');
+		console.log("Mail after finish game: ", editedMail);
+		firebase.database().ref(`users/${editedMail}/`).push({
 	    genre: "Culture",
 			score: this.points
 	  });
