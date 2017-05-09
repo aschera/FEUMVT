@@ -19,7 +19,7 @@ class App extends React.Component {
 				this.newHighScore = this.newHighScore.bind(this);
 			}
 			render(){
-                if(this.state.loggedIn === true || localStorage.getItem("name") != null) {
+                if(this.state.loggedIn === true {
                     if(this.state.selected === '') {
                         return (
                             <div>
@@ -117,6 +117,16 @@ class App extends React.Component {
 			});
 		});
 		console.log("This state: ", this.state);
+	}
+	componentDidMount(){
+		console.log("App mounted");
+		console.log("localStorage: ", localStorage.getItem("name"));
+		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
+			this.setState({
+				loggedIn: true,
+				userEmail: localStorage.getItem("name")
+			});
+		}
 	}
 }
 
@@ -331,10 +341,6 @@ Close() {
 };
 
   render(){
-		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
-			this.props.updateMail(localStorage.getItem("name"));
-			this.props.changeLogin(true);
-		}
 
     return (
         <div>
