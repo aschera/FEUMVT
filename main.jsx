@@ -183,7 +183,6 @@ class Quizz extends React.Component{
 		// SEND HIGHSCORE TO DATABASE
 		let editedMail =   this.props.userEmail.replace(/[^a-z0-9]/gi,'');
 		let today = this.saveDate();
-		console.log("Mail after finish game: ", editedMail);
 		firebase.database().ref(`users/${editedMail}/`).push({
 	    genre: this.props.chosenCategory,
 			score: this.points,
@@ -268,9 +267,9 @@ class Login extends React.Component{
 	printHighScore(){
 		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
 		console.log("HighScore mail: ", user)
-		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+		firebase.database().ref('/users/' + user).on('value').then(function(snapshot) {
 		  let highScores = snapshot.val();
-			console.log(highScores);
+			console.log("Snapshot:", highScores);
 		});
 	}
   updateEmail(mail){
@@ -301,14 +300,7 @@ class Login extends React.Component{
     firebase.auth().signInWithPopup(providerG).then(function(result) {
 
         let user = result.user;
-        console.log(user);
         updateUserData(user.email);
-
-        console.log("Sign-in provider: "+user.providerId);
-        console.log("  Provider-specific UID: "+user.uid);
-        console.log("  Name: "+user.displayName);
-        console.log("  Email: "+user.email);
-        console.log("  Photo URL: "+user.photoURL);
 
      //return firebase.auth().currentUser.providerData[0].email;
 
@@ -329,8 +321,8 @@ class Login extends React.Component{
 		this.props.changeLogin(true);
     this.updateEmail(data);
 		this.printHighScore();
+		console.log("After funktion");
 		}
-
 
 handleClick() {
     this.setState({
