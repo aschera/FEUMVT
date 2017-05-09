@@ -254,7 +254,7 @@ class Login extends React.Component{
       loginText: " ",
       loginClass: "show",
       loggedInClass: "hide",
-			highScores: [];
+			highScores: []
     }
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
