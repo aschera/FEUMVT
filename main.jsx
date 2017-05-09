@@ -238,7 +238,8 @@ class Quizz extends React.Component{
 			date:	today
 	  });
 
-		highScore.getHighScores(editedMail);
+		let hsList = highScore.getHighScores(editedMail);
+		console.log("hsList: ", hsList);
 
 		document.getElementById("results").className = "results show";
 

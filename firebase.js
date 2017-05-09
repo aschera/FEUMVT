@@ -16,7 +16,7 @@ var highScore = {
     firebase.database().ref('/users/' + username).once('value').then(function(snapshot) {
       highScore.highScores = snapshot.val();
       console.log("Inside: ", highScore.highScores);
+      return highScore.highScores;
     });
-    console.log(this.highScores);
   }
 }
