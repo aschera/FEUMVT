@@ -77,8 +77,8 @@ li:hover {
     top: 0;
     left: 0;
     /*background-color: #76cee8; */
-    background-image: url(resources/books.png);
-    background-size: cover;
+    background-image: url(resources/bg_blue.png);
+    background-size: contain;
     overflow-x: hidden; /* Disable horizontal scroll */
     overflow: hidden;
     padding-top: 20px; /* Place content 60px from the top */
