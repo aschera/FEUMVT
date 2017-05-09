@@ -159,6 +159,9 @@ class Quizz extends React.Component{
 		// SEND HIGHSCORE TO DATABASE
 
 		console.log("Mail after finish game: ", mail);
+		console.log("This state: ", this.state);
+		console.log("App state: ", App.state);
+		console.log("Login state: ", Login.state);
 
 		document.getElementById("results").className = "results show";
 
