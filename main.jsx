@@ -266,17 +266,8 @@ class Login extends React.Component{
 		this.printHighScore = this.printHighScore.bind(this);
   }
 	printHighScore(){
-		let editedMail =   this.props.userEmail.replace(/[^a-z0-9]/gi,'');
-		let today = this.saveDate();
-		console.log("Mail after finish game: ", editedMail);
-		firebase.database().ref(`users/${editedMail}/`).push({
-			genre: this.props.chosenCategory,
-			score: this.points,
-			max: this.maxScore,
-			date:	today
-		});
-
 		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
+		console.log("HighScore mail: ", user)
 		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
 		  let highScores = snapshot.val().username;
 			console.log(highScores);
