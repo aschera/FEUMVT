@@ -292,7 +292,9 @@ var divStyle = {
 class Login extends React.Component{
   constructor(props) {
     super(props);
-		this.state = {};
+		this.state = {
+			width: "200px"
+		};
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.handleClick = this.handleClick.bind(this);
