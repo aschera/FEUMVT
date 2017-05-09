@@ -131,19 +131,8 @@ class App extends React.Component {
 			userEmail: mail
 		});
 	}
-	newHighScore(){
-		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
-		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
-			var highScores = snapshot.val();
-			this.setState({
-				highScores: highScores
-			});
-		});
-		console.log("This state: ", this.state);
-	}
 	componentDidMount(){
-		console.log("App mounted");
-		console.log("localStorage: ", localStorage.getItem("name"));
+
 		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
 			this.setState({
 				loggedIn: true,
@@ -238,8 +227,7 @@ class Quizz extends React.Component{
 			date:	today
 	  });
 
-		let hsList = highScore.getHighScores(editedMail);
-		console.log("hsList: ", hsList);
+		highScore.getHighScores(editedMail);
 
 		document.getElementById("results").className = "results show";
 
@@ -388,6 +376,7 @@ Close() {
 							 <span>Date</span>
 							 <span>Genre</span>
 							 <span>Score</span>
+							 <div id="highscores"></div>
         </div>
 </div>
       </div>
@@ -435,7 +424,6 @@ handleChooseCategory(event) {
 				x = true;
 
                 if (event.target.id === 'Culture'){
-                   console.log(event.target.id);
                    getDataFromFirebase(this.updateCountryData);
                 }
 
