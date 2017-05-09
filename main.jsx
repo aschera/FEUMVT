@@ -338,7 +338,7 @@ Close() {
 
   render(){
     return (
-        <div>
+        <div >
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
   <button className="closebtn" id="close" onClick={this.Close}>Close</button>
     <div id="main">
@@ -374,7 +374,7 @@ Close() {
       </div>
 </div>
 <button id="open" className="closebtn" onClick={this.handleClick}>&#9776; Open</button>
-            </div>
+</div>
     )
   }
 }
@@ -455,7 +455,7 @@ var partial;
 
 const newlist = list.map(
 
-      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {x}</li> )
+        x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
     );
 
         return (
