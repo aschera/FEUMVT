@@ -324,7 +324,7 @@ class Login extends React.Component{
   updateUserData(data) {
 		this.props.changeLogin(true);
     this.updateEmail(data);
-		this.printHighScores();
+		this.getHighScores();
 		}
 
 handleClick() {
