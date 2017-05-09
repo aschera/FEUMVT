@@ -49,7 +49,8 @@ class App extends React.Component {
 																												changeLogin = {this.changeLogin}
 																												items= {this.state.questions}
 																												changeEntry = {this.changeEntry}
-																												userEmail = {this.state.userEmail}/>
+																												userEmail = {this.state.userEmail}
+																												chosenCategory = {this.state.selected}/>
                                           </div>
                                       </div>
 
@@ -117,12 +118,22 @@ class Quizz extends React.Component{
 			questions: []
 		}
 		this.points = 0;
+		this.maxScore = 5;
 		this.randomizeAnswers = this.randomizeAnswers.bind(this);
 		this.printQuestions = this.printQuestions.bind(this);
 		this.getRandomInt = this.getRandomInt.bind(this);
 		this.clickAnswer = this.clickAnswer.bind(this);
 		this.clickAnswerCorrect = this.clickAnswerCorrect.bind(this);
 		this.gameFinished = this.gameFinished.bind(this);
+		this.saveDate = this.saveDate.bind(this);
+	}
+	saveDate(){
+		let c = new Date();
+		let m = c.getMonth()+1;
+		if (Number(m) < 10) m = "0"+m;
+		let d = c.getDate();
+		if (Number(d) < 10) d = "0"+d;
+		return `${c.getFullYear()}-${m}-${d}`
 	}
 	// Returnerar ett slumpat heltal f.o.m. min till max (kan ej returnera max)
 	getRandomInt(min, max) {
@@ -157,7 +168,7 @@ class Quizz extends React.Component{
 				question.className = "question hide";
 		});
 		// 10 questions, change to variable if want to change nr of questions.
-		if (clickedQuestion.id == 3) {
+		if (clickedQuestion.id == this.maxScore) {
 			this.gameFinished();
 		}
 	}
@@ -171,10 +182,13 @@ class Quizz extends React.Component{
 		});
 		// SEND HIGHSCORE TO DATABASE
 		let editedMail =   this.props.userEmail.replace(/[^a-z0-9]/gi,'');
+		let today = this.saveDate();
 		console.log("Mail after finish game: ", editedMail);
 		firebase.database().ref(`users/${editedMail}/`).push({
-	    genre: "Culture",
-			score: this.points
+	    genre: this.props.chosenCategory,
+			score: this.points,
+			max: this.maxScore,
+			date:	today
 	  });
 
 		document.getElementById("results").className = "results show";
@@ -216,7 +230,7 @@ class Quizz extends React.Component{
 				<div className="allquestions">{this.printQuestions()}</div>
 				<div id="results" className="results hide">
 					<h2>Congratulations!</h2>
-					<h3>You answered {this.state.rightAnswers} out of 3</h3>
+					<h3>You answered {this.state.rightAnswers} out of {this.maxScore}</h3>
 				</div>
 			</div>
 		);
