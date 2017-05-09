@@ -172,6 +172,10 @@ class Quizz extends React.Component{
 		// SEND HIGHSCORE TO DATABASE
 
 		console.log("Mail after finish game: ", this.props.userEmail);
+		firebase.database().ref(`users/${this.props.userEmail}/`).push({
+	    genre: "Culture",
+			score: this.points
+	  });
 
 		document.getElementById("results").className = "results show";
 
@@ -241,9 +245,8 @@ class Login extends React.Component{
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
-
-      this.handleClick = this.handleClick.bind(this);
-      this.Close = this.Close.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.Close = this.Close.bind(this);
 
 
       // two new functions
