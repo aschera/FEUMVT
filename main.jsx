@@ -11,12 +11,17 @@ class App extends React.Component {
 							a3: ""
 					}],
 					userEmail: "",
+					highScores: []
 			};
 				this.changeEntry = this.changeEntry.bind(this);
 				this.changeLogin = this.changeLogin.bind(this);
 				this.updateMail = this.updateMail.bind(this);
+				this.newHighScore = this.newHighScore.bind(this);
+				this.checkLocalStorage = this.checkLocalStorage.bind(this);
 			}
 			render(){
+
+
                 if(this.state.loggedIn === true) {
                     if(this.state.selected === '') {
                         return (
@@ -100,10 +105,31 @@ class App extends React.Component {
 			loggedIn: x
 			});
 		}
+	/* ---------------------------------------------------------------------------------------- */
+
 	updateMail(mail){
 		this.setState({
 			userEmail: mail
 		});
+	}
+	newHighScore(){
+		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
+		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+			var highScores = snapshot.val();
+			this.setState({
+				highScores: highScores
+			});
+		}
+		console.log("This state: ", this.state);
+	}
+	checkLocalStorage(){
+		let savedName = localStorage.getItem("name");
+		if (savedName != "null" && savedName != null){
+			this.setState({
+				userEmail: savedName,
+				loggedIn: true
+			});
+		}
 	}
 }
 
@@ -209,15 +235,15 @@ class Quizz extends React.Component{
 				qClass = "question show";
 			let sequence = this.randomizeAnswers();
 			let html = (
-                        <div key={key++} className={qClass} id={key}>
-                            <div className="questionText">{question.text}</div>
-                            <div className="answers">
-                                <button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
-                                <button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
-                                <button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
-                            </div>
-                        </div>
-                        );
+                  <div key={key++} className={qClass} id={key}>
+                      <div className="questionText">{question.text}</div>
+                      <div className="answers">
+                          <button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
+                          <button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
+                          <button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
+                      </div>
+                  </div>
+                	);
 			loopedQuestions.push(html);
 		});
 		return loopedQuestions;
@@ -250,11 +276,9 @@ class Login extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      userEmail: "n/a",
-      loginText: " ",
+      userEmail: "",
       loginClass: "show",
       loggedInClass: "hide",
-			highScores: []
     }
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
@@ -263,23 +287,10 @@ class Login extends React.Component{
     this.Close = this.Close.bind(this);
     this.updateUserData = this.updateUserData.bind(this);
     this.component = this.component.bind(this);
-		this.getHighScores = this.getHighScores.bind(this);
   }
-	getHighScores(){
-		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
-		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
-		  var highScores = snapshot.val();
-			this.setState({
-				highScores: highScores
-			});
-			console.log(this.state);
-		});
-		console.log(this.state);
-	}
   updateEmail(mail){
     this.setState({
       userEmail: mail,
-      loginText: "Succesfully logged in",
       loginClass: "hide",
       loggedInClass: "show"
     });
@@ -295,36 +306,29 @@ class Login extends React.Component{
     this.setState({
       loginClass: "show",
       loggedInClass: "hide",
-      loginText: "Succesfully logged OUT"
     });
 		this.props.updateMail("");
+		localStorage.setItem("name", null);
   }
   logInGoogle(updateUserData) {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
+      let user = result.user;
+      updateUserData(user.email);
+      localStorage.setItem("name", user.email);
 
-        let user = result.user;
-        updateUserData(user.email);
-
-     //return firebase.auth().currentUser.providerData[0].email;
-
-        return user.email;
-
+      return user.email;
     });
-
-        //.then(this.updateEmail(mail)); // Funkar ej, mail = undefined
   }
 
     // New stuff below.
   component() {
       this.logInGoogle(this.updateUserData);
-
       this.props.changeLogin(true);
 		}
   updateUserData(data) {
 		this.props.changeLogin(true);
     this.updateEmail(data);
-		this.getHighScores();
 		}
 
 handleClick() {
@@ -470,7 +474,6 @@ const newlist = list.map(
                         </div>
                 </header>
                 <h1>Categories</h1>
-                <p>Please, choose a category to begin the Quiz!</p>
                 <ul className="flex-container">{newlist}</ul>
             </div>
           </div>
