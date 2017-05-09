@@ -332,12 +332,12 @@ Close() {
 
   render(){
 		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
-			this.props.updateEmail(localStorage.getItem("name"));
+			this.props.updateMail(localStorage.getItem("name"));
 			this.props.changeLogin(true);
 		}
-		
+
     return (
-        <div >
+        <div>
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
   <button className="closebtn" id="close" onClick={this.Close}></button>
     <div id="main">
