@@ -227,7 +227,7 @@ li:hover {
       font-weight: normal;
     }
 
-header {margin-left: 10%;}
+header {/*margin-left: 10%;*/}
 
     span.icon {
       background: url('resources/google_logo_trans.png') transparent 5px 50% no-repeat;
