@@ -269,7 +269,7 @@ class Login extends React.Component{
 		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
 		console.log("HighScore mail: ", user)
 		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
-		  let highScores = snapshot.val().username;
+		  let highScores = snapshot.val();
 			console.log(highScores);
 		});
 	}
