@@ -1,5 +1,4 @@
 class App extends React.Component {
-
 	constructor(props) {
 		super(props);
 			this.state = {
@@ -10,21 +9,25 @@ class App extends React.Component {
 							a1: "",
 							a2: "",
 							a3: ""
-					}]
+					}],
+					userEmail: "",
 			};
-
 				this.changeEntry = this.changeEntry.bind(this);
 				this.changeLogin = this.changeLogin.bind(this);
+				this.updateMail = this.updateMail.bind(this);
 			}
-
 			render(){
                 if(this.state.loggedIn === true) {
                     if(this.state.selected === '') {
                         return (
                             <div>
-                                <Login changeLogin = {this.changeLogin}/>
+                                <Login
+																	changeLogin = {this.changeLogin}
+																	updateMail = {this.updateMail}/>
 
-                                <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/>
+                                <MyList
+																	items= {this.state.questions}
+																	changeEntry = {this.changeEntry}/>
                             </div>
                             )
                     }// end if: something is selected
@@ -32,17 +35,23 @@ class App extends React.Component {
 
                         return (
                             <div>
-                                <Login changeLogin = {this.changeLogin}/>
+                              <Login
+																changeLogin = {this.changeLogin}
+																updateMail = {this.updateMail}/>/>
 
-                                        <div id="flex-container">
-                                            <div id="flex-itemX">
-                                                <div id="logo">
-                                                    <img src="resources/logo_new.png" id="img"></img>
-                                                </div>
-                                                <h5>Category: {this.state.selected}</h5>
-                                                        <Quizz changeLogin = {this.changeLogin} items= {this.state.questions} changeEntry = {this.changeEntry}/>
-                                            </div>
-                                        </div>
+                                      <div id="flex-container">
+                                          <div id="flex-itemX">
+                                              <div id="logo">
+                                                  <img src="resources/logo_new.png" id="img"></img>
+                                              </div>
+                                              <h5>Category: {this.state.selected}</h5>
+                                                      <Quizz
+																												changeLogin = {this.changeLogin}
+																												items= {this.state.questions}
+																												changeEntry = {this.changeEntry}
+																												userEmail = {this.state.userEmail}/>
+                                          </div>
+                                      </div>
 
                             </div>
                             )
@@ -51,7 +60,8 @@ class App extends React.Component {
                 else {
                     return (
                             <div>
-                                <Login changeLogin = {this.changeLogin}/>
+                                <Login
+																	changeLogin = {this.changeLogin}/>
 
                                     <div id="flex-container">
                                         <div id="flex-itemX">
@@ -89,6 +99,11 @@ class App extends React.Component {
 			loggedIn: x
 			});
 		}
+	updateMail(mail){
+		this.setState({
+			userEmail: mail
+		});
+	}
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -128,9 +143,7 @@ class Quizz extends React.Component{
 		return [`a${first} `,`a${second} `,`a${third} `];
 	}
 	clickAnswerCorrect(event){
-
 		this.points++;
-
 		this.clickAnswer(event);
 	}
 	clickAnswer(event){
@@ -158,10 +171,7 @@ class Quizz extends React.Component{
 		});
 		// SEND HIGHSCORE TO DATABASE
 
-		console.log("Mail after finish game: ", mail);
-		console.log("This state: ", this.state);
-		console.log("App state: ", App.state);
-		console.log("Login state: ", Login.state);
+		console.log("Mail after finish game: ", this.props.userEmail);
 
 		document.getElementById("results").className = "results show";
 
@@ -248,6 +258,7 @@ class Login extends React.Component{
       loginClass: "hide",
       loggedInClass: "show"
     });
+		this.props.updateMail(mail);
   }
   logOutUser() {
     this.props.changeLogin(false);
@@ -261,6 +272,7 @@ class Login extends React.Component{
       loggedInClass: "hide",
       loginText: "Succesfully logged OUT"
     });
+		this.props.updateMail("");
   }
   logInGoogle(updateUserData) {
     let providerG = new firebase.auth.GoogleAuthProvider();
@@ -294,7 +306,6 @@ class Login extends React.Component{
 
   updateUserData(data) {
             this.updateEmail(data);
-
 		}
 
 handleClick() {
