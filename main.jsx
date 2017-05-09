@@ -262,15 +262,15 @@ class Login extends React.Component{
     this.Close = this.Close.bind(this);
     this.updateUserData = this.updateUserData.bind(this);
     this.component = this.component.bind(this);
-		this.printHighScore = this.printHighScore.bind(this);
+		this.getHighScores = this.getHighScores.bind(this);
   }
-	printHighScore(){
+	getHighScores(){
 		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
 		console.log("HighScore mail: ", user)
 		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
-		  let highScores = snapshot.val();
-			console.log("Snapshot:", highScores);
+		  var highScores = snapshot.val();
 		});
+		console.log("Snapshot:", highScores);
 	}
   updateEmail(mail){
     this.setState({
@@ -321,7 +321,6 @@ class Login extends React.Component{
 		this.props.changeLogin(true);
     this.updateEmail(data);
 		this.printHighScore();
-		console.log("After funktion");
 		}
 
 handleClick() {
