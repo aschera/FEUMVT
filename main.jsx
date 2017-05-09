@@ -119,7 +119,7 @@ class App extends React.Component {
 			this.setState({
 				highScores: highScores
 			});
-		}
+		});
 		console.log("This state: ", this.state);
 	}
 	checkLocalStorage(){
