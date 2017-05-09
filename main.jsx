@@ -347,7 +347,7 @@ Close() {
     return (
         <div >
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
-  <button className="closebtn" id="close" onClick={this.Close}>Close</button>
+  <button className="closebtn" id="close" onClick={this.Close}></button>
     <div id="main">
       <div id="menu">
         <div className={this.state.loginClass} >
@@ -380,7 +380,7 @@ Close() {
 </div>
       </div>
 </div>
-<button id="open" className="closebtn" onClick={this.handleClick}>&#9776; Open</button>
+<button id="open" className="closebtn" onClick={this.handleClick}></button>
 </div>
     )
   }
