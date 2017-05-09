@@ -18,7 +18,6 @@ class App extends React.Component {
 				this.changeEntry = this.changeEntry.bind(this);
 				this.changeLogin = this.changeLogin.bind(this);
 				this.updateMail = this.updateMail.bind(this);
-				this.newHighScore = this.newHighScore.bind(this);
 			}
 			render(){
                 if(this.state.loggedIn === true) {
