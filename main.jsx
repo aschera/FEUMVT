@@ -3,14 +3,16 @@ class App extends React.Component {
 		super(props);
 			this.state = {
 					selected: '',
-					loggedIn: false,
 					questions: [{
 							text: "",
 							a1: "",
 							a2: "",
 							a3: ""
 					}],
+					loggedIn: false,
 					userEmail: "",
+					loginClass: "show",
+					loggedInClass: "hide",
 					highScores: []
 			};
 				this.changeEntry = this.changeEntry.bind(this);
@@ -25,7 +27,9 @@ class App extends React.Component {
                             <div>
                                 <Login
 																	changeLogin = {this.changeLogin}
-																	updateMail = {this.updateMail}/>
+																	updateMail = {this.updateMail}
+																	loginClass = {this.state.loginClass}
+																	loggedInClass = {this.state.loggedInClass}/>
 
                                 <MyList
 																	items= {this.state.questions}
@@ -39,7 +43,9 @@ class App extends React.Component {
                             <div>
                               <Login
 																changeLogin = {this.changeLogin}
-																updateMail = {this.updateMail}/>/>
+																updateMail = {this.updateMail}
+																loginClass = {this.state.loginClass}
+																loggedInClass = {this.state.loggedInClass}/>/>
 
                                       <div id="flex-container">
                                           <div id="flex-itemX">
@@ -64,7 +70,10 @@ class App extends React.Component {
                     return (
                             <div>
                                 <Login
-																	changeLogin = {this.changeLogin}/>
+																	changeLogin = {this.changeLogin}
+																	updateMail = {this.updateMail}
+																	loginClass = {this.state.loginClass}
+																	loggedInClass = {this.state.loggedInClass}/>
 
                                     <div id="flex-container">
                                         <div id="flex-itemX">
@@ -97,10 +106,21 @@ class App extends React.Component {
 
  /* ------------------Get new set of questions------------------------------------------- */
 	changeLogin(x) {
-		this.setState({
-			loggedIn: x
+		if (x == true){
+			this.setState({
+				loggedIn: true,
+				loginClass: "hide",
+				loggedInClass: "show"
 			});
 		}
+		else {
+			this.setState({
+				loggedIn: false,
+				loginClass: "show",
+				loggedInClass: "hide"
+			});
+		}
+	}
 	/* ---------------------------------------------------------------------------------------- */
 
 	updateMail(mail){
@@ -272,11 +292,6 @@ var divStyle = {
 class Login extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      userEmail: "",
-      loginClass: "show",
-      loggedInClass: "hide",
-    }
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
@@ -285,25 +300,14 @@ class Login extends React.Component{
     this.updateUserData = this.updateUserData.bind(this);
     this.component = this.component.bind(this);
   }
-  updateEmail(mail){
-    this.setState({
-      userEmail: mail,
-      loginClass: "hide",
-      loggedInClass: "show"
-    });
-		this.props.updateMail(mail);
-  }
   logOutUser() {
-    this.props.changeLogin(false);
   	firebase.auth().signOut().then(function(result) {
     }).catch(function(error) {
   	// Utloggning misslyckades
-  	console.log("something went wrong!")
+  	console.log("Logout Failed")
     });
-    this.setState({
-      loginClass: "show",
-      loggedInClass: "hide",
-    });
+
+		this.props.changeLogin(false);
 		this.props.updateMail("");
 		localStorage.setItem("name", null);
   }
@@ -322,7 +326,7 @@ class Login extends React.Component{
   component() {
       this.logInGoogle(this.updateUserData);
       this.props.changeLogin(true);
-		}
+	}
   updateUserData(data) {
 		this.props.changeLogin(true);
     this.updateEmail(data);
@@ -348,7 +352,7 @@ Close() {
   <button className="closebtn" id="close" onClick={this.Close}></button>
     <div id="main">
       <div id="menu">
-        <div className={this.state.loginClass} >
+        <div className={this.props.loginClass} >
             <div id="gSignInWrapper">
             <div id="customBtn" onClick= {this.component} >
               <span className="icon"></span>
@@ -358,7 +362,7 @@ Close() {
 
         </div>
 
-        <div id="menuLoggedIn" className={this.state.loggedInClass}>
+        <div id="menuLoggedIn" className={this.props.loggedInClass}>
 
         <div id="gSignInWrapper">
             <div id="customBtn1" onClick={this.logOutUser} >
@@ -368,7 +372,7 @@ Close() {
           </div>
 
                <h4>Signed in as:</h4>
-                <p id="username">{this.state.userEmail}</p>
+                <p id="username">{this.props.userEmail}</p>
 
                <h3>Your highscore</h3>
 							 <span>Date</span>
