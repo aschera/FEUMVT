@@ -17,12 +17,9 @@ class App extends React.Component {
 				this.changeLogin = this.changeLogin.bind(this);
 				this.updateMail = this.updateMail.bind(this);
 				this.newHighScore = this.newHighScore.bind(this);
-				this.checkLocalStorage = this.checkLocalStorage.bind(this);
 			}
 			render(){
-				this.checkLocalStorage();
-
-                if(this.state.loggedIn === true) {
+                if(this.state.loggedIn === true || localStorage.getItem("name") != null) {
                     if(this.state.selected === '') {
                         return (
                             <div>
@@ -92,7 +89,6 @@ class App extends React.Component {
 
  /* ------------------Get new set of questions------------------------------------------- */
 	changeEntry(x,y) {
-
 		this.setState({
 			questions: x,
 			selected: y
@@ -121,15 +117,6 @@ class App extends React.Component {
 			});
 		});
 		console.log("This state: ", this.state);
-	}
-	checkLocalStorage(){
-		let savedName = localStorage.getItem("name");
-		if (savedName != "null" && savedName != null){
-			this.setState({
-				userEmail: savedName,
-				loggedIn: true
-			});
-		}
 	}
 }
 
@@ -344,6 +331,11 @@ Close() {
 };
 
   render(){
+		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
+			this.props.updateEmail(localStorage.getItem("name"));
+			this.props.changeLogin(true);
+		}
+		
     return (
         <div >
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
