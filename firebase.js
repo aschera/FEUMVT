@@ -11,22 +11,19 @@ firebase.initializeApp({
 var highScore = {
   highScores: [],
   getHighScores: function(username){
-    console.log(username);
     firebase.database().ref('/users/' + username).once('value').then(function(snapshot) {
       highScore.highScores = snapshot.val();
-      console.log("Inside: ", highScore.highScores);
-      console.log(this);
       highScore.printScores(highScore.highScores);
     });
   },
   printScores: function(list){
     let hsDiv = document.getElementById("highscores");
     let table = document.createElement("div");
-    list.forEach(hs => {
+    for ( let hs in list){
       let row = createElement("p");
-      p.innerHTML = `${hs.date} ${hs.genre} ${hs.score}/${hs.maxScore}`;
+      p.innerHTML = `${list[hs].date} ${list[hs].genre} ${list[hs].score}/${list[hs].maxScore}`;
       table.appendChild(p);
-    });
+    }
     hsDiv.appendChild(table);
   }
 }
