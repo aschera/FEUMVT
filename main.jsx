@@ -463,8 +463,7 @@ var partial;
 
 const newlist = list.map(
 
-      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {x}</li> )
-    );
+      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}> &emsp;&emsp;&emsp; {x}</li> )
 
         return (
           <div>
