@@ -109,6 +109,7 @@ class Quizz extends React.Component{
       rightAnswers: this.points
     });
 
+    console.log(mail);
     // SEND HIGHSCORE TO DATABASE
 
     document.getElementById("results").className = "results show";
