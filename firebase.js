@@ -9,11 +9,11 @@ firebase.initializeApp({
 });
 
 var highScore = {
+
   highScores: [],
   getHighScores: function(username){
-    let user = username.replace(/[^a-z0-9]/gi,'');
-    console.log(user);
-    firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+    console.log(username);
+    firebase.database().ref('/users/' + username).once('value').then(function(snapshot) {
       highScore.highScores = snapshot.val();
     });
     console.log(this.highScores);

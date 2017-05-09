@@ -238,6 +238,8 @@ class Quizz extends React.Component{
 			date:	today
 	  });
 
+		highScore.getHighScores(editedMail);
+
 		document.getElementById("results").className = "results show";
 
         var done = this.props.changeEntry('','');
