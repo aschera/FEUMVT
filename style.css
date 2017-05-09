@@ -1,7 +1,12 @@
+
+
+
+
+
 /* test  */
 h1 {
 	color: #fff;
-	font-family: 'Cormorant Garamond';
+	font-family: 'Inknut Antiqua', serif;
     border-bottom: 1px solid #76cee8;
 	font-size: 3em;
 	font-weight: 400;
@@ -14,7 +19,7 @@ h1 {
 }
 h5{
   	color: #black;
-	font-family: 'Cormorant Garamond';
+	font-family: 'Inknut Antiqua', serif;
     border-bottom: 1px solid #76cee8;
 	font-size: 2em;
 	font-weight: 400;
@@ -28,7 +33,7 @@ h5{
 
 p {
 	color: black;
-	font-family: 'Cormorant Garamond';
+	font-family: 'Inknut Antiqua', serif;
 	font-size: 1em;
 	font-style: italic;
 	font-weight: 400;
@@ -39,7 +44,7 @@ p {
 
 a {
 	color: #e66c7e;	border-bottom: 2px solid #e66c7e;
-	font-family: 'Cormorant Garamond';
+	font-family: 'Inknut Antiqua', serif;
 	font-size: 16px;
 	font-weight: 700;
 	letter-spacing: 3px;
@@ -105,20 +110,36 @@ li:hover {
     float: left;
 }
 #close {
-    background-color: #8fa1b3;
-    color:#76cee8;
-    margin:0.3em;
-    height: 25px;
-    width: 45px;
-}
-
-#open {
-    background-color: #8fa1b3;
-    color:#76cee8;
+    /*background-color: #8fa1b3;*/
+    background-image: url(resources/bg_yellow.png);
+    background-size: contain;
+    color:black;
     margin:0.3em;
     margin-left: 5%;
     height: 25px;
     width: 75px;
+    cursor: pointer;
+}
+
+#close:hover {
+    background-image: url(resources/bg_blue.png);
+    background-size: contain;
+}
+
+#open {
+    /*background-color: #8fa1b3;*/
+    background-image: url(resources/bg_yellow.png);
+    background-size: contain;
+    color:black;
+    margin:0.3em;
+    margin-left: 5%;
+    height: 25px;
+    width: 75px;
+    cursor: pointer;
+}
+#open:hover {
+    background-image: url(resources/bg_blue.png);
+    background-size: contain;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -204,7 +225,7 @@ li:hover {
       cursor: pointer;
     }
     span.label {
-      font-family: serif;
+      font-family: 'Inknut Antiqua', serif;
       font-weight: normal;
     }
 
@@ -245,7 +266,7 @@ header {margin-left: 10%;}
       cursor: pointer;
     }
     span.label {
-      font-family: serif;
+      font-family: 'Inknut Antiqua', serif;
       font-weight: normal;
     }
     span.icon {
@@ -282,7 +303,6 @@ body {
     display: flex;
     flex-flow: row wrap;
     width:100%;
-    background-color: aqua;
 }
 
 #inner-flex-container {
@@ -399,7 +419,7 @@ body{
   font-weight: bold;
   font-size: 2em;
   text-align: center;
-  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+  font-family: 'Inknut Antiqua', serif;
 }
 
 /* medium screens */
@@ -464,7 +484,7 @@ margin:0.2em;
   width: 7em;
   height:2em;
   background-color: #76cee8;
-  font-family: 'Cormorant Garamond';
+  font-family: 'Inknut Antiqua', serif;
     font-size: 0.9em;
 	font-weight: 600;
 	line-height: 1em;
