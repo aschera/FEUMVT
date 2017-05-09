@@ -316,7 +316,7 @@ body {
 
 
 
-#username{font-size: 1em;}
+#username{font-size: 0.6em;}
 
 body{
   background-image: url(resources/bg_yellow.png);
@@ -342,6 +342,8 @@ body{
   float: left;
    overflow: hidden;
 }
+
+h3{color:black; font-size:0.8em;}
 /*
 #introText{font-size: 1.7em; text-align: left; margin-left: 20px;}*/
 
