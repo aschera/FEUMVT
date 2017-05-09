@@ -253,7 +253,8 @@ class Login extends React.Component{
       userEmail: "n/a",
       loginText: " ",
       loginClass: "show",
-      loggedInClass: "hide"
+      loggedInClass: "hide",
+			highScores: [];
     }
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
@@ -266,11 +267,14 @@ class Login extends React.Component{
   }
 	getHighScores(){
 		let user = this.state.userEmail.replace(/[^a-z0-9]/gi,'');
-		console.log("HighScore mail: ", user)
 		firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
 		  var highScores = snapshot.val();
+			this.setState({
+				highScores: highScores
+			});
+			console.log(this.state);
 		});
-		console.log("Snapshot:", highScores);
+		console.log(this.state);
 	}
   updateEmail(mail){
     this.setState({
