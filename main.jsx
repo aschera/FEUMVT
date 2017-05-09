@@ -346,7 +346,7 @@ Close() {
 
   render(){
     return (
-        <div>
+        <div style={{margin-left:this.state.width}}>
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
   <button className="closebtn" id="close" onClick={this.Close}>Close</button>
     <div id="main">
@@ -382,7 +382,7 @@ Close() {
       </div>
 </div>
 <button id="open" className="closebtn" onClick={this.handleClick}>&#9776; Open</button>
-            </div>
+</div>
     )
   }
 }
