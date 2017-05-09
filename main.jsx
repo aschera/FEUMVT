@@ -435,6 +435,8 @@ handleChooseCategory(event) {
                    console.log(event.target.id);
                    getDataFromFirebase(this.updateCountryData);
                 }
+
+								/*
                 else if(event.target.id === 'Movies'){
                     console.log(event.target.id);
                     console.log('returns a bad format!');
@@ -445,6 +447,7 @@ handleChooseCategory(event) {
                     console.log('returns a bad format!');
                     getWorldFromFirebase(this.updateCountryData);
                 }
+								*/
 
 			}
 			this.setState({
