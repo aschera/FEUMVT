@@ -23,7 +23,7 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-     
+
                                 <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/>
                             </div>
                             )
@@ -33,7 +33,7 @@ class App extends React.Component {
                         return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                                
+
                                         <div id="flex-container">
                                             <div id="flex-itemX">
                                                 <div id="logo">
@@ -43,7 +43,7 @@ class App extends React.Component {
                                                         <Quizz changeLogin = {this.changeLogin} items= {this.state.questions} changeEntry = {this.changeEntry}/>
                                             </div>
                                         </div>
-                                
+
                             </div>
                             )
                     } // end else: nothing selected
@@ -52,24 +52,24 @@ class App extends React.Component {
                     return (
                             <div>
                                 <Login changeLogin = {this.changeLogin}/>
-                                    
+
                                     <div id="flex-container">
                                         <div id="flex-itemX">
-                                           
+
                                                 <div id="logo">
                                                 <img src="resources/logo_new.png" id="img"></img>
                                                 </div>
-        
+
                                             <p>
                                                 <br /><br /><br />
                                                 The QuiZZaro is designed to be very difficult. <br />
-                                                It will test your knowledge of a wide variety of information.<br /> 
+                                                It will test your knowledge of a wide variety of information.<br />
                                                 It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
                                                 Nobody has ever gotten all 10 questions correct.</p>
                                         </div>
                                     </div>
-                            </div>      
-    
+                            </div>
+
                             )
                 }
 			}//end render
@@ -82,7 +82,7 @@ class App extends React.Component {
 			selected: y
 			});
 		}
-	
+
  /* ------------------Get new set of questions------------------------------------------- */
 	changeLogin(x) {
 		this.setState({
@@ -158,14 +158,16 @@ class Quizz extends React.Component{
 		});
 		// SEND HIGHSCORE TO DATABASE
 
-		document.getElementById("results").className = "results show";
-        
-        var done = this.props.changeEntry('','');
-        
-	    setTimeout( done, 1000 );
-        
+		console.log("Mail after finish game: ", mail);
 
-         
+		document.getElementById("results").className = "results show";
+
+        var done = this.props.changeEntry('','');
+
+	    setTimeout( done, 5000 );
+
+
+
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
 	printQuestions(){
@@ -196,7 +198,7 @@ class Quizz extends React.Component{
 			<div>
 				<div className="allquestions">{this.printQuestions()}</div>
 				<div id="results" className="results hide">
-					<h2>Congratulations!</h2> 
+					<h2>Congratulations!</h2>
 					<h3>You answered {this.state.rightAnswers} out of 3</h3>
 				</div>
 			</div>
@@ -226,7 +228,7 @@ class Login extends React.Component{
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
-      
+
       this.handleClick = this.handleClick.bind(this);
       this.Close = this.Close.bind(this);
 
@@ -283,7 +285,7 @@ class Login extends React.Component{
     // New stuff below.
   component() {
       this.logInGoogle(this.updateUserData);
- 
+
       this.props.changeLogin(true);
 		}
 
@@ -291,18 +293,18 @@ class Login extends React.Component{
             this.updateEmail(data);
 
 		}
-    
+
 handleClick() {
     this.setState({
   width: "200px"
 })
 };
-    
+
 Close() {
     this.setState({
   width: "0px"
 })
-};    
+};
 
   render(){
     return (
@@ -310,7 +312,7 @@ Close() {
 <div id="mySidenav" style={{width:this.state.width}} className="sidenav">
   <button className="closebtn" id="close" onClick={this.Close}>Close</button>
     <div id="main">
-      <div id="menu"> 
+      <div id="menu">
         <div className={this.state.loginClass} >
             <div id="gSignInWrapper">
             <div id="customBtn" onClick= {this.component} >
@@ -320,24 +322,24 @@ Close() {
           </div>
 
         </div>
- 
+
         <div id="menuLoggedIn" className={this.state.loggedInClass}>
-     
+
         <div id="gSignInWrapper">
             <div id="customBtn1" onClick={this.logOutUser} >
               <span className="icon"></span>
               <span className="buttonText1">Logout</span>
             </div>
           </div>
-            
+
                <h4>Signed in as:</h4>
                 <p id="username">{this.state.userEmail}</p>
 
                <h3>Your highscore</h3>
         </div>
-</div> 
-      </div> 
-</div> 
+</div>
+      </div>
+</div>
 <button id="open" className="closebtn" onClick={this.handleClick}>&#9776; Open</button>
             </div>
     )
@@ -379,27 +381,27 @@ handleChooseCategory(event) {
 
 			} else {
 				x = true;
-                
+
                 if (event.target.id === 'Culture'){
                    console.log(event.target.id);
-                   getDataFromFirebase(this.updateCountryData); 
+                   getDataFromFirebase(this.updateCountryData);
                 }
                 else if(event.target.id === 'Movies'){
                     console.log(event.target.id);
                     console.log('returns a bad format!');
-                    getMovieFromFirebase(this.updateCountryData); 
+                    getMovieFromFirebase(this.updateCountryData);
                 }
                 else if(event.target.id === 'World'){
                     console.log(event.target.id);
                     console.log('returns a bad format!');
-                    getWorldFromFirebase(this.updateCountryData); 
+                    getWorldFromFirebase(this.updateCountryData);
                 }
-                
+
 			}
 			this.setState({
 				selected: theOne
 			});
-            
+
 		}
 
 /* ---------------------API event---------------------------------------- */

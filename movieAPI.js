@@ -11,7 +11,7 @@ var movies = {
           console.log("Network error");
       });
     });
-  }
+  },
   getMovieDetails: function(movieId){
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=en-US`).then(function(response){
       response.json().then(function(object){
