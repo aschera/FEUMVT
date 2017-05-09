@@ -20,7 +20,7 @@ var highScore = {
     let hsDiv = document.getElementById("highscores");
     let table = document.createElement("div");
     for ( let hs in list){
-      let row = createElement("p");
+      let row = document.createElement("p");
       p.innerHTML = `${list[hs].date} ${list[hs].genre} ${list[hs].score}/${list[hs].maxScore}`;
       table.appendChild(p);
     }
