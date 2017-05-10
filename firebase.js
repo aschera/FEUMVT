@@ -36,7 +36,6 @@ var hs = {
     });
   },
   showAll: function(){
-    console.log(hs.user);
     hs.filter = "all";
     hs.getHighScores(hs.convertName(hs.user));
   },

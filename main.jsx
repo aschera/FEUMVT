@@ -121,7 +121,6 @@ class App extends React.Component {
 		this.setState({
 			w: x,
 			});
-        console.log(x);
 		}
 
  /* ------------------Get new set of questions------------------------------------------- */
@@ -228,13 +227,8 @@ class Quizz extends React.Component{
 		allQuestions.map(question =>{
 			question.className = "question hide";
 		});
-		// SEND HIGHSCORE TO DATABASE
-		console.log("Highscore sent to Firebase");
-		console.log("User: ",this.props.userEmail);
-		console.log("Score: ",this.props.chosenCategory);
-		console.log("Max: ",this.points);
-		console.log("Genre: ",this.maxScore);
 
+		// Sends highscore to firebase
 		hs.newHighScore(this.props.userEmail, this.props.chosenCategory, this.points, this.maxScore);
 
 		document.getElementById("results").className = "results show";
@@ -428,8 +422,6 @@ class MyList extends React.Component {
 	    }
 
 	    else if(event.target.id === 'Movies'){
-	        console.log(event.target.id);
-	        console.log('returns a bad format!');
 	        getMovieFromApi(this.updateCountryData);
 	    } /*
 	    else if(event.target.id === 'World'){
