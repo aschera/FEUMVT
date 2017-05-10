@@ -460,17 +460,20 @@ h4{color:black; font-size:0.7em;}
 
 }
 .answers button{
-margin:0.2em;
-  width: 7em;
-  height:2em;
   background-color: #76cee8;
   font-family: 'Inknut Antiqua', serif;
-  font-size: 0.9em;
-  font-weight: 600;
-  line-height: 1em;
-  text-align: center;
-
+    color       : black;
+    line-height : 21px;
+    text-align  : center;
+    width       : auto;
+    border      : 0px;
+    padding:1em;
+    min-width:100px;
+    margin-left: 0.5em;
+    border: 2px dotted black;
+    border-radius: 4px;
 }
+
 .a1{
   order: 1;
 
