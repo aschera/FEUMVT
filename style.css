@@ -1,6 +1,13 @@
 /*      Highscore table     */
-
+#menuLoggedIn{
+	color: black;
+}
+#filterButtons *{
+	background-color: #76cee8;
+	margin-right: 5px;
+}
 table{
+	margin-top: 30px;
 	width: 100%;
 	border: 1px dotted grey;
 }
@@ -8,15 +15,14 @@ tr{
 	border-bottom: 0.5px solid black;
 }
 td, th{
-	color: black;
 	text-align: center;
 }
 td:nth-child(1), td:nth-child(2){
 	width: 40%;
 }
-
-
-
+th:hover{
+	color: grey;
+}
 
 /* test  */
 h1 {

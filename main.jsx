@@ -379,10 +379,12 @@ Close() {
                 <p id="username">{this.props.userEmail}</p>
 
                <h3>Your highscore</h3>
-							 <span>Show: </span>
-							 <button onClick={hs.showAll}>All</button>
-							 <button onClick={hs.showCulture}>Culture</button>
-							 <button onClick={hs.showMovies}>Movies</button>
+							 <span>SHOW</span>
+							 <div id="filterButtons">
+								 <button onClick={hs.showAll}>All</button>
+								 <button onClick={hs.showCulture}>Culture</button>
+								 <button onClick={hs.showMovies}>Movies</button>
+							 </div>
 							 <div id="highscores"></div>
         </div>
 </div>
