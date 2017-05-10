@@ -150,7 +150,6 @@ class App extends React.Component {
 		});
 	}
 	componentDidMount(){
-
 		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
 			this.setState({
 				loggedIn: true,
@@ -158,6 +157,7 @@ class App extends React.Component {
 				loggedInClass: "show",
 				userEmail: localStorage.getItem("name")
 			});
+		highScore.getHighScores(localStorage.getItem("name").replace(/[^a-z0-9]/gi,''));
 		}
 	}
 }
@@ -251,9 +251,9 @@ class Quizz extends React.Component{
 
         //var done = this.props.changeEntry('','');
 
-	    
+
         setTimeout(function(){ location.reload(); }, 3000);
-        
+
 
 
 
@@ -395,9 +395,6 @@ Close() {
                 <p id="username">{this.props.userEmail}</p>
 
                <h3>Your highscore</h3>
-							 <span>Date</span>
-							 <span>Genre</span>
-							 <span>Score</span>
 							 <div id="highscores"></div>
         </div>
 </div>
