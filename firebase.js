@@ -54,7 +54,6 @@ var hs = {
       array.push(list[hi]);
     }
     let sortedList = array.sort(function(a, b) {
-      console.log(a);
       return a.score - b.score;
     });
     sortedList.reverse();
