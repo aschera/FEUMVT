@@ -17,7 +17,7 @@ var hs = {
     let d = c.getDate();
     if (Number(d) < 10) d = "0"+d;
     return `${c.getFullYear()}-${m}-${d}`
-  }
+  },
   newHighScore: function(u, g, s, m){
     firebase.database().ref(`users/${hs.convertName(u)}/`).push({
       genre: g,
@@ -25,10 +25,10 @@ var hs = {
       max: m,
       date:	hs.saveDate()
     });
-  }
+  },
   convertName: function(mail){
     return mail.replace(/[^a-z0-9]/gi,'')
-  }
+  },
   getHighScores: function(username){    // Change to only get the top 10/5 scores
     firebase.database().ref('/users/' + hs.convertName(username)).once('value').then(function(snapshot) {
       hs.printScores(snapshot.val());
@@ -36,13 +36,13 @@ var hs = {
   },
   showAll: function(user){
     hs.filter = "all";
-  }
+  },
   showCulture: function(user){
     hs.filter = "culture";
-  }
+  },
   showMovies: function(user){
     hs.filter = "movies";
-  }
+  },
   filterList: function(list){
     let sortedList = list.sort(function(a, b) {
       return a - b;
