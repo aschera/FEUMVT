@@ -420,17 +420,24 @@ h4{color:black; font-size:0.7em;}
   text-align: center;
   margin-top: 5em;
 }
-.question{
-  display: inline-block;
-}
-.questionText{
+.question {
     background-image: url(resources/question.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 2em;
-    margin-left: 5em;
-    margin-right:5em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    min-height:100px;
+    min-width: 200px;
+}
+.questionText{
+ color:black;
+ text-align: center;
+ margin-left: 1em;
+ word-wrap: break-word;
+ white-space: initial;
+ width:90%;
+    
 }
 .show{
   display: block;
