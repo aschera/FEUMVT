@@ -18,7 +18,7 @@ class App extends React.Component {
 				this.changeEntry = this.changeEntry.bind(this);
 				this.changeLogin = this.changeLogin.bind(this);
 				this.updateMail = this.updateMail.bind(this);
-                this.changeSize = this.changeSize.bind(this);
+        this.changeSize = this.changeSize.bind(this);
 			}
 			render(){
                 if(this.state.loggedIn === true) {
@@ -401,95 +401,107 @@ Close() {
 /*ALL the categories */
 const list = ['Culture', 'Sports', 'Movies', 'Celebrities', 'World', 'Language'];
 
-
-
 class MyList extends React.Component {
-
  constructor(props) {
-			super(props);
-
-			this.handleChooseCategory = this.handleChooseCategory.bind(this);
-			this.updateCountryData = this.updateCountryData.bind(this);
-
-			this.state = {
-				selected:'',
-				questions: []
-			}
+		super(props);
+	//	this.handleChooseCategory = this.handleChooseCategory.bind(this);
+		this.updateCountryData = this.updateCountryData.bind(this);
+		this.state = {
+			selected:'',
+			questions: []
 		}
-/* ---------------------Click event---------------------------------------- */
-handleChooseCategory(event) {
-
+	}
+	/* ---------------------Click event---------------------------------------- */
+/*	handleChooseCategory(event) {
 		let theOne = event.target.id;
-
 		let x;
+		if ( this.state.selected ) {
+			x = false;
+		}
+		else {
+			x = true;
+	    if (event.target.id === 'Culture'){
+	      getDataFromFirebase(this.updateCountryData);
+	    }
 
-		if( this.state.selected ) {
-				x = false;
-
-
-			} else {
-				x = true;
-
-                if (event.target.id === 'Culture'){
-                   getDataFromFirebase(this.updateCountryData);
-                }
-
-								/*
-                else if(event.target.id === 'Movies'){
-                    console.log(event.target.id);
-                    console.log('returns a bad format!');
-                    getMovieFromFirebase(this.updateCountryData);
-                }
-                else if(event.target.id === 'World'){
-                    console.log(event.target.id);
-                    console.log('returns a bad format!');
-                    getWorldFromFirebase(this.updateCountryData);
-                }
-								*/
+	    else if(event.target.id === 'Movies'){
+	        console.log(event.target.id);
+	        console.log('returns a bad format!');
+	        getMovieFromFirebase(this.updateCountryData);
+	    }
+	    else if(event.target.id === 'World'){
+	        console.log(event.target.id);
+	        console.log('returns a bad format!');
+	        getWorldFromFirebase(this.updateCountryData);
+	    }
 
 			}
 			this.setState({
 				selected: theOne
 			});
-
-		}
-
-/* ---------------------API event---------------------------------------- */
-	updateCountryData(data) {
-		let category = this.state.selected;
-
-		this.props.changeEntry(data,category);
-		this.setState({
-				questions: data
+		} */
+		/* ---------------------API event---------------------------------------- */
+		updateCountryData(data) {
+			let category = this.state.selected;
+			this.props.changeEntry(data,category);
+			this.setState({
+					questions: data
 			});
-}
- /* --------------------------render----------------------------------- */
-
-	render() {
-
-var partial;
-
-const newlist = list.map(
-
-        x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
-    );
-
-        return (
-          <div>
-            <div style={{marginLeft: this.props.w + 'px'}} id="inner-flex-container">
-                <header>
-                        <div id="logo">
-                            <img src="resources/logo_new.png" id="img"></img>
-                        </div>
-                </header>
-                <h1>Categories</h1>
-                <ul className="flex-container">{newlist}</ul>
-            </div>
+		}
+		componentDidMount(event){
+			let theOne = event.target.id;
+			let x;
+			if ( this.state.selected ) {
+				x = false;
+			}
+			else {
+				x = true;
+		    if (event.target.id === 'Culture'){
+		      getDataFromFirebase(this.updateCountryData);
+		    }
+				/*
+		    else if(event.target.id === 'Movies'){
+		        console.log(event.target.id);
+		        console.log('returns a bad format!');
+		        getMovieFromFirebase(this.updateCountryData);
+		    }
+		    else if(event.target.id === 'World'){
+		        console.log(event.target.id);
+		        console.log('returns a bad format!');
+		        getWorldFromFirebase(this.updateCountryData);
+		    }
+				*/
+				}
+				this.setState({
+					selected: theOne
+				});
+		}
+ 		/* --------------------------render----------------------------------- */
+		render() {
+			var partial;
+			const newlist = list.map(x => (
+				<li
+					onClick={this.componentDidMount}
+					id={x}
+					className="flex-item" 
+					key={x}>{x}</li>
+				)
+    	);
+      return (
+        <div>
+          <div style={{marginLeft: this.props.w + 'px'}} id="inner-flex-container">
+              <header>
+                <div id="logo">
+                  <img src="resources/logo_new.png" id="img"></img>
+                </div>
+              </header>
+              <h1>Categories</h1>
+              <ul className="flex-container">{newlist}</ul>
           </div>
-        );
-      }
-	}
-
+        </div>
+      );
+    }
+}
 
 /* ------------------------------------------------------------- */
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-. REACT DOM -.-.-.-.-.-.-.-.-.-.-. */
