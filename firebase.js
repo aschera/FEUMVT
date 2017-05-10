@@ -29,11 +29,9 @@ var highScore = {
     genre.innerHTML = "Genre";
     score.innerHTML = "Score";
 
-    date.addEventListener("click", function(){
-      highScore.sortTable(0);
-    });
-    genre.onclick = highScore.sortTable(1);
-    score.onclick = highScore.sortTable(2);
+    date.addEventListener("click", function(){highScore.sortTable(0);});
+    genre.addEventListener("click", function(){highScore.sortTable(1);});
+    score.addEventListener("click", function(){highScore.sortTable(2);});
 
     hrow.appendChild(date);
     hrow.appendChild(genre);
@@ -57,7 +55,7 @@ var highScore = {
     }
     hsDiv.appendChild(table);
   },
-  sortTable: function(column){
+  sortTable: function(n){
     document.getElementById("highscores").style.color = "red";
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("highscores");
