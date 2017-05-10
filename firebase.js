@@ -25,13 +25,15 @@ var highScore = {
     let genre = document.createElement("th");
     let score = document.createElement("th");
 
-    date.addEventListener("click", highScore.sortTable(0));
-    genre.onclick = highScore.sortTable(1);
-    score.onclick = highScore.sortTable(2);
-
     date.innerHTML = "Date";
     genre.innerHTML = "Genre";
     score.innerHTML = "Score";
+
+    date.addEventListener("click", function(){
+      highScore.sortTable(0);
+    });
+    genre.onclick = highScore.sortTable(1);
+    score.onclick = highScore.sortTable(2);
 
     hrow.appendChild(date);
     hrow.appendChild(genre);
