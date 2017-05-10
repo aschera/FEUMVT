@@ -249,9 +249,11 @@ class Quizz extends React.Component{
 
 		document.getElementById("results").className = "results show";
 
-        var done = this.props.changeEntry('','');
+        //var done = this.props.changeEntry('','');
 
-	    setTimeout( done, 5000 );
+	    
+        setTimeout(function(){ location.reload(); }, 3000);
+        
 
 
 
