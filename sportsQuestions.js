@@ -1,7 +1,8 @@
-function getSportsdata() { 
-var sportQuestions=[];
+function getSportsFromFirebase(updateCountryData) { 
 
-var SportsArray =
+var questions=[];
+
+var sportsArray =
            [
                {category: 'Caption',
                 items: ['Premier league', 'Primera division', 'Bundesliga', 'Eredivisie', 'Ligue 1','Serie A', 'European championship', 'Champions League'],
@@ -26,27 +27,27 @@ var SportsArray =
                
            ];
 
-    for(let i=0; i <= SportsArray-1; i++) {
-        let category =SportsArray[i].category;
-        let game =SportsArray[i].items[Math.floor(Math.random() * SportsArray[i].items.length)];
-        let fakeGame1=SportsArray[i].fake1[Math.floor(Math.random() * SportsArray[i].fake1.length)];
-        let fakeGame2=SportsArray[i].fake2[Math.floor(Math.random() * SportsArray[i].fake2.length)];
-    }
+    for(let i=0; i <= sportsArray-1; i++) {
+        let category =sportsArray[i].category;
+        let game = sportsArray[i].items[Math.floor(Math.random() * sportsArray[i].items.length)];
+        let fakeGame1= sportsArray[i].fake1[Math.floor(Math.random() * sportsArray[i].fake1.length)];
+        let fakeGame2= sportsArray[i].fake2[Math.floor(Math.random() * sportsArray[i].fake2.length)];
+    
 
 var sports = {
 
     request: function() {
-    let competitions = "http://api.football-data.org/v1/competitions/?season=2016"; 
-    let teams ="http://api.football-data.org/v1/competitions/405/teams/";
-    let fix ="http://api.football-data.org/v1/fixtures";
+    let url = "http://api.football-data.org/v1/competitions/?season=2016"; 
+    url +="/405/teams";
+    url +="/fixtures";
     var myHeaders = new Headers();
     myHeaders.append("X-Auth-Token", "5524a123b5a54565a7f6d6caf6b6ac4b")
-    fetch(competitions)
+    fetch(url)
     .then(function(response){
      response.json().then(function(object){
      console.log(object);
      console.log('valid key ?', myHeaders);
-     return response.json();   
+   
       })
     .catch(function(error){
     console.log("Network error");
@@ -56,5 +57,21 @@ var sports = {
     
 }
 sports.request();
+
+    let s ='where can you find ' + category +':"' + object.caption[0] + '"' + '?';
+         
+    questions.push({
+      text: s,
+      a1: game,
+      a2: fakeGame1,
+      a3: fakeGame2
+    });
+         
+    updateCountryData(questions);
+        
+        
+   } 
     
 }
+console.log(getSportsFromFirebase(updateCountryData));
+console.log('helllloooooo')
