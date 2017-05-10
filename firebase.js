@@ -25,7 +25,7 @@ var highScore = {
     let genre = document.createElement("th");
     let score = document.createElement("th");
 
-    date.onclick = highScore.sortTable(0);
+    date.addEventListener("click", highScore.sortTable(0));
     genre.onclick = highScore.sortTable(1);
     score.onclick = highScore.sortTable(2);
 
