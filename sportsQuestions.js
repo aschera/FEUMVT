@@ -1,7 +1,9 @@
-function getSportsFromFirebase(updateCountryData) { 
-
-var questions=[];
-
+function getSportsFromFirebase(updateCountryData){ 
+    
+    
+var questions=[]; // empty array
+       
+    
 var sportsArray =
            [
                {category: 'Caption',
@@ -9,7 +11,7 @@ var sportsArray =
                 fake1: ['championship' ,'Segunda division' ,'Bundesliga 2' , 'League One', 'Ligue 2', 'Serie B', 'world championship','FA cup'],
                 fake2: ['English League one','Spanish first division','Primera liga','Dutch cup1','First league', 'Euro cup' ,'Winners League']},
 
-               {category: 'Number of teams',
+               {category: 'NumberOfTeams',
                 items: ['24','20','32'],
                 fake1: ['16' ,'12' ,'30', '14', '10', '22', '28'],
                 fake2: ['40', '26', '16', '8', '13','34','29']},
@@ -26,39 +28,34 @@ var sportsArray =
 
                
            ];
-
-    for(let i=0; i <= sportsArray-1; i++) {
-        let category =sportsArray[i].category;
-        let game = sportsArray[i].items[Math.floor(Math.random() * sportsArray[i].items.length)];
-        let fakeGame1= sportsArray[i].fake1[Math.floor(Math.random() * sportsArray[i].fake1.length)];
-        let fakeGame2= sportsArray[i].fake2[Math.floor(Math.random() * sportsArray[i].fake2.length)];
     
-       console.log('looooooop', sportsArray[i]);
-var sports = {
-
-    request: function() {
+    
+    
+  
+    for(let i=0; i <= this.sportsArray-1; i++) {
+            
+    let category =sportsArray[i].category;
+            
+    let game = sportsArray[i].items[Math.floor(Math.random() * sportsArray[i].items.length)];
+            
+    let fakeGame1= sportsArray[i].fake1[Math.floor(Math.random() * sportsArray[i].fake1.length)];
+    let fakeGame2= sportsArray[i].fake2[Math.floor(Math.random() * sportsArray[i].fake2.length)];
+    
+            
     let url = "http://api.football-data.org/v1/competitions/?season=2016"; 
-    url +="/405/teams";
-    url +="/fixtures";
+    /*url +="/405/teams";
+    url +="/fixtures";*/
+            
+            
     var myHeaders = new Headers();
-    myHeaders.append("X-Auth-Token", "5524a123b5a54565a7f6d6caf6b6ac4b")
+    myHeaders.append("X-Auth-Token", "5524a123b5a54565a7f6d6caf6b6ac4b") // api key
+     console.log('before fetch')       
     fetch(url)
     .then(function(response){
      response.json().then(function(object){
-     console.log(object);
-     console.log('valid key ?', myHeaders);
-   
-      })
-    .catch(function(error){
-    console.log("Network error");
-      });
-    });
-}
-    
-}
-sports.request();
-
-    let s ='where can you find ' + category +':"' + object.caption[0] + '"' + '?';
+     console.log('json object', object);
+     
+     let s ='where can you find ' + category +':"' + object.caption[0] + '"' + '?';
          
     questions.push({
       text: s,
@@ -69,9 +66,18 @@ sports.request();
          
     updateCountryData(questions);
         
-        console.log('updateCountryData',updateCountryData)
-   } 
-    
+    console.log('updateCountryData',updateCountryData)
+      })
+    .catch(function(error){
+    console.log("Network error");
+      });
+    });
 }
-console.log(getSportsFromFirebase(updateCountryData));
-console.log('helllloooooo')
+    
+
+
+  
+  
+}
+getSportsFromFirebase();
+console.log('last in line')
