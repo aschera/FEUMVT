@@ -325,7 +325,8 @@ body {
 /*    *****   */
 
 
-
+#menuLoggedIn{text-align: center;}
+#menuLoggedOut{text-align: center;}
 #username{font-size: 0.7em;}
 
 body{
@@ -347,9 +348,10 @@ body{
 #menu{
   margin-top: 2em;
   height: 200vh;
+  width: 100%;
   background-size: contain;
   float: left;
-   overflow: hidden;
+  overflow: hidden;
 }
 
 ul {-webkit-padding-start: 0px;}

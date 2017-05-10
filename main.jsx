@@ -357,12 +357,14 @@ Close() {
     <div id="main">
       <div id="menu">
         <div className={this.props.loginClass} >
-            <div id="gSignInWrapper">
-            <div id="customBtn" onClick= {this.component} >
-              <span className="icon"></span>
-              <span className="buttonText">Login</span>
+            <div id="menuLoggedOut">
+                <div id="gSignInWrapper">
+                    <div id="customBtn" onClick= {this.component} >
+                      <span className="icon"></span>
+                      <span className="buttonText">Login</span>
+                    </div>
+                </div>
             </div>
-          </div>
 
         </div>
 
@@ -375,7 +377,7 @@ Close() {
             </div>
           </div>
 
-               <h4>Signed in as:</h4>
+               <h3>Signed in as:</h3>
                 <p id="username">{this.props.userEmail}</p>
 
                <h3>YOUR HIGHSCORES</h3>
@@ -385,9 +387,9 @@ Close() {
 								 <button onClick={hs.showMovies}>Movies</button>
 							 </div>
 							 <div id="highscores"></div>
+          </div>
         </div>
-</div>
-      </div>
+    </div>
 </div>
             <div id="left"><img src="resources/arrowblue.gif" id="open" className="closebtn" onClick={this.handleClick} /></div>
 </div>
