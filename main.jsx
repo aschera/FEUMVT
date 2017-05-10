@@ -404,7 +404,7 @@ const list = ['Culture', 'Sports', 'Movies', 'Celebrities', 'World', 'Language']
 class MyList extends React.Component {
  constructor(props) {
 		super(props);
-	//	this.handleChooseCategory = this.handleChooseCategory.bind(this);
+		this.handleChooseCategory = this.handleChooseCategory.bind(this);
 		this.updateCountryData = this.updateCountryData.bind(this);
 		this.state = {
 			selected:'',
@@ -412,7 +412,7 @@ class MyList extends React.Component {
 		}
 	}
 	/* ---------------------Click event---------------------------------------- */
-/*	handleChooseCategory(event) {
+	handleChooseCategory(event) {
 		let theOne = event.target.id;
 		let x;
 		if ( this.state.selected ) {
@@ -423,7 +423,7 @@ class MyList extends React.Component {
 	    if (event.target.id === 'Culture'){
 	      getDataFromFirebase(this.updateCountryData);
 	    }
-
+			/*
 	    else if(event.target.id === 'Movies'){
 	        console.log(event.target.id);
 	        console.log('returns a bad format!');
@@ -434,12 +434,12 @@ class MyList extends React.Component {
 	        console.log('returns a bad format!');
 	        getWorldFromFirebase(this.updateCountryData);
 	    }
-
+			*/
 			}
 			this.setState({
 				selected: theOne
 			});
-		} */
+		}
 		/* ---------------------API event---------------------------------------- */
 		updateCountryData(data) {
 			let category = this.state.selected;
@@ -448,42 +448,14 @@ class MyList extends React.Component {
 					questions: data
 			});
 		}
-		componentDidMount(event){
-			let theOne = event.target.id;
-			let x;
-			if ( this.state.selected ) {
-				x = false;
-			}
-			else {
-				x = true;
-		    if (event.target.id === 'Culture'){
-		      getDataFromFirebase(this.updateCountryData);
-		    }
-				/*
-		    else if(event.target.id === 'Movies'){
-		        console.log(event.target.id);
-		        console.log('returns a bad format!');
-		        getMovieFromFirebase(this.updateCountryData);
-		    }
-		    else if(event.target.id === 'World'){
-		        console.log(event.target.id);
-		        console.log('returns a bad format!');
-		        getWorldFromFirebase(this.updateCountryData);
-		    }
-				*/
-				}
-				this.setState({
-					selected: theOne
-				});
-		}
  		/* --------------------------render----------------------------------- */
 		render() {
 			var partial;
 			const newlist = list.map(x => (
 				<li
-					onClick={this.componentDidMount}
+					onClick={this.handleChooseCategory}
 					id={x}
-					className="flex-item" 
+					className="flex-item"
 					key={x}>{x}</li>
 				)
     	);
