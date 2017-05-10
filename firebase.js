@@ -78,7 +78,7 @@ var hs = {
   printScores: function(list){
     let hsDiv = document.getElementById("highscores");
     hsDiv.innerHTML = "";
-    let table = document.createElement("td");
+    let table = document.createElement("table");
     let hrow = document.createElement("tr");
     let date = document.createElement("th");
     let genre = document.createElement("th");
