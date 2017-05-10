@@ -378,8 +378,7 @@ Close() {
                <h4>Signed in as:</h4>
                 <p id="username">{this.props.userEmail}</p>
 
-               <h3>Your highscore</h3>
-							 <span>SHOW</span>
+               <h3>YOUR HIGHSCORES</h3>
 							 <div id="filterButtons">
 								 <button onClick={hs.showAll}>All</button>
 								 <button onClick={hs.showCulture}>Culture</button>
