@@ -2,15 +2,15 @@ var sportQuestions=[];
 
 var SportsArray =
            [
-               {category: 'caption',
+               {category: 'Caption',
                 items: ['Premier league', 'Primera division', 'Bundesliga', 'Eredivisie', 'Ligue 1','Serie A', 'European championship', 'Champions League'],
                 fake1: ['championship' ,'Segunda division' ,'Bundesliga 2' , 'League One', 'Ligue 2', 'Serie B', 'world championship','FA cup'],
                 fake2: ['English League one','Spanish first division','Primera liga','Dutch cup1','First league', 'Euro cup' ,'Winners League']},
 
-               {category: 'Year',
-                items: ['2016','2015'],
-                fake1: ['2002' ,'1999' ,'2010', '2008', '1992', '1986', '2005'],
-                fake2: ['2000', '1998', '2011', '2009', '1993','1987','2005']},
+               {category: 'Number of teams',
+                items: ['24','20','32'],
+                fake1: ['16' ,'12' ,'30', '14', '10', '22', '28'],
+                fake2: ['40', '26', '16', '8', '13','34','29']},
 
                {category: 'Teams',
                 items: ['Manchster City', 'Barcelona', 'Juventus', 'Paris saint-germain', 'PSV Eindhoven','Malmö', 'FC porto', 'Zenit', 'FC Bayern München', 'Olympiacos'],
@@ -28,13 +28,20 @@ var SportsArray =
 var sports = {
 
     request: function() {
-    let url = "http://api.football-data.org/v1/competitions/?key=5524a123b5a54565a7f6d6caf6b6ac4b"; 
-    let key ="5524a123b5a54565a7f6d6caf6b6ac4b";
-    fetch(url).then(function(response){
-      response.json().then(function(object){
-          console.log(object);
-      }).catch(function(error){
-          console.log("Network error");
+    let competitions = "http://api.football-data.org/v1/competitions/?season=2016"; 
+    let teams ="http://api.football-data.org/v1/competitions/405/teams/";
+    let fix ="http://api.football-data.org/v1/fixtures";
+    var myHeaders = new Headers();
+    myHeaders.append("X-Auth-Token", "5524a123b5a54565a7f6d6caf6b6ac4b")
+    fetch(competitions)
+    .then(function(response){
+     response.json().then(function(object){
+     console.log(object);
+     console.log('valid key ?', myHeaders);
+     return response.json();   
+      })
+    .catch(function(error){
+    console.log("Network error");
       });
     });
 }
