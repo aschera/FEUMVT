@@ -56,6 +56,7 @@ var highScore = {
     hsDiv.appendChild(table);
   },
   sortTable: function(column){
+    document.getElementById("highscores").style.color = "red";
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("highscores");
     switching = true;
