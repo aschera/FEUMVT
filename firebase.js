@@ -54,7 +54,7 @@ var hs = {
       array.push(list[hi]);
     }
     let sortedList = array.sort(function(a, b) {
-      return a - b;
+      return b - a;
     });
     let topList = sortedList.slice(0, 9);
     if (hs.filter == "culture"){
