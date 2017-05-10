@@ -4,8 +4,10 @@ table{
 	width: 100%;
 	border: 1px dotted grey;
 }
-td, th{
+tr{
 	border-bottom: 0.5px solid black;
+}
+td, th{
 	color: black;
 	text-align: center;
 }
