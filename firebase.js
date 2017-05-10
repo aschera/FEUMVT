@@ -44,7 +44,11 @@ var hs = {
     hs.filter = "movies";
   },
   filterList: function(list){
-    let sortedList = list.sort(function(a, b) {
+    let array = [];
+    for ( let hi in list){
+      array.push(list[hi]);
+    }
+    let sortedList = array.sort(function(a, b) {
       return a - b;
     });
     let topList = sortedList.slice(0, 9);
@@ -88,21 +92,21 @@ var hs = {
     table.appendChild(hrow);
 
     let filteredList = hs.filterList(list);
-    for ( let hi in filteredList){
+    filterList.forEach(hi =>{
       let row = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
       let td3 = document.createElement("td");
 
-      td1.innerHTML = list[hi].date;
-      td2.innerHTML = list[hi].genre;
-      td3.innerHTML = `${list[hi].score}/${list[hi].max}`;
+      td1.innerHTML = hi.date;
+      td2.innerHTML = hi.genre;
+      td3.innerHTML = `${hi.score}/${hi.max}`;
 
       row.appendChild(td1);
       row.appendChild(td2);
       row.appendChild(td3);
       table.appendChild(row);
-    }
+    });
     hsDiv.appendChild(table);
   },
   sortTable: function(n){
