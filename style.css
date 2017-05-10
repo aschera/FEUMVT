@@ -2,16 +2,14 @@
 
 table{
 	width: 100%;
-	border: 1px solid grey;
+	border: 1px dotted grey;
 }
 td, th{
-	border: 1px dotted black;
+	border-bottom: 0.5px solid black;
 	color: black;
+	text-align: center;
 }
-td:nth-child(1){
-	width: 40%;
-}
-td:nth-child(2){
+td:nth-child(1), td:nth-child(2){
 	width: 40%;
 }
 
