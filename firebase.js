@@ -36,15 +36,15 @@ var hs = {
   },
   showAll: function(user){
     hs.filter = "all";
-    hs.getHighScores(user);
+    hs.getHighScores(hs.convertName(user));
   },
   showCulture: function(user){
     hs.filter = "culture";
-    hs.getHighScores(user);
+    hs.getHighScores(hs.convertName(user));
   },
   showMovies: function(user){
     hs.filter = "movies";
-    hs.getHighScores(user);
+    hs.getHighScores(hs.convertName(user));
   },
   filterList: function(list){
     let array = [];
