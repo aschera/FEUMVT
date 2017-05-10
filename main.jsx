@@ -14,7 +14,6 @@ class App extends React.Component {
 					userEmail: "",
 					loginClass: "show",
 					loggedInClass: "hide",
-					highScores: []
 			};
 				this.changeEntry = this.changeEntry.bind(this);
 				this.changeLogin = this.changeLogin.bind(this);
@@ -157,7 +156,7 @@ class App extends React.Component {
 				loggedInClass: "show",
 				userEmail: localStorage.getItem("name")
 			});
-		highScore.getHighScores(localStorage.getItem("name").replace(/[^a-z0-9]/gi,''));
+		hs.getHighScores(hs.convertName(localStorage.getItem("name")));
 		}
 	}
 }
@@ -180,15 +179,6 @@ class Quizz extends React.Component{
 		this.clickAnswer = this.clickAnswer.bind(this);
 		this.clickAnswerCorrect = this.clickAnswerCorrect.bind(this);
 		this.gameFinished = this.gameFinished.bind(this);
-		this.saveDate = this.saveDate.bind(this);
-	}
-	saveDate(){
-		let c = new Date();
-		let m = c.getMonth()+1;
-		if (Number(m) < 10) m = "0"+m;
-		let d = c.getDate();
-		if (Number(d) < 10) d = "0"+d;
-		return `${c.getFullYear()}-${m}-${d}`
 	}
 	// Returnerar ett slumpat heltal f.o.m. min till max (kan ej returnera max)
 	getRandomInt(min, max) {
@@ -236,27 +226,18 @@ class Quizz extends React.Component{
 			question.className = "question hide";
 		});
 		// SEND HIGHSCORE TO DATABASE
-		let editedMail =   this.props.userEmail.replace(/[^a-z0-9]/gi,'');
-		let today = this.saveDate();
-		firebase.database().ref(`users/${editedMail}/`).push({
-	    genre: this.props.chosenCategory,
-			score: this.points,
-			max: this.maxScore,
-			date:	today
-	  });
+		console.log("Highscore sent to Firebase");
+		console.log("User: ",this.props.userEmail);
+		console.log("Score: ",this.props.chosenCategory);
+		console.log("Max: ",this.points);
+		console.log("Genre: ",this.maxScore);
 
-		highScore.getHighScores(editedMail);
+		hs.newHighScore(this.props.userEmail, this.props.chosenCategory, this.points, this.maxScore);
 
 		document.getElementById("results").className = "results show";
 
-        //var done = this.props.changeEntry('','');
-
-
-        setTimeout(function(){ location.reload(); }, 3000);
-
-
-
-
+    //var done = this.props.changeEntry('','');
+    setTimeout(function(){ location.reload(); }, 5000);
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
 	printQuestions(){
@@ -395,6 +376,10 @@ Close() {
                 <p id="username">{this.props.userEmail}</p>
 
                <h3>Your highscore</h3>
+							 <span>Show: </span>
+							 <button onClick={hs.showAll}>All</button>
+							 <button onClick={hs.showCulture}>Culture</button>
+							 <button onClick={hs.showMovies}>Movies</button>
 							 <div id="highscores"></div>
         </div>
 </div>

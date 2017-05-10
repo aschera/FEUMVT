@@ -8,16 +8,62 @@ firebase.initializeApp({
   messagingSenderId: "742947349969"
 });
 
-var highScore = {
-  highScores: [],
+var hs = {
+  filter: "all",
+  saveDate: function(){
+    let c = new Date();
+    let m = c.getMonth()+1;
+    if (Number(m) < 10) m = "0"+m;
+    let d = c.getDate();
+    if (Number(d) < 10) d = "0"+d;
+    return `${c.getFullYear()}-${m}-${d}`
+  }
+  newHighScore: function(u, g, s, m){
+    firebase.database().ref(`users/${hs.convertName(u)}/`).push({
+      genre: g,
+      score: s,
+      max: m,
+      date:	hs.saveDate()
+    });
+  }
+  convertName: function(mail){
+    return mail.replace(/[^a-z0-9]/gi,'')
+  }
   getHighScores: function(username){    // Change to only get the top 10/5 scores
-    firebase.database().ref('/users/' + username).once('value').then(function(snapshot) {
-      highScore.highScores = snapshot.val();
-      highScore.printScores(highScore.highScores);
+    firebase.database().ref('/users/' + hs.convertName(username)).once('value').then(function(snapshot) {
+      hs.printScores(snapshot.val());
     });
   },
+  showAll: function(user){
+    hs.filter = "all";
+  }
+  showCulture: function(user){
+    hs.filter = "culture";
+  }
+  showMovies: function(user){
+    hs.filter = "movies";
+  }
   filterList: function(list){
-
+    let sortedList = list.sort(function(a, b) {
+      return a - b;
+    });
+    let topList = sortedList.slice(0, 9);
+    if (hs.filter == "culture"){
+      return topList.filter(function(highscore){
+        return highscore.genre == "Culture";
+      });
+    }
+    else if (hs.filter == "sports"){
+      return topList.filter(function(highscore){
+        return highscore.genre == "Sports";
+      });
+    }
+    else if (hs.filter == "movies"){
+      return topList.filter(function(highscore){
+        return highscore.genre == "Movies";
+      });
+    }
+    else return topList;
   },
   printScores: function(list){
     let hsDiv = document.getElementById("highscores");
@@ -32,25 +78,25 @@ var highScore = {
     genre.innerHTML = "Genre";
     score.innerHTML = "Score";
 
-    date.addEventListener("click", function(){highScore.sortTable(0);});
-    genre.addEventListener("click", function(){highScore.sortTable(1);});
-    score.addEventListener("click", function(){highScore.sortTable(2);});
+    date.addEventListener("click", function(){hs.sortTable(0);});
+    genre.addEventListener("click", function(){hs.sortTable(1);});
+    score.addEventListener("click", function(){hs.sortTable(2);});
 
     hrow.appendChild(date);
     hrow.appendChild(genre);
     hrow.appendChild(score);
     table.appendChild(hrow);
 
-    let filteredList = highScore.filterList(list);
-    for ( let hs in filteredList){
+    let filteredList = hs.filterList(list);
+    for ( let hi in filteredList){
       let row = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
       let td3 = document.createElement("td");
 
-      td1.innerHTML = list[hs].date;
-      td2.innerHTML = list[hs].genre;
-      td3.innerHTML = `${list[hs].score}/${list[hs].max}`;
+      td1.innerHTML = list[hi].date;
+      td2.innerHTML = list[hi].genre;
+      td3.innerHTML = `${list[hi].score}/${list[hi].max}`;
 
       row.appendChild(td1);
       row.appendChild(td2);
