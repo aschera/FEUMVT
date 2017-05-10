@@ -424,12 +424,12 @@ class MyList extends React.Component {
 	    if (event.target.id === 'Culture'){
 	      getDataFromFirebase(this.updateCountryData);
 	    }
-			/*
+
 	    else if(event.target.id === 'Movies'){
 	        console.log(event.target.id);
 	        console.log('returns a bad format!');
-	        getMovieFromFirebase(this.updateCountryData);
-	    }
+	        getMovieFromApi(this.updateCountryData);
+	    } /*
 	    else if(event.target.id === 'World'){
 	        console.log(event.target.id);
 	        console.log('returns a bad format!');
