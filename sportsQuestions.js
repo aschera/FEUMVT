@@ -1,3 +1,4 @@
+function getSportsdata() { 
 var sportQuestions=[];
 
 var SportsArray =
@@ -25,6 +26,13 @@ var SportsArray =
                
            ];
 
+    for(let i=0; i <= SportsArray-1; i++) {
+        let category =SportsArray[i].category;
+        let game =SportsArray[i].items[Math.floor(Math.random() * SportsArray[i].items.length)];
+        let fakeGame1=SportsArray[i].fake1[Math.floor(Math.random() * SportsArray[i].fake1.length)];
+        let fakeGame2=SportsArray[i].fake2[Math.floor(Math.random() * SportsArray[i].fake2.length)];
+    }
+
 var sports = {
 
     request: function() {
@@ -48,3 +56,5 @@ var sports = {
     
 }
 sports.request();
+    
+}
