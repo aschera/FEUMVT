@@ -18,9 +18,10 @@ var highScore = {
   },
   printScores: function(list){
     let hsDiv = document.getElementById("highscores");
-    let table = document.createElement("div");
+    hsDiv.innerHTML = "";
+    let table = document.createElement("td");
     for ( let hs in list){
-      let row = document.createElement("p");
+      let row = document.createElement("tr");
       row.innerHTML = `${list[hs].date} ${list[hs].genre} ${list[hs].score}/${list[hs].maxScore}`;
       table.appendChild(row);
     }
