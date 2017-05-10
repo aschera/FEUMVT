@@ -54,7 +54,8 @@ var hs = {
       array.push(list[hi]);
     }
     let sortedList = array.sort(function(a, b) {
-      return a - b;
+      console.log(a);
+      return a.score - b.score;
     });
     sortedList.reverse();
     let topList = sortedList.slice(0, 9);
