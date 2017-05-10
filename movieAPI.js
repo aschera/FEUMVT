@@ -7,10 +7,16 @@ var movieApi = {
   movieQuestions: [],
   companiesList: [
     "Walt Disney Pictures",
+    "Universal Pictures",
+    "Marvel Studios",
+    "Twentieth Century Fox Film Corporation",
+    "Paramount Pictures",
+    "Blumhouse Productions",
     "Warner Bros.",
-    "Marvel",
-    "DC Comics",
-    "21st Century Fox"
+    "Heyday films",
+    "Studio Babelsberg",
+    "Village Roadshow Pictures",
+    "Lucasfilm"
   ],
   getPopularMovies: function(){
     // Later save to localStorage once per day and dont run if already requested today.
@@ -28,7 +34,6 @@ var movieApi = {
       fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${this.apiKey}&language=en-US`).then(function(response){
         response.json().then(function(movieDetails){
           movieApi.mapQuestions(movieDetails);
-          console.log(movieDetails.production_companies[0].name);
           // Check if it's the last movie
           if(movieApi.popularMovies[movieApi.popularMovies.length-1] == movie){
             updateCountryData(movieApi.randomizeQuestions());
