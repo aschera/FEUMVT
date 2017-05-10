@@ -10,6 +10,7 @@ firebase.initializeApp({
 
 var hs = {
   filter: "all",
+  user: "",
   saveDate: function(){
     let c = new Date();
     let m = c.getMonth()+1;
@@ -34,18 +35,18 @@ var hs = {
       hs.printScores(snapshot.val());
     });
   },
-  showAll: function(user){
-    console.log(user);
+  showAll: function(){
+    console.log(hs.user);
     hs.filter = "all";
-    hs.getHighScores(hs.convertName(user));
+    hs.getHighScores(hs.convertName(hs.user));
   },
-  showCulture: function(user){
+  showCulture: function(){
     hs.filter = "culture";
-    hs.getHighScores(hs.convertName(user));
+    hs.getHighScores(hs.convertName(hs.user));
   },
-  showMovies: function(user){
+  showMovies: function(){
     hs.filter = "movies";
-    hs.getHighScores(hs.convertName(user));
+    hs.getHighScores(hs.convertName(hs.user));
   },
   filterList: function(list){
     let array = [];

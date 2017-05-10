@@ -147,16 +147,19 @@ class App extends React.Component {
 		this.setState({
 			userEmail: mail
 		});
+		hs.user = mail;
 	}
 	componentDidMount(){
-		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
+		let savedName = localStorage.getItem("name");
+		if (savedName != "null" && savedName != null){
 			this.setState({
 				loggedIn: true,
 				loginClass: "hide",
 				loggedInClass: "show",
-				userEmail: localStorage.getItem("name")
+				userEmail: savedName
 			});
-		hs.getHighScores(hs.convertName(localStorage.getItem("name")));
+		hs.user = savedName;
+		hs.getHighScores(hs.convertName(savedName));
 		}
 	}
 }
@@ -377,9 +380,9 @@ Close() {
 
                <h3>Your highscore</h3>
 							 <span>Show: </span>
-							 <button onClick={hs.showAll(this.props.userEmail)}>All</button>
-							 <button onClick={hs.showCulture(this.props.userEmail)}>Culture</button>
-							 <button onClick={hs.showMovies(this.props.userEmail)}>Movies</button>
+							 <button onClick={hs.showAll}>All</button>
+							 <button onClick={hs.showCulture}>Culture</button>
+							 <button onClick={hs.showMovies}>Movies</button>
 							 <div id="highscores"></div>
         </div>
 </div>
