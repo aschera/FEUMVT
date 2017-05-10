@@ -16,6 +16,9 @@ var highScore = {
       highScore.printScores(highScore.highScores);
     });
   },
+  filterList: function(list){
+
+  },
   printScores: function(list){
     let hsDiv = document.getElementById("highscores");
     hsDiv.innerHTML = "";
@@ -38,7 +41,8 @@ var highScore = {
     hrow.appendChild(score);
     table.appendChild(hrow);
 
-    for ( let hs in list){
+    let filteredList = highScore.filterList(list);
+    for ( let hs in filteredList){
       let row = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
@@ -56,7 +60,6 @@ var highScore = {
     hsDiv.appendChild(table);
   },
   sortTable: function(n){
-    document.getElementById("highscores").style.color = "red";
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("highscores");
     switching = true;
