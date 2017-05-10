@@ -377,9 +377,9 @@ Close() {
 
                <h3>Your highscore</h3>
 							 <span>Show: </span>
-							 <button onClick={hs.showAll}>All</button>
-							 <button onClick={hs.showCulture}>Culture</button>
-							 <button onClick={hs.showMovies}>Movies</button>
+							 <button onClick={hs.showAll(this.props.userEmail)}>All</button>
+							 <button onClick={hs.showCulture(this.props.userEmail)}>Culture</button>
+							 <button onClick={hs.showMovies(this.props.userEmail)}>Movies</button>
 							 <div id="highscores"></div>
         </div>
 </div>
