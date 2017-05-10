@@ -10,7 +10,7 @@ firebase.initializeApp({
 
 var highScore = {
   highScores: [],
-  getHighScores: function(username){
+  getHighScores: function(username){    // Change to only get the top 10/5 scores
     firebase.database().ref('/users/' + username).once('value').then(function(snapshot) {
       highScore.highScores = snapshot.val();
       highScore.printScores(highScore.highScores);
@@ -20,11 +20,75 @@ var highScore = {
     let hsDiv = document.getElementById("highscores");
     hsDiv.innerHTML = "";
     let table = document.createElement("td");
+    let hrow = document.createElement("tr");
+    let date = document.createElement("th");
+    let genre = document.createElement("th");
+    let score = document.createElement("th");
+
+    date.onClick = highScore.sortTable(0);
+    genre.onClick = highScore.sortTable(1);
+    score.onClick = highScore.sortTable(2);
+
+    date.innerHTML = "Date";
+    genre.innerHTML = "Genre";
+    score.innerHTML = "Score";
+
+    hrow.appendChild(date);
+    hrow.appendChild(genre);
+    hrow.appendChild(score);
+    table.appendChild(hrow);
+
     for ( let hs in list){
       let row = document.createElement("tr");
-      row.innerHTML = `${list[hs].date} ${list[hs].genre} ${list[hs].score}/${list[hs].maxScore}`;
+      let td1 = document.createElement("td");
+      let td2 = document.createElement("td");
+      let td3 = document.createElement("td");
+
+      td1.innerHTML = list[hs].date;
+      td2.innerHTML = list[hs].genre;
+      td3.innerHTML = `${list[hs].score}/${list[hs].max}`;
+
+      row.appendChild(td1);
+      row.appendChild(td2);
+      row.appendChild(td3);
       table.appendChild(row);
     }
     hsDiv.appendChild(table);
+  },
+  sortTable: function(column){
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("highscores");
+    switching = true;
+    dir = "asc";
+    while (switching) {
+      switching = false;
+      rows = table.getElementsByTagName("TR");
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            shouldSwitch= true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount ++;
+      } else {
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
   }
 }
