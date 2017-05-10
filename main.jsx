@@ -1,30 +1,45 @@
 class App extends React.Component {
-
 	constructor(props) {
 		super(props);
 			this.state = {
+                    w: '360',
 					selected: '',
-					loggedIn: false,
 					questions: [{
 							text: "",
 							a1: "",
 							a2: "",
 							a3: ""
-					}]
+					}],
+					loggedIn: false,
+					userEmail: "",
+					loginClass: "show",
+					loggedInClass: "hide",
+					highScores: []
 			};
-
 				this.changeEntry = this.changeEntry.bind(this);
 				this.changeLogin = this.changeLogin.bind(this);
+				this.updateMail = this.updateMail.bind(this);
+                this.changeSize = this.changeSize.bind(this);
 			}
-
 			render(){
                 if(this.state.loggedIn === true) {
                     if(this.state.selected === '') {
                         return (
                             <div>
-                                <Login changeLogin = {this.changeLogin}/>
-     
-                                <MyList items= {this.state.questions} changeEntry = {this.changeEntry}/>
+                                <Login
+				                    changeLogin = {this.changeLogin}
+								    updateMail = {this.updateMail}
+								    loginClass = {this.state.loginClass}
+								    loggedInClass = {this.state.loggedInClass}
+				                    userEmail = {this.state.userEmail}
+                                    changeSize = {this.changeSize}
+                                    />
+                                <MyList
+									items= {this.state.questions}
+									changeEntry = {this.changeEntry}
+                                    w = {this.state.w}
+                                    changeSize = {this.changeSize}
+                                    />
                             </div>
                             )
                     }// end if: something is selected
@@ -32,18 +47,32 @@ class App extends React.Component {
 
                         return (
                             <div>
-                                <Login changeLogin = {this.changeLogin}/>
-                                
-                                        <div id="flex-container">
-                                            <div id="flex-itemX">
-                                                <div id="logo">
-                                                    <img src="resources/logo_new.png" id="img"></img>
-                                                </div>
-                                                <h5>Category: {this.state.selected}</h5>
-                                                        <Quizz changeLogin = {this.changeLogin} items= {this.state.questions} changeEntry = {this.changeEntry}/>
-                                            </div>
-                                        </div>
-                                
+                              <Login
+								changeLogin = {this.changeLogin}
+								updateMail = {this.updateMail}
+								loginClass = {this.state.loginClass}
+								loggedInClass = {this.state.loggedInClass}
+								userEmail = {this.state.userEmail}
+                                changeSize = {this.changeSize}
+                                  />
+
+                                      <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
+                                          <div id="flex-itemX">
+                                              <div id="logo">
+                                                  <img src="resources/logo_new.png" id="img"></img>
+                                              </div>
+                                              <h5>Category: {this.state.selected}</h5>
+                                                      <Quizz
+														changeLogin = {this.changeLogin}
+														items= {this.state.questions}
+														changeEntry = {this.changeEntry}
+														userEmail = {this.state.userEmail}
+														chosenCategory = {this.state.selected}
+                                                          changeSize = {this.changeSize}
+                                                          />
+                                          </div>
+                                      </div>
+
                             </div>
                             )
                     } // end else: nothing selected
@@ -51,44 +80,86 @@ class App extends React.Component {
                 else {
                     return (
                             <div>
-                                <Login changeLogin = {this.changeLogin}/>
-                                    
-                                    <div id="flex-container">
+                                <Login
+									changeLogin = {this.changeLogin}
+									updateMail = {this.updateMail}
+									loginClass = {this.state.loginClass}
+									loggedInClass = {this.state.loggedInClass}
+									userEmail = {this.state.userEmail}
+                                    changeSize = {this.changeSize}
+                                    />
+
+                                    <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
                                         <div id="flex-itemX">
-                                           
+
                                                 <div id="logo">
                                                 <img src="resources/logo_new.png" id="img"></img>
                                                 </div>
-        
+
                                             <p>
                                                 <br /><br /><br />
                                                 The QuiZZaro is designed to be very difficult. <br />
-                                                It will test your knowledge of a wide variety of information.<br /> 
+                                                It will test your knowledge of a wide variety of information.<br />
                                                 It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
                                                 Nobody has ever gotten all 10 questions correct.</p>
                                         </div>
                                     </div>
-                            </div>      
-    
+                            </div>
+
                             )
                 }
 			}//end render
 
  /* ------------------Get new set of questions------------------------------------------- */
 	changeEntry(x,y) {
-
 		this.setState({
 			questions: x,
 			selected: y
 			});
 		}
-	
+/* ------------------Expand side or not------------------------------------------- */
+	changeSize(x) {
+		this.setState({
+			w: x,
+			});
+        console.log(x);
+		}
+
  /* ------------------Get new set of questions------------------------------------------- */
 	changeLogin(x) {
-		this.setState({
-			loggedIn: x
+		if (x == true){
+			this.setState({
+				loggedIn: true,
+				loginClass: "hide",
+				loggedInClass: "show"
 			});
 		}
+		else {
+			this.setState({
+				loggedIn: false,
+				loginClass: "show",
+				loggedInClass: "hide"
+			});
+		}
+	}
+	/* ---------------------------------------------------------------------------------------- */
+
+	updateMail(mail){
+		this.setState({
+			userEmail: mail
+		});
+	}
+	componentDidMount(){
+
+		if (localStorage.getItem("name") != "null" && localStorage.getItem("name") != null){
+			this.setState({
+				loggedIn: true,
+				loginClass: "hide",
+				loggedInClass: "show",
+				userEmail: localStorage.getItem("name")
+			});
+		}
+	}
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -102,12 +173,22 @@ class Quizz extends React.Component{
 			questions: []
 		}
 		this.points = 0;
+		this.maxScore = 5;
 		this.randomizeAnswers = this.randomizeAnswers.bind(this);
 		this.printQuestions = this.printQuestions.bind(this);
 		this.getRandomInt = this.getRandomInt.bind(this);
 		this.clickAnswer = this.clickAnswer.bind(this);
 		this.clickAnswerCorrect = this.clickAnswerCorrect.bind(this);
 		this.gameFinished = this.gameFinished.bind(this);
+		this.saveDate = this.saveDate.bind(this);
+	}
+	saveDate(){
+		let c = new Date();
+		let m = c.getMonth()+1;
+		if (Number(m) < 10) m = "0"+m;
+		let d = c.getDate();
+		if (Number(d) < 10) d = "0"+d;
+		return `${c.getFullYear()}-${m}-${d}`
 	}
 	// Returnerar ett slumpat heltal f.o.m. min till max (kan ej returnera max)
 	getRandomInt(min, max) {
@@ -128,9 +209,7 @@ class Quizz extends React.Component{
 		return [`a${first} `,`a${second} `,`a${third} `];
 	}
 	clickAnswerCorrect(event){
-
 		this.points++;
-
 		this.clickAnswer(event);
 	}
 	clickAnswer(event){
@@ -144,7 +223,7 @@ class Quizz extends React.Component{
 				question.className = "question hide";
 		});
 		// 10 questions, change to variable if want to change nr of questions.
-		if (clickedQuestion.id == 3) {
+		if (clickedQuestion.id == this.maxScore) {
 			this.gameFinished();
 		}
 	}
@@ -157,15 +236,27 @@ class Quizz extends React.Component{
 			question.className = "question hide";
 		});
 		// SEND HIGHSCORE TO DATABASE
+		let editedMail =   this.props.userEmail.replace(/[^a-z0-9]/gi,'');
+		let today = this.saveDate();
+		firebase.database().ref(`users/${editedMail}/`).push({
+	    genre: this.props.chosenCategory,
+			score: this.points,
+			max: this.maxScore,
+			date:	today
+	  });
+
+		highScore.getHighScores(editedMail);
 
 		document.getElementById("results").className = "results show";
-        
-        var done = this.props.changeEntry('','');
-        
-	    setTimeout( done, 1000 );
+
+        //var done = this.props.changeEntry('','');
+
+	    
+        setTimeout(function(){ location.reload(); }, 3000);
         
 
-         
+
+
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
 	printQuestions(){
@@ -177,15 +268,15 @@ class Quizz extends React.Component{
 				qClass = "question show";
 			let sequence = this.randomizeAnswers();
 			let html = (
-                        <div key={key++} className={qClass} id={key}>
-                            <div className="questionText">{question.text}</div>
-                            <div className="answers">
-                                <button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
-                                <button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
-                                <button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
-                            </div>
-                        </div>
-                        );
+                  <div key={key++} className={qClass} id={key}>
+                      <div className="questionText">{question.text}</div>
+                      <div className="answers">
+                          <button onClick={this.clickAnswerCorrect} className={sequence[0]}>{question.a1}</button>
+                          <button onClick={this.clickAnswer} className={sequence[1]}>{question.a2}</button>
+                          <button onClick={this.clickAnswer} className={sequence[2]}>{question.a3}</button>
+                      </div>
+                  </div>
+                	);
 			loopedQuestions.push(html);
 		});
 		return loopedQuestions;
@@ -196,8 +287,8 @@ class Quizz extends React.Component{
 			<div>
 				<div className="allquestions">{this.printQuestions()}</div>
 				<div id="results" className="results hide">
-					<h2>Congratulations!</h2> 
-					<h3>You answered {this.state.rightAnswers} out of 3</h3>
+					<h2>Congratulations!</h2>
+					<h3>You answered {this.state.rightAnswers} out of {this.maxScore}</h3>
 				</div>
 			</div>
 		);
@@ -217,101 +308,71 @@ var divStyle = {
 class Login extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      userEmail: "n/a",
-      loginText: " ",
-      loginClass: "show",
-      loggedInClass: "hide"
-    }
+		this.state = {
+			width: "360"
+		};
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
-    this.updateEmail = this.updateEmail.bind(this);
-      
-      this.handleClick = this.handleClick.bind(this);
-      this.Close = this.Close.bind(this);
-
-
-      // two new functions
+    this.handleClick = this.handleClick.bind(this);
+    this.Close = this.Close.bind(this);
     this.updateUserData = this.updateUserData.bind(this);
     this.component = this.component.bind(this);
   }
-  updateEmail(mail){
-
-    this.setState({
-      userEmail: mail,
-      loginText: "Succesfully logged in",
-      loginClass: "hide",
-      loggedInClass: "show"
-    });
-  }
   logOutUser() {
-    this.props.changeLogin(false);
   	firebase.auth().signOut().then(function(result) {
     }).catch(function(error) {
   	// Utloggning misslyckades
-  	console.log("something went wrong!")
+  	console.log("Logout Failed")
     });
-    this.setState({
-      loginClass: "show",
-      loggedInClass: "hide",
-      loginText: "Succesfully logged OUT"
-    });
+
+		this.props.changeLogin(false);
+		this.props.updateMail("");
+		localStorage.setItem("name", null);
   }
   logInGoogle(updateUserData) {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
+      let user = result.user;
+      updateUserData(user.email);
+      localStorage.setItem("name", user.email);
 
-        let user = result.user;
-        console.log(user);
-        updateUserData(user.email);
-
-        console.log("Sign-in provider: "+user.providerId);
-        console.log("  Provider-specific UID: "+user.uid);
-        console.log("  Name: "+user.displayName);
-        console.log("  Email: "+user.email);
-        console.log("  Photo URL: "+user.photoURL);
-
-     //return firebase.auth().currentUser.providerData[0].email;
-
-        return user.email;
-
+      return user.email;
     });
-
-        //.then(this.updateEmail(mail)); // Funkar ej, mail = undefined
   }
 
     // New stuff below.
   component() {
       this.logInGoogle(this.updateUserData);
- 
       this.props.changeLogin(true);
-		}
-
+	}
   updateUserData(data) {
-            this.updateEmail(data);
-
+		this.props.changeLogin(true);
+    this.props.updateMail(data);
 		}
-    
+
 handleClick() {
     this.setState({
-  width: "200px"
+  width: "360"
 })
+    this.props.changeSize('360');
 };
-    
+
 Close() {
     this.setState({
-  width: "0px"
+  width: "0"
 })
-};    
+    this.props.changeSize('0');
+};
 
   render(){
+
     return (
         <div>
-<div id="mySidenav" style={{width:this.state.width}} className="sidenav">
-  <button className="closebtn" id="close" onClick={this.Close}>Close</button>
+<div id="mySidenav" style={{width:this.state.width + 'px'}} className="sidenav">
+  <img src="resources/arrowblue2.gif" className="closebtn" id="close" onClick={this.Close} />
     <div id="main">
-      <div id="menu"> 
-        <div className={this.state.loginClass} >
+      <div id="menu">
+        <div className={this.props.loginClass} >
             <div id="gSignInWrapper">
             <div id="customBtn" onClick= {this.component} >
               <span className="icon"></span>
@@ -320,26 +381,30 @@ Close() {
           </div>
 
         </div>
- 
-        <div id="menuLoggedIn" className={this.state.loggedInClass}>
-     
+
+        <div id="menuLoggedIn" className={this.props.loggedInClass}>
+
         <div id="gSignInWrapper">
             <div id="customBtn1" onClick={this.logOutUser} >
               <span className="icon"></span>
               <span className="buttonText1">Logout</span>
             </div>
           </div>
-            
+
                <h4>Signed in as:</h4>
-                <p id="username">{this.state.userEmail}</p>
+                <p id="username">{this.props.userEmail}</p>
 
                <h3>Your highscore</h3>
+							 <span>Date</span>
+							 <span>Genre</span>
+							 <span>Score</span>
+							 <div id="highscores"></div>
         </div>
-</div> 
-      </div> 
-</div> 
-<button id="open" className="closebtn" onClick={this.handleClick}>&#9776; Open</button>
-            </div>
+</div>
+      </div>
+</div>
+<img src="resources/arrowblue.gif" id="open" className="closebtn" onClick={this.handleClick} />
+</div>
     )
   }
 }
@@ -379,27 +444,29 @@ handleChooseCategory(event) {
 
 			} else {
 				x = true;
-                
+
                 if (event.target.id === 'Culture'){
-                   console.log(event.target.id);
-                   getDataFromFirebase(this.updateCountryData); 
+                   getDataFromFirebase(this.updateCountryData);
                 }
+
+								/*
                 else if(event.target.id === 'Movies'){
                     console.log(event.target.id);
                     console.log('returns a bad format!');
-                    getMovieFromFirebase(this.updateCountryData); 
+                    getMovieFromFirebase(this.updateCountryData);
                 }
                 else if(event.target.id === 'World'){
                     console.log(event.target.id);
                     console.log('returns a bad format!');
-                    getWorldFromFirebase(this.updateCountryData); 
+                    getWorldFromFirebase(this.updateCountryData);
                 }
-                
+								*/
+
 			}
 			this.setState({
 				selected: theOne
 			});
-            
+
 		}
 
 /* ---------------------API event---------------------------------------- */
@@ -417,22 +484,20 @@ handleChooseCategory(event) {
 
 var partial;
 
-
 const newlist = list.map(
 
-      x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {x}</li> )
+        x => ( <li onClick={this.handleChooseCategory} id={x} className="flex-item" key={x}>{x}</li> )
     );
 
         return (
           <div>
-            <div id="inner-flex-container">
+            <div style={{marginLeft: this.props.w + 'px'}} id="inner-flex-container">
                 <header>
                         <div id="logo">
                             <img src="resources/logo_new.png" id="img"></img>
                         </div>
                 </header>
                 <h1>Categories</h1>
-                <p>Please, choose a category to begin the Quiz!</p>
                 <ul className="flex-container">{newlist}</ul>
             </div>
           </div>
