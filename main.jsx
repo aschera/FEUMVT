@@ -2,7 +2,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-                    w: '400',
+                    w: '360',
 					selected: '',
 					questions: [{
 							text: "",
@@ -309,7 +309,7 @@ class Login extends React.Component{
   constructor(props) {
     super(props);
 		this.state = {
-			width: "400"
+			width: "360"
 		};
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
@@ -352,9 +352,9 @@ class Login extends React.Component{
 
 handleClick() {
     this.setState({
-  width: "400"
+  width: "360"
 })
-    this.props.changeSize('400');
+    this.props.changeSize('360');
 };
 
 Close() {
