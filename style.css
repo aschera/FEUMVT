@@ -5,12 +5,14 @@ table{
 	border: 1px solid grey;
 }
 td, th{
-	border-bottom: 1px dotted black;
+	border: 1px dotted black;
 	color: black;
 }
 td:nth-child(1){
-	color: red;
-	width: 30%;
+	width: 40%;
+}
+td:nth-child(2){
+	width: 40%;
 }
 
 
