@@ -12,7 +12,7 @@
 }
 table{
 	margin-top: 10px;
-	width: 100%;
+	width: 90%;
 	border: 1px dotted grey;
 }
 tr{
@@ -325,8 +325,9 @@ body {
 /*    *****   */
 
 
-
-#username{font-size: 0.8em;}
+#menuLoggedIn{text-align: center;}
+#menuLoggedOut{text-align: center;}
+#username{font-size: 0.7em;}
 
 body{
   background-image: url(resources/bg_yellow.png);
@@ -347,9 +348,10 @@ body{
 #menu{
   margin-top: 2em;
   height: 200vh;
+  width: 100%;
   background-size: contain;
   float: left;
-   overflow: hidden;
+  overflow: hidden;
 }
 
 ul {-webkit-padding-start: 0px;}
