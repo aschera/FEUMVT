@@ -2,6 +2,10 @@
 #menuLoggedIn{
 	color: black;
 }
+#menuLoggedIn > h3{
+	text-align: center;
+	margin-top: 30px;
+}
 #filterButtons *{
 	background-color: #76cee8;
 	margin-right: 5px;
@@ -22,6 +26,7 @@ td:nth-child(1), td:nth-child(2){
 }
 th:hover{
 	color: grey;
+	cursor: pointer;
 }
 
 /* test  */
