@@ -293,7 +293,7 @@ class Login extends React.Component{
   constructor(props) {
     super(props);
 		this.state = {
-			width: "280"
+			width: "310"
 		};
     this.logInGoogle = this.logInGoogle.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
@@ -336,9 +336,9 @@ class Login extends React.Component{
 
 handleClick() {
     this.setState({
-  width: "280"
+  width: "310"
 })
-    this.props.changeSize('280');
+    this.props.changeSize('310');
 };
 
 Close() {
