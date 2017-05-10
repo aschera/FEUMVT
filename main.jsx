@@ -400,7 +400,7 @@ Close() {
 </div>
       </div>
 </div>
-<img src="resources/arrowblue.gif" id="open" className="closebtn" onClick={this.handleClick} />
+            <div id="left"><img src="resources/arrowblue.gif" id="open" className="closebtn" onClick={this.handleClick} /></div>
 </div>
     )
   }
