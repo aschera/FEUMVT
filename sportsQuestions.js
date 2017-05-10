@@ -33,7 +33,7 @@ var sportsArray =
         let fakeGame1= sportsArray[i].fake1[Math.floor(Math.random() * sportsArray[i].fake1.length)];
         let fakeGame2= sportsArray[i].fake2[Math.floor(Math.random() * sportsArray[i].fake2.length)];
     
-
+       console.log('looooooop', sportsArray[i]);
 var sports = {
 
     request: function() {
@@ -69,7 +69,7 @@ sports.request();
          
     updateCountryData(questions);
         
-        
+        console.log('updateCountryData',updateCountryData)
    } 
     
 }
