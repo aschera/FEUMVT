@@ -488,15 +488,27 @@ h4{color:black; font-size:0.7em;}
   font-size: 1em;
   text-align: center;
   margin-top: 5em;
+    
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:50%;
+    height:50%;
+    background:yellow;
+    display:table;
 }
 .question {
     background-image: url(resources/question.png);
     background-size: contain;
     background-repeat: no-repeat;
-		background-position: center;
+    background-position: center;
     padding-top: 4em;
     padding-bottom: 4em;
     width: 360px;
+    
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
 }
 .questionText{
  color:black;
