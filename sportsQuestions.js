@@ -54,13 +54,14 @@ function getSportsFromFirebase(updateCountryData) {
                             a2: fake1,
                             a3: fake2
                         });
-
+                      
+                        
                     }
                         console.log("i:", i, "arraylength: ", sportsArray.length);
-            
+                     if( i === sportsArray.length ) {
                         updateCountryData(questions);
                         console.log('updateCountryData1 ', questions);
-                     
+                     }
                 }).catch(function (error) {
                     console.log("Network error", error);
                 });
