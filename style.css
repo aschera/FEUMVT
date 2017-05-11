@@ -453,7 +453,8 @@ h4{color:black; font-size:0.7em;}
   padding: 0;
   margin: 0;
   list-style: none;
-
+  align-items: center;
+  justify-content: center;
   display: none;
   display: -webkit-box;
   display: -moz-box;
@@ -625,21 +626,21 @@ h3{
 /* ===== == = === 48em (768px) === = == ===== */
 
 @media only screen and (min-width : 48em) {
-    #flex-container {margin-left: 20%; margin-right:20%;}
+   
 
 }
 
 /* ===== == = === 56.25em (900px) === = == ===== */
 
 @media only screen and (min-width : 56.25em) {
-   #flex-container {margin-left: 20%; margin-right:20%;}
+  
 
 }
 
 /* ===== == = === 68.75em (1100px) === = == ===== */
 
 @media only screen and (min-width : 68.75em) {
-    #flex-container {margin-left: 20%; margin-right:20%;}
+    
 
 }
 
