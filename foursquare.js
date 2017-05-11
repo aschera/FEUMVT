@@ -10,9 +10,9 @@ var questions = [];
                 fake2: ['Tokyo','Guangzhou','Mumbai','Moscow','Lahore', 'Karachi' ,'Beijing']},
 
                {category: 'University',
-                items: ['Amsterdam','Bern'],
-                fake1: ['Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires'],
-                fake2: ['Mumbai', 'Florence', 'Malmö', 'Frankfurt', 'Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi']},
+                items: ['Amsterdam','Bern','Frankfurt','Guangzhou','Florence','Malmö','Tokyo'],
+                fake1: ['Lagos' ,'Istanbul' ,'Shanghai','London', 'Stockholm', 'Buenos Aires'],
+                fake2: ['Mumbai', 'Florence', 'Malmö','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka' ,'Delhi']},
 
                {category: 'Museum',
                 items: ['London', 'New York', 'Tallinn', 'Venice', 'Stockholm','Malmö', 'Frankfurt', 'Florence', 'Lisbon', 'Brussels'],
@@ -33,7 +33,27 @@ var questions = [];
                 items: ['Stockholm','New York','Florence','Brussels','Frankfurt','Lisbon','Tallinn','Guangzhou','Moscow','Beijing','Cairo'],
                 fake1: ['Paris','London','Istanbul','Rome','Shanghai','Mexico City', 'Mumbai','Amsterdam'],
                 fake2: ['Malmö','Venice','Washington','São Paulo','Buenos Aires','Karachi','Dhaka','Tokyo' ]},
-
+               
+               {category: 'Memorial',
+                items: ['Stockholm','Tallinn','New York','Beijing','London','Los Angeles','São Paulo'],
+                fake1: ['Florence','Brussels','Cairo','Guangzhou','Rome'],
+                fake2: ['Lisbon','Frankfurt','Moscow','Ankara','Venice']},
+               
+               {category: 'Arena',
+                items: ['Brussels', 'Washington','Venice', 'Oslo'],
+                fake1: ['Shanghai','Cairo','Amsterdam'],
+                fake2: ['London','Lagos','Istanbul','Stockholm']},
+               
+               {category: 'Church',
+                items: ['Tallinn','Los Angeles'.'London','Venice','New York City','Delhi','Istanbul','London','Lagos','Amsterdam','Stockholm','Shanghai','Mumbai','Beijing','Moscow','Florence','Bern','Brussels','Copenhagen'],
+                fake1: ['São Paulo','Rome','Dhaka','Buenos Aires','Karachi','Frankfurt','Malmö'],
+                fake2: ['Mexico City','Ankara','Jakarta','Lahore','Tokyo','Guangzhou','Berlin']},
+               
+               {category: 'Statue',
+                items: ['Copenhagen','Berlin','London','Tallinn','Los Angeles','New York City','Venice','Stockholm','Amsterdam','Jakarta','Shanghai','Paris','Florence'],
+                fake1: ['Ankara','Mexico City','Dhaka','Istanbul','Delhi','Rio de Janeiro' ],
+                fake2: ['Rome','São Paulo','Lagos','Buenos Aires','Volgograd']},
+ 
            ];
 
 /* --------------------------------------Data to change every cycle-------------------------------------------- */
