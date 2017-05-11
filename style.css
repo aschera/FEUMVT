@@ -505,10 +505,11 @@ h4{color:black; font-size:0.7em;}
 .questionText{
  color:black;
  text-align: center;
- margin-left: 1em;
+
+ padding:4em;
  word-wrap: break-word;
  white-space: initial;
- width:90%;
+ 
 
 }
 .show{
