@@ -351,7 +351,7 @@ Close() {
     return (
         <div>
 <div id="mySidenav" style={{width:this.state.width + 'px'}} className="sidenav">
-  <img src="resources/arrowblue2.gif" className="closebtn" id="close" onClick={this.Close} />
+  <div className="closebtn" id="close" onClick={this.Close} />
     <div id="main">
       <div id="menu">
         <div className={this.props.loginClass} >
@@ -389,7 +389,7 @@ Close() {
         </div>
     </div>
 </div>
-            <div id="left"><img src="resources/arrowblue.gif" id="open" className="closebtn" onClick={this.handleClick} /></div>
+            <div id="left"><div id="open" className="closebtn" onClick={this.handleClick} /></div>
 </div>
     )
   }

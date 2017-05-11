@@ -166,32 +166,43 @@ li:hover {
     float: left;
 }
 #close {
+    background-image: url(resources/arrowblue2.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
     color:black;
     margin:0.3em;
     margin-right: 1rem;
-    height: 25px;
-    width: 75px;
+    height: 40px;
+    width: 85px;
     cursor: pointer;
     font-family: 'Inknut Antiqua', serif;
 
 }
 
 #close:hover {
-
+    background-image: url(resources/arrowblue2hover.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    
 }
 
 #open {
+    background-image: url(resources/arrowblue.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
     color:black;
     margin:0.3em;
     margin-left: 1rem;
-    height: 25px;
-    width: 75px;
+    height: 40px;
+    width: 85px;
     cursor: pointer;
     font-family: 'Inknut Antiqua', serif;
     float:left;
 }
 #open:hover {
-
+    background-image: url(resources/arrowbluehover.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
