@@ -396,6 +396,9 @@ body{
   overflow: hidden;
 }
 
+#startText {
+    font-size: 1.2em; text-align: center;
+}
 ul {-webkit-padding-start: 0px;}
 
 h3{color:black; font-size:0.8em;}

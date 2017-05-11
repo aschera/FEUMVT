@@ -97,9 +97,12 @@ class App extends React.Component {
 
 	                      	<p id="startText">
 	                          <br /><br /><br />
-	                          The QuiZZaro is designed to be very difficult. <br />
-	                          It will test your knowledge of a wide variety of information.<br />
-	                          It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
+	                          The QuiZZaro is designed to be very difficult. 
+                                <br /><br />
+	                          It will test your knowledge of a wide variety of information.
+                                <br /><br />
+	                          It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.
+                                <br /><br />
 	                          Nobody has ever gotten all 10 questions correct.
 													</p>
 	                      </div>
