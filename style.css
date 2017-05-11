@@ -485,6 +485,7 @@ h4{color:black; font-size:0.7em;}
     
     position:absolute;
     top:50%;
+    left:25%;
     display:table;
     width: 50vw;
     height:50vh;
@@ -531,7 +532,7 @@ padding-right:4em;
     margin-top:16px;
 
 }
-#back{font-size: 0.7em; text-align: center;}
+#back{font-size: 0.7em; text-align: center; font-family: monospace;}
 
 h2{
     text-align: center;
