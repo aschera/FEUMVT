@@ -266,6 +266,7 @@ class Quizz extends React.Component{
 				<div id="results" className="results hide">
 					<h2>Congratulations!</h2>
 					<h3>You answered {this.state.rightAnswers} out of {this.maxScore}</h3>
+                    <p>You are being redirected back to the category page in 5 seconds ...</p>
 				</div>
 			</div>
 		);
