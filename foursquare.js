@@ -20,14 +20,19 @@ var questions = [];
                 fake2: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai','Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka']},
 
                {category: 'Historic Site',
-                items: ['Rome', 'Stockholm'],
-                fake1: ['Mumbai', 'Frankfurt', 'Berlin', 'Copenhagen' ],
-                fake2: ['Lisbon', 'Brussels', 'Malmo', 'Florence']},
+                items: ['Rome', 'Stockholm','New York', 'Washington','Brussels','Shanghai','Istanbul' ],
+                fake1: ['Mumbai', 'Frankfurt', 'Berlin', 'Copenhagen','Cairo' ],
+                fake2: ['Lisbon', 'Brussels', 'Malmo', 'Florence', 'Delhi']},
 
                {category: 'Theatre',
-                items: ['London', 'New York', 'Stockholm', 'Amsterdam','Rome', 'Brussels', 'Cairo', 'Washington'],
-                fake1: ['Lisbon'],
-                fake2: ['Tallin']},
+                items: ['London', 'New York', 'Stockholm', 'Amsterdam','Rome', 'Brussels', 'Cairo', 'Washington', 'Venice','Istanbul','Lagos','Shanghai'],
+                fake1: ['Lisbon','São Paulo','Mexico City','Buenos Aires','Florence'],
+                fake2: ['Tallin', 'Los Angeles','Ankara', 'Frankfurt','Malmö']},
+               
+               {category: 'Cathedral',
+                items: ['Stockholm','New York','Florence','Brussels','Frankfurt','Lisbon','Tallinn','Guangzhou','Moscow','Beijing','Cairo'],
+                fake1: ['Paris','London','Istanbul','Rome','Shanghai','Mexico City', 'Mumbai','Amsterdam'],
+                fake2: ['Malmö','Venice','Washington','São Paulo','Buenos Aires','Karachi','Dhaka','Tokyo' ]},
 
            ];
 
