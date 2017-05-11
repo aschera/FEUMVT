@@ -175,7 +175,7 @@ class Quizz extends React.Component{
 			questions: []
 		}
 		this.points = 0;
-		this.maxScore = 5;
+		this.maxScore = 10;
 		this.randomizeAnswers = this.randomizeAnswers.bind(this);
 		this.printQuestions = this.printQuestions.bind(this);
 		this.getRandomInt = this.getRandomInt.bind(this);
