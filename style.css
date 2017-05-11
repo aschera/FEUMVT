@@ -486,12 +486,11 @@ h4{color:black; font-size:0.7em;}
     position:absolute;
     top:50%;
     display:table;
+    width: 50vw;
+    height:50vh;
 }
 .question {
-    background-image: url(resources/question.png);
-    background-size: conver;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color:#d9d490 ;
     padding:2em;
     
     color: black;
