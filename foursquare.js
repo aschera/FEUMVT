@@ -45,7 +45,7 @@ var questions = [];
                 fake2: ['London','Lagos','Istanbul','Stockholm']},
                
                {category: 'Church',
-                items: ['Tallinn','Los Angeles'.'London','Venice','New York City','Delhi','Istanbul','London','Lagos','Amsterdam','Stockholm','Shanghai','Mumbai','Beijing','Moscow','Florence','Bern','Brussels','Copenhagen'],
+                items: ['Tallinn','Los Angeles','London','Venice','New York City','Delhi','Istanbul','London','Lagos','Amsterdam','Stockholm','Shanghai','Mumbai','Beijing','Moscow','Florence','Bern','Brussels','Copenhagen'],
                 fake1: ['São Paulo','Rome','Dhaka','Buenos Aires','Karachi','Frankfurt','Malmö'],
                 fake2: ['Mexico City','Ankara','Jakarta','Lahore','Tokyo','Guangzhou','Berlin']},
                
