@@ -489,8 +489,8 @@ h4{color:black; font-size:0.7em;}
     left:25%;*/
     
     display:table;
-    width: 50vw;
-    height:50vh;
+    min-width: 50vw;
+    min-height:400px;
 }
 .question {
     background-color:#d9d490 ;
