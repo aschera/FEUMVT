@@ -2,7 +2,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-          w: '',
+                    w: '310',
 					selected: '',
 					questions: [{
 							text: "",
