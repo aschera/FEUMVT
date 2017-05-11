@@ -234,7 +234,6 @@ class Quizz extends React.Component{
 
 		document.getElementById("results").className = "results show";
 
-    //var done = this.props.changeEntry('','');
     setTimeout(function(){ location.reload(); }, 5000);
 	}
 	// Loopar igenom this.state.questions och gör om varje object till html
