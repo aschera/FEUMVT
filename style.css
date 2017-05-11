@@ -506,7 +506,8 @@ h4{color:black; font-size:0.7em;}
  color:black;
  text-align: center;
 
- padding:4em;
+ padding-left:4em;
+padding-right:4em;
  word-wrap: break-word;
  white-space: initial;
  
