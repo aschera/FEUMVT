@@ -1,3 +1,5 @@
+* {font-family: 'Inknut Antiqua', serif;}
+
 /*      Highscore table     */
 #menuLoggedIn{
 	color: black;
@@ -6,28 +8,61 @@
 	text-align: center;
 	margin-top: 30px;
 }
+#filterButtons button{
+    min-width: 30%;
+}
 #filterButtons *{
 	background-color: #76cee8;
-	margin-right: 5px;
+    color: #ffda77;
+    font-family: 'Inknut Antiqua', serif;
+    text-align  : center;
+    border-radius: 4px;
+}
+
+#filterButtons button:hover {
+	color: #76cee8;;
+    background-color: #ffda77;
+	cursor: pointer;
+    left: 120%;
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 table{
+    background-color: #ffda77;
 	margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 13px;
 	width: 90%;
-	border: 1px dotted grey;
+    font-size: 0.8em;
+	border: 2px dotted #76cee8;
+    border-radius: 4px;
 }
 tr{
-	border-bottom: 0.5px solid black;
+	border-bottom: 0.5px solid #76cee8;
 }
 td, th{
 	text-align: center;
+    font-size: 1em;
+    max-width:100px;
+    overflow-x: hidden;
 }
+th{ font-stretch: expanded;
+    text-transform: uppercase;
+    font-style: oblique;}
 td:nth-child(1), td:nth-child(2){
 	width: 40%;
+    
 }
 th:hover{
-	color: grey;
+	color: #76cee8;
 	cursor: pointer;
 }
+
+
+
+
+
+
+
 
 /* test  */
 h1 {
