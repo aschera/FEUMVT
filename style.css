@@ -485,7 +485,6 @@ h4{color:black; font-size:0.7em;}
     
     position:absolute;
     top:50%;
-    left:50%;
     display:table;
 }
 .question {
@@ -495,9 +494,9 @@ h4{color:black; font-size:0.7em;}
     background-position: center;
     padding:4em;
     
-      color: black;
-  font-weight: bold;
-  font-size: 1em;
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
 
     display:table-cell;
     vertical-align:middle;
