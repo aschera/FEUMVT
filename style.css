@@ -541,6 +541,8 @@ padding-right:4em;
     border-radius: 4px;
     width:30%;
     height: 3em;
+    word-wrap: break-word;
+    overflow: auto;
 }
 .answers button:hover{
     color: #76cee8; 
