@@ -158,8 +158,8 @@ class App extends React.Component {
 				loggedInClass: "show",
 				userEmail: savedName
 			});
-		hs.user = savedName;
-		hs.getHighScores(hs.convertName(savedName));
+		hs.user = hs.convertName(savedName);
+		hs.getHighScores(savedName);
 		}
 	}
 }
@@ -259,7 +259,6 @@ class Quizz extends React.Component{
 			loopedQuestions.push(html);
 		});
 		return loopedQuestions;
-
 	}
 	render(){
 		return (

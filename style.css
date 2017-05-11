@@ -347,7 +347,7 @@ body{
 
 #menu{
   margin-top: 2em;
-  height: 200vh;
+  height: 100vh;
   width: 100%;
   background-size: contain;
   float: left;
@@ -541,6 +541,7 @@ h4{color:black; font-size:0.7em;}
 
 @media only screen and (min-width : 30em) {
     #root {margin-left: 5%;  margin-right: 5%; }
+		#mySidenav{height: 500px;}
 
 }
 
