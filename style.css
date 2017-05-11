@@ -492,8 +492,6 @@ h4{color:black; font-size:0.7em;}
     position:absolute;
     top:50%;
     left:50%;
-    width:50%;
-    height:50%;
     background:yellow;
     display:table;
 }
@@ -504,8 +502,7 @@ h4{color:black; font-size:0.7em;}
     background-position: center;
     padding-top: 4em;
     padding-bottom: 4em;
-    width: 360px;
-    
+
     display:table-cell;
     vertical-align:middle;
     text-align:center;
