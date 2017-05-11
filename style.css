@@ -499,6 +499,7 @@ h4{color:black; font-size:0.7em;}
 		margin-left: 0.5em;
 		border: 2px dotted black;
 		border-radius: 4px;
+		font-size: 10px;
 }
 .answers button:hover{
 	background-color: blue;

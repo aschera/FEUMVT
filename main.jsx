@@ -309,6 +309,7 @@ class Login extends React.Component{
   logInGoogle(updateUserData) {
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
+			console.log("Result: ", result);
       let user = result.user;
       updateUserData(user.email);
       localStorage.setItem("name", user.email);
