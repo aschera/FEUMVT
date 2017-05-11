@@ -211,7 +211,7 @@ li:hover {
     margin-left: 5%;
     display: flex;
     -webkit-flex-flow: row;
-    height: 200vh;
+    height: 100vh;
 
 }
 
@@ -389,7 +389,7 @@ body{
 
 #menu{
   margin-top: 2em;
-  height: 200vh;
+  height: 100vh;
   width: 100%;
   background-size: contain;
   float: left;
@@ -589,8 +589,7 @@ h3{
     left: 0;
 }
 #flex-itemX{
-    margin:5%;
-    
+    margin:5%;   
 }
 
 /* ************************************************************************* */
@@ -603,7 +602,9 @@ h3{
 /* ===== == = === 20em (320px) === = == ===== */
 
 @media only screen and (min-width : 20em) {
-
+#flex-itemX{
+    margin:5%;   
+}
 }
 
 /* ===== == = === 30em (480px) === = == ===== */
