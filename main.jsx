@@ -2,7 +2,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-                    w: '',
+          w: '',
 					selected: '',
 					questions: [{
 							text: "",
@@ -21,92 +21,93 @@ class App extends React.Component {
         this.changeSize = this.changeSize.bind(this);
 			}
 			render(){
-                if(this.state.loggedIn === true) {
-                    if(this.state.selected === '') {
-                        return (
-                            <div>
-                                <Login
-				                    changeLogin = {this.changeLogin}
-								    updateMail = {this.updateMail}
-								    loginClass = {this.state.loginClass}
-								    loggedInClass = {this.state.loggedInClass}
-				                    userEmail = {this.state.userEmail}
-                                    changeSize = {this.changeSize}
-                                    />
-                                <MyList
-									items= {this.state.questions}
-									changeEntry = {this.changeEntry}
-                                    w = {this.state.w}
-                                    changeSize = {this.changeSize}
-                                    />
-                            </div>
-                            )
-                    }// end if: something is selected
-                    else {
+        if(this.state.loggedIn === true) {
+            if(this.state.selected === '') {
+                return (
+                    <div>
+                        <Login
+                    			changeLogin = {this.changeLogin}
+											    updateMail = {this.updateMail}
+											    loginClass = {this.state.loginClass}
+											    loggedInClass = {this.state.loggedInClass}
+                    			userEmail = {this.state.userEmail}
+                          changeSize = {this.changeSize}
+                        />
+                        <MyList
+													items= {this.state.questions}
+													changeEntry = {this.changeEntry}
+                          w = {this.state.w}
+                          changeSize = {this.changeSize}
+                        />
+                    </div>
+                    )
+            }// end if: something is selected
+            else {
 
-                        return (
-                            <div>
-                              <Login
-								changeLogin = {this.changeLogin}
-								updateMail = {this.updateMail}
-								loginClass = {this.state.loginClass}
-								loggedInClass = {this.state.loggedInClass}
-								userEmail = {this.state.userEmail}
+                return (
+                    <div>
+                      <Login
+												changeLogin = {this.changeLogin}
+												updateMail = {this.updateMail}
+												loginClass = {this.state.loginClass}
+												loggedInClass = {this.state.loggedInClass}
+												userEmail = {this.state.userEmail}
+                        changeSize = {this.changeSize}
+                      />
+
+                      <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
+                          <div id="flex-itemX">
+                              <div id="logo">
+                                  <img src="resources/logo_new.png" id="img"></img>
+                              </div>
+                              <h5>Category: {this.state.selected}</h5>
+
+                            	<Quizz
+																changeLogin = {this.changeLogin}
+																items= {this.state.questions}
+																changeEntry = {this.changeEntry}
+																userEmail = {this.state.userEmail}
+																chosenCategory = {this.state.selected}
                                 changeSize = {this.changeSize}
-                                  />
-
-                                      <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
-                                          <div id="flex-itemX">
-                                              <div id="logo">
-                                                  <img src="resources/logo_new.png" id="img"></img>
-                                              </div>
-                                              <h5>Category: {this.state.selected}</h5>
-                                                      <Quizz
-														changeLogin = {this.changeLogin}
-														items= {this.state.questions}
-														changeEntry = {this.changeEntry}
-														userEmail = {this.state.userEmail}
-														chosenCategory = {this.state.selected}
-                                                          changeSize = {this.changeSize}
-                                                          />
-                                          </div>
-                                      </div>
-
+                              />
                             </div>
-                            )
-                    } // end else: nothing selected
-                }// end logged in:test
-                else {
-                    return (
-                            <div>
-                                <Login
-									changeLogin = {this.changeLogin}
-									updateMail = {this.updateMail}
-									loginClass = {this.state.loginClass}
-									loggedInClass = {this.state.loggedInClass}
-									userEmail = {this.state.userEmail}
-                                    changeSize = {this.changeSize}
-                                    />
+                        </div>
+                    </div>
+                    )
+            } // end else: nothing selected
+        }// end logged in:test
+        else {
+            return (
+                <div>
+	              		<Login
+											changeLogin = {this.changeLogin}
+											updateMail = {this.updateMail}
+											loginClass = {this.state.loginClass}
+											loggedInClass = {this.state.loggedInClass}
+											userEmail = {this.state.userEmail}
+	                    changeSize = {this.changeSize}
+	                    />
 
-                                    <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
-                                        <div id="flex-itemX">
+	                  <div style={{marginLeft: this.state.w + 'px'}}  id="flex-container">
+	                      <div id="flex-itemX">
 
-                                                <div id="logo">
-                                                <img src="resources/logo_new.png" id="img"></img>
-                                                </div>
+	                          <div id="logo">
+	                          <img src="resources/logo_new.png" id="img"></img>
+	                          </div>
 
-                                            <p>
-                                                <br /><br /><br />
-                                                The QuiZZaro is designed to be very difficult. <br />
-                                                It will test your knowledge of a wide variety of information.<br />
-                                                It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
-                                                Nobody has ever gotten all 10 questions correct.</p>
-                                        </div>
-                                    </div>
-                            </div>
+	                      	<p>
+	                          <br /><br /><br />
+	                          The QuiZZaro is designed to be very difficult. <br />
+	                          It will test your knowledge of a wide variety of information.<br />
+	                          It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
+	                          Nobody has ever gotten all 10 questions correct.
+													</p>
+	                      </div>
+	                  </div>
+                </div>
 
-                            )
-                }
+          	)
+        }
 			}//end render
 
  /* ------------------Get new set of questions------------------------------------------- */
