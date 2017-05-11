@@ -483,10 +483,11 @@ h4{color:black; font-size:0.7em;}
 /* questions  */
 
 .allquestions{
-    
+    /*
     position:absolute;
     top:50%;
-    left:25%;
+    left:25%;*/
+    
     display:table;
     width: 50vw;
     height:50vh;
