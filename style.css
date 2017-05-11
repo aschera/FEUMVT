@@ -588,62 +588,63 @@ h3{
     top: 0;
     left: 0;
 }
-#flex-itemX{margin-left: 310px;}
+#flex-itemX{
+    margin:5%;
+    
+}
 
 /* ************************************************************************* */
 /* ****************** Media queries **************************************** */
 
 @media only screen and (max-width : 40em) {
-		#mySidenav{width: 310px; position: static;}
 
 }
 
 /* ===== == = === 20em (320px) === = == ===== */
 
 @media only screen and (min-width : 20em) {
-    #root {margin-left: 5%;  margin-right: 5%; }
-    h1 {font-size: 2em;font-weight: 300;line-height: 0.9em;}
+
 }
 
 /* ===== == = === 30em (480px) === = == ===== */
 
 @media only screen and (min-width : 30em) {
-    #root {margin-left: 5%;  margin-right: 5%; }
+
 
 }
 
 /* ===== == = === 37.5em (600px) === = == ===== */
 
 @media only screen and (min-width: 37.5em) {
-    #root {margin-left: 5%;  margin-right: 5%; }
+
 
 }
 
 /* ===== == = === 48em (768px) === = == ===== */
 
 @media only screen and (min-width : 48em) {
-    #root {margin-left: 7%;  margin-right: 7%; }
+    
 
 }
 
 /* ===== == = === 56.25em (900px) === = == ===== */
 
 @media only screen and (min-width : 56.25em) {
-    #root {margin-left: 15%;  margin-right: 15%; }
+   
 
 }
 
 /* ===== == = === 68.75em (1100px) === = == ===== */
 
 @media only screen and (min-width : 68.75em) {
-    #root {margin-left: 20%;  margin-right: 20%; }
+    
 
 }
 
 /* ===== == = === 81.25em (1300px) === = == ===== */
 
 @media only screen and (min-width : 81.25em) {
-    #root {margin-left: 20%;  margin-right: 20%; }
+   
 
 }
 
