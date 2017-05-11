@@ -310,16 +310,15 @@ class Login extends React.Component{
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
 			console.log("Result: ", result);
-			if (result.user.emailVerified){
+			console.log(result.user.emailVerified);
+			if (result.user.emailVerified === true){
 				let user = result.user;
 				updateUserData(user.email);
 				localStorage.setItem("name", user.email);
-
 				return user.email;
 			}
 			else{
 				document.getElementById("startText").innerHTML = "We couldn't verify your Google Account, check for pop-up blockers";
-
 			}
     });
   }
@@ -327,7 +326,6 @@ class Login extends React.Component{
     // New stuff below.
   component() {
       this.logInGoogle(this.updateUserData);
-      this.props.changeLogin(true);
 	}
   updateUserData(data) {
 		this.props.changeLogin(true);
