@@ -524,6 +524,7 @@ h4{color:black; font-size:0.7em;}
     top: 0;
     left: 0;
 }
+#flex-itemX{margin-left: 310px;}
 
 /* ************************************************************************* */
 /* ****************** Media queries **************************************** */
@@ -531,6 +532,7 @@ h4{color:black; font-size:0.7em;}
 @media only screen and (max-width : 40em) {
 		#mySidenav{width: 310px; height: 500px; position: static;}
 		#inner-flex-container {margin-left: 0px;}
+		#flex-itemX{margin-left: 0px;}
 		.closebtn{display: none;}
 }
 
