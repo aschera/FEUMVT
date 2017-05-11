@@ -533,13 +533,14 @@ padding-right:4em;
 }
 .answers button{
     text-align  : center;
-    width       : auto;
     margin-left: 0.5em;
     background-color: #76cee8;
     color: #998e00; /*#ffda77; */
     font-family: 'Inknut Antiqua', serif;
     text-align  : center;
     border-radius: 4px;
+    width:30%;
+    height: 2em;
 }
 .answers button:hover{
     color: #76cee8; 
