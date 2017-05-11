@@ -531,7 +531,13 @@ padding-right:4em;
     margin-top:16px;
 
 }
-#back{font-size: 0.5em;}
+#back{font-size: 0.7em;}
+
+h2{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;}
+
 .answers button{
     text-align  : center;
     margin-left: 0.5em;
