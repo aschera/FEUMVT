@@ -489,10 +489,10 @@ h4{color:black; font-size:0.7em;}
 }
 .question {
     background-image: url(resources/question.png);
-    background-size: contain;
+    background-size: conver;
     background-repeat: no-repeat;
     background-position: center;
-    padding:4em;
+    padding:2em;
     
     color: black;
     font-size: 1em;
