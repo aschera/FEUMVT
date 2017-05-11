@@ -402,7 +402,7 @@ Close() {
 /* ---------------------------------------------------------------------------------------- */
 
 /*ALL the categories */
-const list = ['Culture', 'Sports', 'Movies', 'Celebrities', 'World', 'Language'];
+const list = ['Culture', 'Sports', 'Movies'];
 
 class MyList extends React.Component {
  constructor(props) {

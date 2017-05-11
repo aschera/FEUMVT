@@ -491,6 +491,7 @@ h4{color:black; font-size:0.7em;}
     
     display:table;
     min-width: 50vw;
+    width:60vw;
     min-height:400px;
 }
 .question {
@@ -509,7 +510,7 @@ h4{color:black; font-size:0.7em;}
  text-align: center;
 
  padding-left:4em;
-padding-right:4em;
+ padding-right:4em;
  word-wrap: break-word;
  white-space: initial;
  
