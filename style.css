@@ -528,9 +528,10 @@ h4{color:black; font-size:0.7em;}
 /* ************************************************************************* */
 /* ****************** Media queries **************************************** */
 
-@media only screen and (max-width : 30em) {
-		#mySidenav{height: 500px; position: static;}
+@media only screen and (max-width : 40em) {
+		#mySidenav{width: 310px; height: 500px; position: static;}
 		#inner-flex-container {margin-left: 0px;}
+		.closebtn{display: none;}
 }
 
 /* ===== == = === 20em (320px) === = == ===== */
