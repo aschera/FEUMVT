@@ -95,7 +95,7 @@ class App extends React.Component {
 	                          <img src="resources/logo_new.png" id="img"></img>
 	                          </div>
 
-	                      	<p>
+	                      	<p id="startText">
 	                          <br /><br /><br />
 	                          The QuiZZaro is designed to be very difficult. <br />
 	                          It will test your knowledge of a wide variety of information.<br />
@@ -310,11 +310,17 @@ class Login extends React.Component{
     let providerG = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(providerG).then(function(result) {
 			console.log("Result: ", result);
-      let user = result.user;
-      updateUserData(user.email);
-      localStorage.setItem("name", user.email);
+			if (result.user.emailVerified){
+				let user = result.user;
+				updateUserData(user.email);
+				localStorage.setItem("name", user.email);
 
-      return user.email;
+				return user.email;
+			}
+			else{
+				document.getElementById("startText").innerHTML = "We couldn't verify your Google Account, check for pop-up blockers";
+
+			}
     });
   }
 
