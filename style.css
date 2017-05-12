@@ -19,6 +19,7 @@
     border-radius: 4px;
 }
 
+
 #filterButtons button:hover {
 	color: #76cee8;;
     background-color: #998e00; /*#ffda77; */
@@ -37,6 +38,8 @@ table{
     font-size: 0.8em;
 	border: 2px dotted #76cee8;
     border-radius: 4px;
+	
+    
 }
 tr{
 	border-bottom: 0.5px solid #76cee8;
@@ -393,7 +396,7 @@ body{
   width: 100%;
   background-size: contain;
   float: left;
-  overflow: hidden;
+
 }
 
 #startText {
