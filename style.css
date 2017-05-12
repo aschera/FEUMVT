@@ -37,6 +37,8 @@ table{
     font-size: 0.8em;
 	border: 2px dotted #76cee8;
     border-radius: 4px;
+	display: block;
+    overflow-y: scroll;
 }
 tr{
 	border-bottom: 0.5px solid #76cee8;
