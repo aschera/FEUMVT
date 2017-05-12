@@ -17,7 +17,7 @@ var questions = [];
                {category: 'Museum',
                 items: ['London', 'New York', 'Tallinn', 'Venice', 'Stockholm','Malmö', 'Frankfurt', 'Florence', 'Lisbon', 'Brussels'],
                 fake1: ['Delhi' ,'Lagos' ,'Istanbul' ,'Shanghai', 'Amsterdam', 'London', 'Stockholm', 'Buenos Aires'],
-                fake2: ['Amsterdam', 'Cairo', 'Buenos aires', 'Mumbai','Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka']},
+                fake2: ['Cairo', 'Mumbai','Tokyo','Guangzhou','Moscow','Lahore', 'Karachi' ,'Beijing' ,'Dhaka']},
 
                {category: 'Historic Site',
                 items: ['Rome', 'Stockholm','New York', 'Washington','Brussels','Shanghai','Istanbul' ],

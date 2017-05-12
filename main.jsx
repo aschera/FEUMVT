@@ -2,7 +2,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-          w: '',
+                    w: '310',
 					selected: '',
 					questions: [{
 							text: "",
@@ -97,9 +97,12 @@ class App extends React.Component {
 
 	                      	<p id="startText">
 	                          <br /><br /><br />
-	                          The QuiZZaro is designed to be very difficult. <br />
-	                          It will test your knowledge of a wide variety of information.<br />
-	                          It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.<br />
+	                          The QuiZZaro is designed to be very difficult. 
+                                <br /><br />
+	                          It will test your knowledge of a wide variety of information.
+                                <br /><br />
+	                          It is a true test of your intelligence and the ultimate quiz to determine who the smartest person is.
+                                <br /><br />
 	                          Nobody has ever gotten all 10 questions correct.
 													</p>
 	                      </div>
@@ -175,7 +178,7 @@ class Quizz extends React.Component{
 			questions: []
 		}
 		this.points = 0;
-		this.maxScore = 5;
+		this.maxScore = 10;
 		this.randomizeAnswers = this.randomizeAnswers.bind(this);
 		this.printQuestions = this.printQuestions.bind(this);
 		this.getRandomInt = this.getRandomInt.bind(this);
@@ -266,6 +269,8 @@ class Quizz extends React.Component{
 				<div id="results" className="results hide">
 					<h2>Congratulations!</h2>
 					<h3>You answered {this.state.rightAnswers} out of {this.maxScore}</h3>
+                    <br /><br />
+                    <p id="back">You are being redirected back to the category page in 5 seconds ...</p>
 				</div>
 			</div>
 		);
@@ -350,7 +355,7 @@ Close() {
     return (
         <div>
 <div id="mySidenav" style={{width:this.state.width + 'px'}} className="sidenav">
-  <img src="resources/arrowblue2.gif" className="closebtn" id="close" onClick={this.Close} />
+  <div className="closebtn" id="close" onClick={this.Close} />
     <div id="main">
       <div id="menu">
         <div className={this.props.loginClass} >
@@ -388,7 +393,7 @@ Close() {
         </div>
     </div>
 </div>
-            <div id="left"><img src="resources/arrowblue.gif" id="open" className="closebtn" onClick={this.handleClick} /></div>
+            <div id="left"><div id="open" className="closebtn" onClick={this.handleClick} /></div>
 </div>
     )
   }
@@ -399,7 +404,7 @@ Close() {
 /* ---------------------------------------------------------------------------------------- */
 
 /*ALL the categories */
-const list = ['Culture', 'Sports', 'Movies', 'Celebrities', 'World', 'Language'];
+const list = ['Culture', 'Sports', 'Movies'];
 
 class MyList extends React.Component {
  constructor(props) {
