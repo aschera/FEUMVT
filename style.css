@@ -18,7 +18,12 @@
     text-align  : center;
     border-radius: 4px;
 }
-#highscores{overflow-y: scroll; display: block;}
+#highscores{
+	overflow-y: scroll; 
+	display: block;     
+	box-sizing: padding-box;
+        -moz-box-sizing: padding-box;
+        -webkit-box-sizing: padding-box;}
 
 #filterButtons button:hover {
 	color: #76cee8;;
