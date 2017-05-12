@@ -97,7 +97,7 @@ class App extends React.Component {
 
 	                      	<p id="startText">
 	                          <br /><br /><br />
-	                          The QuiZZaro is designed to be very difficult. 
+	                          The QuiZZaro is designed to be very difficult.
                                 <br /><br />
 	                          It will test your knowledge of a wide variety of information.
                                 <br /><br />
@@ -227,14 +227,11 @@ class Quizz extends React.Component{
 		this.setState({
 			rightAnswers: this.points
 		});
-		let allQuestions = Array.prototype.slice.call(document.getElementsByClassName("question"));
-		allQuestions.map(question =>{
-			question.className = "question hide";
-		});
 
 		// Sends highscore to firebase
 		hs.newHighScore(this.props.userEmail, this.props.chosenCategory, this.points, this.maxScore);
 
+		document.getElementsByClassName("allquestions")[0].innerHTML = "";
 		document.getElementById("results").className = "results show";
 
     setTimeout(function(){ location.reload(); }, 5000);
