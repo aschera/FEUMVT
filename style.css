@@ -488,7 +488,7 @@ h4{color:black; font-size:0.7em;}
  padding-right:4em;
  word-wrap: break-word;
  white-space: initial;
-
+	height: 120px;
 
 }
 .show{
@@ -575,6 +575,13 @@ h3{
 
 /* ************************************************************************* */
 /* ****************** Media queries **************************************** */
+
+@media only screen and (max-width : 40em) {
+	#mySidenav{width: 310px; height: 600px; position: static;}
+	#inner-flex-container {margin-left: 0px;}
+	#flex-itemX{margin-left: 0px;}
+	.closebtn{display: none;}
+}
 
 /* ===== == = === 20em (320px) === = == ===== */
 
