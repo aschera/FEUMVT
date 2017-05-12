@@ -18,7 +18,7 @@
     text-align  : center;
     border-radius: 4px;
 }
-#highscores{overflow-y: scroll;}
+#highscores{overflow-y: scroll; display: block;}
 
 #filterButtons button:hover {
 	color: #76cee8;;
@@ -38,7 +38,7 @@ table{
     font-size: 0.8em;
 	border: 2px dotted #76cee8;
     border-radius: 4px;
-	display: block;
+	
     
 }
 tr{
