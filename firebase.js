@@ -56,7 +56,7 @@ var hs = {
       return a.score - b.score;
     });
     sortedList.reverse();
-    let topList = sortedList.slice(0, 9);
+    let topList = sortedList.slice(0, 50);
     if (hs.filter == "culture"){
       return topList.filter(function(highscore){
         return highscore.genre == "Culture";
