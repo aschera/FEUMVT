@@ -404,7 +404,7 @@ Close() {
 /* ---------------------------------------------------------------------------------------- */
 
 /*ALL the categories */
-const list = ['Culture', 'Sports', 'Movies'];
+const list = ['Culture', 'Movies']; /*Add new categories here, they show automatically on the page */
 
 class MyList extends React.Component {
  constructor(props) {
