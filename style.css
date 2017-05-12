@@ -52,7 +52,7 @@ th{ font-stretch: expanded;
     font-style: oblique;}
 td:nth-child(1), td:nth-child(2){
 	width: 40%;
-    
+
 }
 th:hover{
 	color: #76cee8;
@@ -183,7 +183,7 @@ li:hover {
     background-image: url(resources/arrowblue2hover.gif);
     background-size: contain;
     background-repeat: no-repeat;
-    
+
 }
 
 #open {
@@ -408,49 +408,22 @@ h4{color:black; font-size:0.7em;}
 
 /* Categoty items */
 
-#Culture{
-  background-image: url(resources/category_culture1.png);
+#Culture, #Sport, #Movies{
   background-size: contain;
   background-repeat: no-repeat;
   color: #998e00;
+	cursor: pointer;
+}
+#Culture {
+  background-image: url(resources/category_culture1.png);
 }
 #Sports {
   background-image: url(resources/category_sport1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: #998e00;
-}
-#Books{
-  background-image: url(resources/category_culture.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: #998e00;
-}
-#Celebrities{
-  background-image: url(resources/category_culture.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: #998e00;
 }
 #Movies{
   background-image: url(resources/category_movies1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: #998e00;
 }
-#World{
-  background-image: url(resources/category_culture.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: #998e00;
-}
-#Language{
 
-  background-image: url(resources/category_culture.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: #998e00;
-}
 
 .flex-container {
   padding: 0;
@@ -491,7 +464,7 @@ h4{color:black; font-size:0.7em;}
     position:absolute;
     top:50%;
     left:25%;*/
-    
+
     display:table;
     min-width: 50vw;
     width:90%;
@@ -500,7 +473,7 @@ h4{color:black; font-size:0.7em;}
 .question {
     background-color:#d9d490 ;
     padding:2em;
-    
+
     color: black;
     font-size: 1em;
 
@@ -516,7 +489,7 @@ h4{color:black; font-size:0.7em;}
  padding-right:4em;
  word-wrap: break-word;
  white-space: initial;
- 
+
 
 }
 .show{
@@ -562,10 +535,10 @@ h3{
     width:30%;
     height: 3em;
     word-wrap: break-word;
-    overflow: auto;
+    overflow: visible;
 }
 .answers button:hover{
-    color: #76cee8; 
+    color: #76cee8;
     background-color: #998e00; /*#ffda77; */
 	cursor: pointer;
     left: 120%;
@@ -595,7 +568,7 @@ h3{
     left: 0;
 }
 #flex-itemX{
-    margin:5%;   
+    margin:5%;
 }
 
 /* ************************************************************************* */
@@ -609,7 +582,7 @@ h3{
 
 @media only screen and (min-width : 20em) {
 #flex-itemX{
-    margin:5%;   
+    margin:5%;
 }
 }
 
@@ -630,21 +603,21 @@ h3{
 /* ===== == = === 48em (768px) === = == ===== */
 
 @media only screen and (min-width : 48em) {
-   
+
 
 }
 
 /* ===== == = === 56.25em (900px) === = == ===== */
 
 @media only screen and (min-width : 56.25em) {
-  
+
 
 }
 
 /* ===== == = === 68.75em (1100px) === = == ===== */
 
 @media only screen and (min-width : 68.75em) {
-    
+
 
 }
 
