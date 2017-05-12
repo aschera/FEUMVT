@@ -322,7 +322,6 @@ class Login extends React.Component{
 			}
     });
   }
-
     // New stuff below.
   component() {
       this.logInGoogle(this.updateUserData);
