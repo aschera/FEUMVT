@@ -19,7 +19,7 @@
     border-radius: 4px;
 }
 #highscores{
-	overflow-y: scroll; 
+	overflow: scroll; 
 	display: block;     
 	}
 
