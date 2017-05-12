@@ -217,7 +217,7 @@ li:hover {
     margin-left: 5%;
     display: flex;
     -webkit-flex-flow: row;
-    height: 100vh;
+    height: 100%;
 
 }
 
