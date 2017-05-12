@@ -231,7 +231,9 @@ class Quizz extends React.Component{
 		// Sends highscore to firebase
 		hs.newHighScore(this.props.userEmail, this.props.chosenCategory, this.points, this.maxScore);
 
-		document.getElementsByClassName("allquestions")[0].innerHTML = "";
+		let delQuestions = document.getElementsByClassName("allquestions")[0];
+		delQuestions.innerHTML = "";
+		delQuestions.style.display = "none";
 		document.getElementById("results").className = "results show";
 
     setTimeout(function(){ location.reload(); }, 5000);
