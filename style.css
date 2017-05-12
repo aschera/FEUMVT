@@ -21,9 +21,7 @@
 #highscores{
 	overflow-y: scroll; 
 	display: block;     
-	box-sizing: padding-box;
-        -moz-box-sizing: padding-box;
-        -webkit-box-sizing: padding-box;}
+	}
 
 #filterButtons button:hover {
 	color: #76cee8;;
@@ -397,11 +395,11 @@ body{
 
 #menu{
   margin-top: 2em;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-size: contain;
   float: left;
-  overflow: hidden;
+
 }
 
 #startText {
